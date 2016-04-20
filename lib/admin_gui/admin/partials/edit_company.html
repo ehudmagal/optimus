@@ -1,0 +1,133 @@
+<style>
+
+    button {
+
+        background: transparent;
+        border: none !important;
+    }
+
+    ​
+    td.bar {
+        padding-left: 25px;
+        padding-top: 10px;
+        padding-bottom: 2px;
+    }
+
+    p.bar {
+        color: green;
+        height: 25px;
+    }
+
+    input {
+        min-height: 30px;
+    }
+
+    #tabs_bar {
+        position: absolute !important;
+        left: 0px !important;
+    }
+</style>
+
+<div class="breadcrumbs">
+    <table>
+        <tr>
+            <td class="bar" style="padding-left: 10px">
+            <button><a  tabindex="0"
+                        ng-click="submit_company(order)">
+                <p class="bar">
+                    <i class="icon-save bigger-230"></i>
+                </p>
+            </a>
+            </button>
+
+        </td>
+            <td class="bar" style="padding-left: 50px">
+                <button><a  tabindex="0"
+                            ng-click="new_order(companyId)">
+                    <p class="bar">
+ הזמנה חדשה
+                    </p>
+                </a>
+                </button>
+
+            </td>
+        <tr>
+    </table>
+</div>
+
+<br>
+<br>
+<table>
+
+    <tr>
+        <td>
+            <form novalidate class="simple-form">
+                <table>
+
+                    <tr>
+                        <td>
+שם
+                        </td>
+                        <td>
+                           <input type="text" ng-model="company.name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+כתובת
+                        </td>
+                        <td>
+                            <input type="text" ng-model="company.address">
+                        </td>
+                    </tr>
+
+
+
+                </table>
+
+                <table class="table">
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                       :שם חברה
+                    </th>
+                    <th>
+                       :תאריך יצירה
+                    </th>
+                    <th>
+                        :תאריך עדכון
+                    </th>
+                    <th>
+                        Batches
+                    </th>
+
+                    <p>
+                        הזמנות של החברה
+                    </p>
+
+                    <tr ng-repeat="order in company.orders">
+                        <td>
+                            <a href="#/orders/{{order.id}}"> {{order.id}} :ערוך הזמנה</a>
+                        </td>
+                        <td>
+                            {{order.company.name}}
+                        </td>
+                        <td>
+                            {{getDateString(order.created_at)}}
+                        </td>
+                        <td>
+                         {{getDateString(order.updated_at)}}
+                        </td>
+                        <td>
+                            <ul>
+                                <li ng-repeat = "batch in order.batches">
+                                    <a href="#/orders/{{order.id}}/batches/{{batch.id}}"> {{batch_name(batch.batch_type)}} :ערוך</a>
+                                </li>
+                            </ul>
+                        </td>
+
+                    </tr>
+                </table>
+
+

@@ -1,0 +1,107 @@
+<style>
+
+    button {
+
+        background: transparent;
+        border: none !important;
+    }
+
+    ​
+    td.bar {
+        padding-left: 25px;
+        padding-top: 10px;
+        padding-bottom: 2px;
+    }
+
+    p.bar {
+        color: green;
+        height: 25px;
+    }
+
+    input {
+        min-height: 30px;
+    }
+
+    #tabs_bar {
+        position: absolute !important;
+        left: 0px !important;
+    }
+</style>
+
+<div class="breadcrumbs">
+    <table>
+        <tr>
+            <td class="bar" style="padding-left: 10px">
+                <button><a  tabindex="0"
+                            ng-click="edit_order(order)">
+                    <p class="bar">
+                        <i class="icon-save bigger-230"></i>
+                    </p>
+                </a>
+                </button>
+
+            </td>
+            <td class="bar" style="padding-left: 10px">
+                <button><a  tabindex="0"
+                            ng-click="goto_company()">
+                    <p class="bar">
+                       חזור לדף החברה
+                    </p>
+                </a>
+                </button>
+
+            </td>
+        <tr>
+    </table>
+</div>
+
+<br>
+<br>
+<table>
+
+    <tr>
+        <td>
+            <form novalidate class="simple-form">
+                <table>
+
+                    <tr>
+                        <td>
+חברה
+                        </td>
+                        <td>
+                            <select ng-model="order.company_id"
+                                    ng-options="company.id as company.name for company in companies"
+                                    required></select>
+                        </td>
+                    </tr>
+
+
+</table>
+
+<table  ng-show="orderId">
+    <th >
+        סוגי וילונות
+    </th>
+    <tr ng-repeat="batch in order.batches" >
+        <td>
+            <button><a  tabindex="0"
+                        ng-click="goto_batch(batch)">
+                {{batch_name(batch.batch_type)}}
+            </a>
+            </button>
+
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            <button><a  tabindex="0"
+                        ng-click="new_batch(orderId)">
+              וילון חדש
+            </a>
+            </button>
+
+        </td>
+
+    </tr>
+</table>

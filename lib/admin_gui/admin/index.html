@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html ng-app="main">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-cookies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src='https://bgrins.github.io/spectrum/spectrum.js'></script>
+    <script type="text/javascript"
+            src="//maps.googleapis.com/maps/api/js?key=AIzaSyBPhw1GUgQxORwpscLF-iSN2B-WXzbeanw&signed_in=true&libraries=drawing,geometry"></script>
+    <link data-require="bootstrap-css@*" data-semver="3.0.0" rel="stylesheet"
+          href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link href="/admin_gui/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/admin_gui/assets/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/font-awesome.min.css"/>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="/admin_gui/assets/css/font-awesome-ie7.min.css"/>
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+    <link rel="stylesheet" href="/admin_gui/assets/css/ace-fonts.css"/>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <link rel='stylesheet' href='https://bgrins.github.io/spectrum/spectrum.css'/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/ace-responsive.min.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/jquery-ui-1.10.3.custom.min.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/chosen.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/datepicker.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/bootstrap-timepicker.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="/admin_gui/assets/css/colorpicker.css"/>
+    <link rel="stylesheet" href="/admin_gui/css/ng-table.css"/>
+
+    <link rel="stylesheet" href="/admin_gui/css/app.css"/>
+    <link rel="stylesheet" href="/admin_gui/css/pace.css"/>
+    <script src="/admin_gui/js/FileSaver.js"></script>
+    <script src="/admin_gui/js/globals.js"></script>
+    <script src="/admin_gui/js/controllers.js"></script>
+    <script src="/admin_gui/js/directives.js"></script>
+    <script src="/admin_gui/js/filters.js"></script>
+    <script src="/admin_gui/js/routing.js"></script>
+    <script src="/admin_gui/js/services.js"></script>
+    <script src="/admin_gui/js/date.js"></script>
+    <script src="/admin_gui/js/jstz.js"></script>
+    <script src="/admin_gui/js/pace.js"></script>
+    <script src="/admin_gui/js/ng-table.js"></script>
+    <script src="/admin_gui/js/dataset_types_requirements.js"></script>
+    <script src="/admin_gui/js/time_zones.js"></script>
+    <script src="/admin_gui/js/marker_with_label.js"></script>
+    <script src="/admin_gui/js/blockUI.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular-route.js"></script>
+    <title>Admin</title>
+    <style>
+        td.bar {
+            padding-left: 25px;
+            padding-top: 10px;
+            padding-bottom: 2px;
+        }
+
+        button {
+
+            background: transparent;
+            border: none !important;
+        }
+
+        ​
+
+    </style>
+</head>
+<body ng-controller="MainCtrl">
+<div class="navbar" id="navbar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a href="#" class="brand">
+                <small>
+                    <img src="/admin_gui/img/logo.jpg"  alt="some_text"></i>
+                    Bondtex Line
+                </small>
+            </a><!-- /.brand -->
+
+        </div><!-- /.navbar-inner -->
+    </div>
+</div>
+<div class="main-container container-fluid">
+    <div class="sidebar" id="sidebar">
+        <table>
+            <tr>
+                <td >
+                    <a href="javascript:void(0);" ng-click="orders_page()">
+                        <p class="bar">
+                            הזמנות
+                        </p>
+                    </a>
+                </td>
+
+            </tr>
+     <tr>
+         <td >
+             <a href="javascript:void(0);" ng-click="companies_page()">
+                 <p class="bar">
+                     חברות
+                 </p>
+             </a>
+         </td>
+     </tr>
+
+        </table>
+    </div>
+    <div class="main-content">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+            <ul class="breadcrumb">
+                <li ng-repeat="breadcrumb in breadcrumbs.getAll()">
+                    <span class="divider">/</span>
+                    <ng-switch on="$last">
+                        <span ng-switch-when="true">{{breadcrumb.name}}</span>
+                        <span ng-switch-default><a href="{{breadcrumb.path}}">{{breadcrumb.name}}</a></span>
+                    </ng-switch>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-view></div>
+    </div>
+</div>
+
+</body>
+</html>
