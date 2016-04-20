@@ -22,9 +22,8 @@
         min-height: 30px;
     }
 
-    #tabs_bar {
-        position: absolute !important;
-        left: 0px !important;
+    #map {
+        height: 100%;
     }
 </style>
 
@@ -55,53 +54,6 @@
     </table>
 </div>
 
-<br>
-<br>
-<table>
+<input type="text" autofocus="true" id="address" placeholder="source address"/>
+<div id="map"></div>
 
-    <tr>
-        <td>
-            <form novalidate class="simple-form">
-                <table>
-
-                    <tr>
-                        <td>
-חברה
-                        </td>
-                        <td>
-                            <select ng-model="order.company_id"
-                                    ng-options="company.id as company.name for company in companies"
-                                    required></select>
-                        </td>
-                    </tr>
-
-
-</table>
-
-<table  ng-show="orderId">
-    <th >
-        סוגי וילונות
-    </th>
-    <tr ng-repeat="batch in order.batches" >
-        <td>
-            <button><a  tabindex="0"
-                        ng-click="goto_batch(batch)">
-                {{batch_name(batch.batch_type)}}
-            </a>
-            </button>
-
-        </td>
-    </tr>
-    <tr>
-
-        <td>
-            <button><a  tabindex="0"
-                        ng-click="new_batch(orderId)">
-              וילון חדש
-            </a>
-            </button>
-
-        </td>
-
-    </tr>
-</table>
