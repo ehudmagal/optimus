@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    render json: @orders
+    render json: @orders.map{|order| order.json_attributes}
   end
 
   def show
