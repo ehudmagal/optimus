@@ -1,3 +1,11 @@
+<style>
+
+
+    #map {
+        height: 100%;
+        min-height: 600px;
+    }
+</style>
 
 <div class="breadcrumbs">
     <table>
@@ -16,104 +24,7 @@
     </table>
 </div>
 
-<table>
-    <tr>
-        <td>
-            <button ng-click="reset()">אתחל חיפוש</button>
-        </td>
-        <td></td>
-    </tr>
+<div id="map">
 
-    <tr>
+</div>
 
-        <td>
-            <input ng-model="company_name_query" ng-change="searchCompanyName()">
-        </td>
-        <td>
-            <p><strong>
-                חפש לפי שם חברה
-            </strong>
-            </p>
-        </td>
-
-    </tr>
-    <tr>
-
-        <td>
-            <input ng-model="id_query" ng-change="searchId()">
-        </td>
-        <td>
-            <p><strong>
-                חפש לפי מספר מזהה
-            </strong>
-            </p>
-        </td>
-    </tr>
-
-
-</table>
-
-
-
-<table class="table">
-    <th>
-        Id
-    </th>
-    <th>
-       שם חברה
-    </th>
-    <th>
-        תאריך יצירה
-    </th>
-    <th>
-       תאריך עריכה
-    </th>
-    <th>
-        Batches
-    </th>
-
-    <tr ng-repeat="order in orders">
-        <td>
-            <a href="#/orders/{{order.id}}"> {{order.id}} :ערוך הזמנה</a>
-        </td>
-        <td>
-            {{order.company.name}}
-        </td>
-        <td>
-            {{getDateString(order.created_at)}}
-        </td>
-        <td>
-           {{getDateString(order.updated_at)}}
-        </td>
-        <td>
-            <ul>
-                <li ng-repeat = "batch in order.batches">
-                    <a href="#/orders/{{order.id}}/batches/{{batch.id}}"> {{batch_name(batch.batch_type)}}:ערוך </a>
-                </li>
-            </ul>
-        </td>
-
-    </tr>
-</table>
-<table>
-    <tr>
-        <td>
-
-            <button ng-click = 'prevPage()'>Prev</button>
-
-        </td>
-        <td>
-
-            <button ng-click = 'nextPage()'>Next</button>
-
-        </td>
-        <td>
-
-                Page Size:
-                <select ng-model="page_size"
-                        ng-options="opt as opt.label for opt in options" ng-change="changePageSize()">
-                </select>
-
-        </td>
-    </tr>
-</table>
