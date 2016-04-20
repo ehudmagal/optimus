@@ -15,8 +15,10 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html {super}
       format.json {
-        order = Order.create(params['order'])
-        order.update(user_id: current_user.id)
+        order = Order.create(order_params)
+        order.update(user_id: current_user.id,
+                     source: params['order']['source'],
+                     destination: params['order']['destination'])
         render json: order
       }
     end
@@ -34,10 +36,6 @@ class OrdersController < ApplicationController
   end
 
   private
-  # Using a private method to encapsulate the permissible parameters
-  # is just a good pattern since you'll be able to reuse the same
-  # permit list between create and update. Also, you can specialize
-  # this method with per-user checking of permissible attributes.
   def order_params
     params.require(:order).permit(:source, :destination)
   end
