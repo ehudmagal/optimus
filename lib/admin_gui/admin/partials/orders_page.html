@@ -20,11 +20,61 @@
                 </button>
 
             </td>
+            <td  id="show_list_button">
+                <button ng-click="listView()"><img src="img/list.gif" /></button>
+
+            </td>
+            <td id="show_map_button">
+                <button ng-click="initMap()"><img src="img/map.gif" /></button>
+
+            </td>
         <tr>
     </table>
 </div>
 
 <div id="map">
+    <div id="orders_table">
+        <table class="table" >
+            <th>
+                User
+            </th>
+            <th>
+                Source Address
+            </th>
+            <th>
+                Destination Address
+            </th>
+            <tr ng-repeat = "order in orders | pagination: curPage * pageSize | limitTo: pageSize">
+                <td>
+                    {{order.user.email}}
+                </td>
+                <td>
+                    {{order.source.address}}
+                </td>
+                <td>
+                    {{order.destination.address}}
+                </td>
+            </tr>
+        </table>
+        <div class="pagination pagination-centered" ng-show="orders.length">
 
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                                ng-click="curPage=curPage-1"> &lt; PREV</button>
+                    </td>
+                    <td>
+                        <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary"
+                                ng-disabled="curPage >= orders.length/pageSize - 1"
+                                ng-click="curPage = curPage+1">NEXT &gt;</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 
