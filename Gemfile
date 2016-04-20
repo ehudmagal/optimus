@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'activeadmin', github: 'activeadmin'
+gem 'therubyracer',  platforms: :ruby
 group :development, :test do
   gem 'pry'
   gem 'byebug'
