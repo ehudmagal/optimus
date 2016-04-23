@@ -8,3 +8,4 @@
 //= require ./vendor/mobile-angular-ui.min
 //= require ./vendor/mobile-angular-ui.gestures.min
 //= require ./vendor/ng-table.js
+//= require ./vendor/globals.js
