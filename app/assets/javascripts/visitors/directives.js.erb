@@ -2,9 +2,9 @@
 
 /* Directives */
 
-//add drggable directive to myapp
-myapp.directive('draggable', function () {
-  return function (scope, element) {
+//add drggable directive to app
+app.directive('draggable', function() {
+  return function(scope, element) {
     // this gives us the native JS object
     var el = element[0];
 
@@ -12,7 +12,7 @@ myapp.directive('draggable', function () {
 
     el.addEventListener(
         'dragstart',
-        function (e) {
+        function(e) {
           e.dataTransfer.effectAllowed = 'move';
           e.dataTransfer.setData('Text', this.id);
           this.classList.add('drag');
@@ -23,7 +23,7 @@ myapp.directive('draggable', function () {
 
     el.addEventListener(
         'dragend',
-        function (e) {
+        function(e) {
           this.classList.remove('drag');
           return false;
         },
@@ -32,12 +32,12 @@ myapp.directive('draggable', function () {
   }
 });
 
-var INTEGER_REGEXP = /^\-?\d+((\.|\,)\d+)?$/;
-myapp.directive('integer', function () {
+var INTEGER_REGEXP =  /^\-?\d+((\.|\,)\d+)?$/;
+app.directive('integer', function() {
   return {
     require: 'ngModel',
-    link: function (scope, elm, attrs, ctrl) {
-      ctrl.$parsers.unshift(function (viewValue) {
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$parsers.unshift(function(viewValue) {
         if (INTEGER_REGEXP.test(viewValue)) {
           // it is valid
           ctrl.$setValidity('integer', true);
@@ -53,15 +53,15 @@ myapp.directive('integer', function () {
 });
 
 
-myapp.directive('droppable', function () {
+app.directive('droppable', function() {
   return {
-    link: function (scope, element) {
+    link: function(scope, element) {
       // again we need the native object
       var el = element[0];
       el.scope = scope//this is for using scope inside event listeners
       el.addEventListener(
           'dragover',
-          function (e) {
+          function(e) {
             e.dataTransfer.dropEffect = 'move';
             // allows us to drop
             if (e.preventDefault) e.preventDefault();
@@ -72,7 +72,7 @@ myapp.directive('droppable', function () {
       );
       el.addEventListener(
           'dragenter',
-          function (e) {
+          function(e) {
             this.classList.add('over');
             return false;
           },
@@ -81,7 +81,7 @@ myapp.directive('droppable', function () {
 
       el.addEventListener(
           'dragleave',
-          function (e) {
+          function(e) {
             this.classList.remove('over');
             return false;
           },
@@ -90,10 +90,33 @@ myapp.directive('droppable', function () {
 
       el.addEventListener(
           'drop',
-          function (e) {
+          function(e) {
             // Stops some browsers from redirecting.
             if (e.stopPropagation) e.stopPropagation();
             this.classList.remove('over');
+            var item = document.getElementById(e.dataTransfer.getData('Text'));
+            var logger_id = item.id;
+            var project_id = e.target.id;
+            var target = e.target;
+            while(project_id == ''){//going to parent until we find project. ugly.
+              target = target.parentNode;
+              project_id = target.id;
+            }
+            //check if project have been dragged to project
+            if(logger_id.indexOf("project") != -1 && project_id.indexOf("logger") != -1){//swap
+              var temp = logger_id;
+              logger_id = project_id;
+              project_id = temp;
+            }else if(logger_id.indexOf("logger") != -1 && project_id.indexOf("logger") != -1){//same objects, exit
+              return false;
+            }
+            else if(logger_id.indexOf("project") != -1 && project_id.indexOf("project") != -1){//same objects, exit
+              return false;
+            }
+            logger_id = parseInt(logger_id.replace("logger_",""));
+            project_id = parseInt(project_id.replace("project_",""));
+            scope.addPair(project_id,logger_id);
+            scope.$apply();
             return false;
           },
           false
@@ -105,22 +128,22 @@ myapp.directive('droppable', function () {
 
 
 
-myapp.directive('notdroppable', function () {
+app.directive('notdroppable', function() {
   return {
-    link: function (scope, element) {
+    link: function(scope, element) {
       // again we need the native object
       var el = element[0];
       el.scope = scope//this is for using scope inside event listeners
       el.removeEventListener(
           'dragover',
-          function (e) {
+          function(e) {
             return false;
           },
           false
       );
       el.removeEventListener(
           'dragenter',
-          function (e) {
+          function(e) {
             return false;
           },
           false
@@ -128,7 +151,7 @@ myapp.directive('notdroppable', function () {
 
       el.removeEventListener(
           'dragleave',
-          function (e) {
+          function(e) {
             return false;
           },
           false
@@ -136,7 +159,7 @@ myapp.directive('notdroppable', function () {
 
       el.removeEventListener(
           'drop',
-          function (e) {
+          function(e) {
             return false;
           },
           false
@@ -149,8 +172,8 @@ myapp.directive('notdroppable', function () {
 
 
 
-myapp.directive('notdraggable', function () {
-  return function (scope, element) {
+app.directive('notdraggable', function() {
+  return function(scope, element) {
     // this gives us the native JS object
     var el = element[0];
 
@@ -158,7 +181,7 @@ myapp.directive('notdraggable', function () {
 
     el.removeEventListener(
         'dragstart',
-        function (e) {
+        function(e) {
           return false;
         },
         false
@@ -166,7 +189,7 @@ myapp.directive('notdraggable', function () {
 
     el.removeEventListener(
         'dragend',
-        function (e) {
+        function(e) {
           return false;
         },
         false
@@ -174,20 +197,20 @@ myapp.directive('notdraggable', function () {
   }
 });
 
-myapp.directive('cutledder', function () {
-  return function (scope, element) {
+app.directive('cutledder', function() {
+  return function(scope, element) {
     // this gives us the native JS object
     var el = element[0];
-    var a = 0;
+    var a=0;
   }
 });
 
 var FLOAT_REGEXP = /^\-?\d+((\.|\,)\d+)?$/;
-myapp.directive('smartFloat', function () {
+app.directive('smartFloat', function() {
   return {
     require: 'ngModel',
-    link: function (scope, elm, attrs, ctrl) {
-      ctrl.$parsers.unshift(function (viewValue) {
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$parsers.unshift(function(viewValue) {
         if (FLOAT_REGEXP.test(viewValue)) {
           ctrl.$setValidity('float', true);
           return parseFloat(viewValue.replace(',', '.'));
@@ -199,47 +222,5 @@ myapp.directive('smartFloat', function () {
     }
   };
 });
-
-myapp.directive('indicator', function ($compile) {
-  return function (scope, element) {
-    // this gives us the native JS object
-    var indicator = scope.get_indicator_locally(scope.project.current_indicator);
-    if (indicator) {
-      indicator = indicator.value;
-    }
-    var path = null;
-    if (indicator != null) {
-      switch (indicator) {
-        case 0:
-          path = '<%= asset_path("indicators/breakdown/plant_red.png") %>';
-          break;
-        case 1:
-          path = '<%= asset_path("indicators/breakdown/plant_yellow.png") %>';
-          break;
-        case 2:
-          path = '<%= asset_path("indicators/breakdown/plant_yellow.png") %>';
-          break;
-        case 3:
-          path = '<%= asset_path("indicators/breakdown/plant_green.png") %>';
-          break;
-        case 4:
-          path = '<%= asset_path("indicators/breakdown/plant_green.png") %>';
-          break;
-        default :
-          path = '<%= asset_path("indicators/breakdown/plant_green.png") %>';
-          break;
-      }
-
-    }
-    if (path) {
-      var html = '<img src=' + path + '>';
-      var el = angular.element(html);
-      var compiled = $compile(el);
-      element.append(el);
-      compiled(scope);
-    }
-  }
-});
-
 
 

@@ -1,6 +1,48 @@
 <div ng-controller="ordersCtrl">
-  <h3>Welcome</h3>
-  <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+  <div id="map">
+    <div id="orders_table">
+      <table class="table" >
+        <th>
+          User
+        </th>
+        <th>
+          Source Address
+        </th>
+        <th>
+          Destination Address
+        </th>
+        <tr ng-repeat = "order in orders | pagination: curPage * pageSize | limitTo: pageSize">
+          <td>
+            {{order.user.email}}
+          </td>
+          <td>
+            {{order.source.address}}
+          </td>
+          <td>
+            {{order.destination.address}}
+          </td>
+        </tr>
+      </table>
+      <div class="pagination pagination-centered" ng-show="orders.length">
 
+        <table>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                      ng-click="curPage=curPage-1"> &lt; PREV</button>
+            </td>
+            <td>
+              <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary"
+                      ng-disabled="curPage >= orders.length/pageSize - 1"
+                      ng-click="curPage = curPage+1">NEXT &gt;</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 </div >
 
