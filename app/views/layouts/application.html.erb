@@ -6,6 +6,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Devise" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBPhw1GUgQxORwpscLF-iSN2B-WXzbeanw&sensor=true&libraries=geometry,places"></script>
     <%= javascript_include_tag "vendor" %>
     <%= javascript_include_tag "visitors-app" %>
     <%= csrf_meta_tags %>
