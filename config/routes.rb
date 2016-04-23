@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :orders
-  mount AdminGui => '/admin'
+  authenticate(:user) do
+    mount AdminGui => '/admin'
+  end
 end
