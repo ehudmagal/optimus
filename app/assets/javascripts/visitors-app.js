@@ -1,4 +1,4 @@
-//= require ./projects/controllers
-//= require ./projects/filters
-//= require ./projects/services
-//= require ./projects/directives
+//= require ./visitors/controllers
+//= require ./visitors/filters
+//= require ./visitors/services
+//= require ./visitors/directives
