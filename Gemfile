@@ -10,12 +10,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'activeadmin', github: 'activeadmin'
-gem 'therubyracer',  platforms: :ruby
-group :development, :test do
-  gem 'pry'
-  gem 'byebug'
-  gem 'pry-byebug', platform: [:ruby_20]
-end
+gem 'therubyracer', platforms: :ruby
+gem 'pry'
+gem 'byebug'
+gem 'pry-byebug', platform: [:ruby_20]
+
 group :development do
   gem 'web-console', '~> 2.0'
 end
