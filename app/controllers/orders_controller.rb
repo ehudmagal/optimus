@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
     @orders = Order.all
     render json: @orders.map{|order| order.json_attributes}
   end
+  def user_index
+    orders = Order.where(user_id: current_user.id)
+    render json: orders.map{|order| order.json_attributes}
+  end
 
   def show
     @order = Order.find(params[:id])
