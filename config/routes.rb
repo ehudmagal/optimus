@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
-  resources :orders
+  resources :orders do
+    collection do
+      get "user_index", defaults: {format: :json}
+    end
+  end
   authenticate(:user) do
     mount AdminGui => '/admin'
   end
