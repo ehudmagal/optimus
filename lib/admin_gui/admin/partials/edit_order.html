@@ -48,4 +48,223 @@
 
 <input type="text" autofocus="true" id="address" placeholder="source address"/>
 <div id="map"></div>
+<div id="project_form" style="display:none; cursor: default">
+
+    <form name="form" class="css-form" novalidate>
+
+
+        <table>
+            <tr>
+                <td  style="border-right: solid 1px;" valign="top">
+                    <table >
+
+                        <tr>
+                            <td>
+                                Name:
+                            </td>
+                            <td>
+                                <input type="text" ng-model="curent_polygon.project.name"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Activation date
+                            </td>
+                            <td>
+                                <input type="date" ng-model="curent_polygon.project.activation_date">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                De-activation date
+                            </td>
+                            <td>
+                                <input type="date" ng-model="curent_polygon.project.deactivation_date">
+                            </td>
+
+                        </tr>
+                        <tr ng-show="edit_project">
+                            <td style="font-weight: bold">
+                                Soil Sensors:
+                            </td>
+                            <td></td>
+                        </tr>
+
+
+                        <tr ng-show="edit_project" ng-repeat="soil_sensor in curent_polygon.project.soil_sensors">
+                            <td>
+                                Sensor: {{soil_sensor.id}}
+                            </td>
+                            <td>
+                                <select   style="min-height: 30px;max-width: 100px;"
+                                          ng-model="soil_sensor.depth_value"
+                                          ng-options="depth_value as depth_value for depth_value in depth_values"
+                                          ng-change="submit_sensor_dataset(soil_sensor,soil_sensor.display_key)"
+                                          required></select> {{getDepthUnit(soil_sensor.depth_value)}}
+                            </td>
+                        </tr>
+
+                        <tr ng-show="edit_project">
+                            <td style="font-weight: bold">
+                                Irrigation:
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        <tr ng-show="edit_project && new_irrigation">
+                            <td>
+                                Irrigation {{curent_polygon.project.irrigation_dataset.sensor_id}}:
+                            </td>
+                            <td >
+                                <input  style="min-height: 30px;max-width: 100px;" type="number" step="any" ng-model="scale_factor_to_show"/>  {{getUnitTypeByUser()}}
+                            </td>
+
+                        </tr>
+                        <tr ng-show="edit_project &&  !new_irrigation">
+                            <td>
+                                Number Of Trees:
+                            </td>
+                            <td>
+                                *<input type="smartFloat" ng-model="curent_polygon.project.irrigation_dataset.calc_parameters.number_of_trees"
+                                        required style="height:30px;"/>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr ng-show="edit_project &&  !new_irrigation">
+                            <td>
+                                Trees Per Acre:
+                            </td>
+                            <td>
+                                *<input type="smartFloat" ng-model="curent_polygon.project.irrigation_dataset.calc_parameters.trees_per_acre"
+                                        required style="height:30px;"/>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr ng-show="edit_project &&  !new_irrigation">
+                            <td>
+                                Litre Per Pulse:
+                            </td>
+                            <td>
+                                *<input type="smartFloat" ng-model="curent_polygon.project.irrigation_dataset.calc_parameters.litre_per_pulse"
+                                        required style="height:30px;"/>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr ng-show="edit_project">
+                            <td>
+
+                            </td>
+                            <td>
+                                <button class="btn btn-primary waves-effect"  ng-click="submit_scale_factor(curent_polygon.project.irrigation_dataset)"> Submit Scale Factor</button>
+                            </td>
+                        </tr>
+                        <br>
+
+                    </table>
+                </td>
+                <td  valign="top">
+                    <table >
+                        <tr>
+                            <td>
+                                Crop:
+                            </td>
+                            <td>
+                                <select ng-model="curent_polygon.project.crop_id"
+                                        ng-change = "choose_varieties_by_crop(curent_polygon.project.crop_id)"
+                                        ng-options="crop.id as crop.name for crop in crops | orderBy:'name'"
+                                        required
+                                ></select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight: bold">
+                                Traits:
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Sectors
+                            </td>
+                            <td>
+                                <select ng-model="curent_polygon.project.sector"
+                                        ng-options="sector as sector for sector in sectors">
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Mature
+                            </td>
+                            <td>
+                                <input type="checkbox" ng-model="curent_polygon.project.mature"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Crop Variety:
+                            </td>
+                            <td>
+                                <select ng-model="curent_polygon.project.crop_variety"
+                                        ng-options="variety as variety for variety in varieties"
+                                        required
+                                ></select>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Latitude:
+                            </td>
+                            <td style="min-height: 30px;">
+                                <input style="min-height: 30px;" type="number"  step="any" ng-model="curent_polygon.project.latitude"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Longitude:
+                            </td>
+                            <td style="min-height: 30px;">
+                                <input style="min-height: 30px;" type="number"  step="any" ng-model="curent_polygon.project.longitude"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td ng-show="curent_polygon.project.id">
+                                <button class="btn btn-primary waves-effect"  ng-click="recalculate_project(curent_polygon.project,true)"> Recalculate Project</button>
+                            </td>
+                            <td ng-show="curent_polygon.project.id">
+                                <button class="btn btn-primary waves-effect"  ng-click="update_project(curent_polygon.project,true)"> Submit Project</button>
+                            </td>
+                            <td ng-show="!curent_polygon.project.id">
+                                <button title='Save Project'>
+                                    <a tabindex="0" ng-click="create_project(curent_polygon)">
+                                        <p class="bar">
+                                            <i class="icon-save bigger-230"></i>
+                                        </p>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+
+</div>
 
