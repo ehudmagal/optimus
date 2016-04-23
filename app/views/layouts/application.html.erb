@@ -1,66 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-cookies.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src='https://bgrins.github.io/spectrum/spectrum.js'></script>
-    <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBBMiZ_cqkMWixJqAsn30eMP3emDkEPKM&signed_in=true&libraries=places"></script>
-    <link data-require="bootstrap-css@*" data-semver="3.0.0" rel="stylesheet"
-          href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
-    <link href="/admin/assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/admin/assets/css/bootstrap-responsive.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/admin/assets/css/font-awesome.min.css"/>
-
-    <!--[if IE 7]>
-    <link rel="stylesheet" href="/admin/assets/css/font-awesome-ie7.min.css"/>
-    <![endif]-->
-
-    <!-- page specific plugin styles -->
-
-    <!-- fonts -->
-
-    <link rel="stylesheet" href="/admin/assets/css/ace-fonts.css"/>
-
-    <!-- ace styles -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-    <link rel='stylesheet' href='https://bgrins.github.io/spectrum/spectrum.css'/>
-    <link rel="stylesheet" href="/admin/assets/css/ace.min.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/ace-responsive.min.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/jquery-ui-1.10.3.custom.min.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/chosen.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/datepicker.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/bootstrap-timepicker.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/daterangepicker.css"/>
-    <link rel="stylesheet" href="/admin/assets/css/colorpicker.css"/>
-    <link rel="stylesheet" href="/admin/css/ng-table.css"/>
-
-    <link rel="stylesheet" href="/admin/css/app.css"/>
-    <link rel="stylesheet" href="/admin/css/pace.css"/>
-    <script src="/admin/js/FileSaver.js"></script>
-    <script src="/admin/js/globals.js"></script>
     <script src="/admin/js/controllers.js"></script>
-    <script src="/admin/js/directives.js"></script>
-    <script src="/admin/js/filters.js"></script>
-    <script src="/admin/js/routing.js"></script>
-    <script src="/admin/js/services.js"></script>
-    <script src="/admin/js/date.js"></script>
-    <script src="/admin/js/jstz.js"></script>
-    <script src="/admin/js/pace.js"></script>
-    <script src="/admin/js/ng-table.js"></script>
-    <script src="/admin/js/dataset_types_requirements.js"></script>
-    <script src="/admin/js/time_zones.js"></script>
-    <script src="/admin/js/marker_with_label.js"></script>
-    <script src="/admin/js/blockUI.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular-route.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Rails Devise" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Devise" %>">
