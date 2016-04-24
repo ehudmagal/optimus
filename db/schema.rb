@@ -20,8 +20,16 @@ ActiveRecord::Schema.define(version: 20160423175136) do
     t.json     "source"
     t.json     "destination"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.float    "weight"
+    t.string   "goods_type"
+    t.string   "work_type"
+    t.string   "transport_type"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.float    "tons_per_hour"
+    t.string   "deal_type"
   end
 
   create_table "users", force: :cascade do |t|
