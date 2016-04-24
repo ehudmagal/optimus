@@ -9,49 +9,104 @@
 
 <div ng-controller="ordersCtrl">
   <div id="map">
-    <div id="orders_table">
-      <table class="table" >
-        <th>
-          User
-        </th>
-        <th>
-          Source Address
-        </th>
-        <th>
-          Destination Address
-        </th>
-        <tr ng-repeat = "order in orders | pagination: curPage * pageSize | limitTo: pageSize">
+
+</div >
+  <div id="orders_table">
+    <table class="table" >
+      <th>
+        משתמש
+      </th>
+      <th>
+        כתובת מקור
+      </th>
+      <th>
+        כתובת יעד
+      </th>
+      <th>
+        משקל בטונות
+      </th>
+      <th>
+        סוג הסחורה
+      </th>
+      <th>
+        סוג העבודה
+      </th>
+      <th>
+        שיטת הובלה
+      </th>
+      <th>
+        ת. התחלה
+      </th>
+      <th>
+        ת. סיום
+      </th>
+      <th>
+        סוג עסקה
+      </th>
+      <tr ng-repeat = "order in orders | pagination: curPage * pageSize | limitTo: pageSize">
+        <td>
+          {{order.user.email}}
+        </td>
+        <td>
+          {{order.source.address}}
+        </td>
+        <td>
+          {{order.destination.address}}
+        </td>
+        <td>
+          {{order.weight}}
+        </td>
+        <td>
+          {{order.goods_type}}
+        </td>
+        <td>
+          {{order.work_type}}
+        </td>
+        <td>
+          {{order.transport_type}}
+        </td>
+        <td>
+          {{order.start_date}}
+        </td>
+        <td>
+          {{order.end_date}}
+        </td>
+        <td>
+          {{order.deal_type}}
+        </td>
+      </tr>
+    </table>
+    <div class="pagination pagination-centered" ng-show="orders.length">
+
+      <table>
+        <tr>
           <td>
-            {{order.user.email}}
+            <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                    ng-click="curPage=curPage-1"> &lt; PREV</button>
           </td>
           <td>
-            {{order.source.address}}
+            <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
           </td>
           <td>
-            {{order.destination.address}}
+            <button type="button" class="btn btn-primary"
+                    ng-disabled="curPage >= orders.length/pageSize - 1"
+                    ng-click="curPage = curPage+1">NEXT &gt;</button>
           </td>
         </tr>
       </table>
-      <div class="pagination pagination-centered" ng-show="orders.length">
-
-        <table>
-          <tr>
-            <td>
-              <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
-                      ng-click="curPage=curPage-1"> &lt; PREV</button>
-            </td>
-            <td>
-              <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary"
-                      ng-disabled="curPage >= orders.length/pageSize - 1"
-                      ng-click="curPage = curPage+1">NEXT &gt;</button>
-            </td>
-          </tr>
-        </table>
-      </div>
     </div>
   </div>
-</div >
+  <table>
+    <tr>
+      <td  id="show_list_button">
+        <button ng-click="listView()"><img src="/admin/img/list.gif" /></button>
+
+      </td>
+      <td id="show_map_button">
+        <button ng-click="initMap()"><img src="/admin/img/map.gif" /></button>
+
+      </td>
+    </tr>
+  </table>
+</div>
 
