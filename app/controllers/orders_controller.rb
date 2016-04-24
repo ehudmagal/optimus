@@ -45,5 +45,5 @@ class OrdersController < ApplicationController
                                   :start_date,:end_date,:tons_per_hour,:deal_type)
   end
 
- 
+
 end
