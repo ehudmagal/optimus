@@ -32,8 +32,8 @@
     <table>
         <tr>
             <td class="bar" style="padding-left: 10px">
-                <button><a  tabindex="0"
-                            ng-click="edit_order(order)">
+                <button><a tabindex="0"
+                           ng-click="edit_order(order)">
                     <p class="bar">
                         <i class="icon-save bigger-230"></i>
                     </p>
@@ -54,118 +54,111 @@
 
 
         <table>
+
             <tr>
-                <td  style="border-right: solid 1px;" valign="top">
-                    <table >
 
-                        <tr>
-
-                            <td>
-                                <input type="float" ng-model="order.weight"/>
-                            </td>
-                            <td>
-                               משקל בטונות:
-                            </td>
-
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <input type="date" ng-model="order.start_date">
-                            </td>
-                            <td>
-תאריך התחלה
-                            </td>
-
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <input type="date" ng-model="order.end_date">
-                            </td>
-                            <td>
-                                תאריך סיום:
-                            </td>
-
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <input type="float" ng-model="order.tons_per_hour">
-                            </td>
-                            <td>
-טונות לשעה:
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                <input type="text" ng-model="order.goods_type">
-                            </td>
-                            <td>
- סוג הסחורה:
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>
-                                <select ng-model="order.work_type"
-                                        ng-options="work_type.name as work_type.name for work_type in [{name: 'בודדת'},
-                                        {name: 'רציפה לאורך היום'}]">
-                                </select>
-                            </td>
-                            <td>
-סוג העבודה:
-                            </td>
-
-                        </tr>
-
-                        <tr >
-
-                            <td>
-                                <input type="text" ng-model="order.source.address" ng-readonly="true"
-                                         style="height:30px;"/>
-                            </td>
-                            <td>
-                                כתובת מקור:
-                            </td>
-                        </tr>
-                        <tr >
-
-                            <td>
-                                <input type="text" ng-model="order.destination.address" ng-readonly="true"
-                                       style="height:30px;"/>
-                            </td>
-                            <td>
-כתובת יעד:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="bar" style="padding-left: 10px">
-                                <button><a  tabindex="0"
-                                            ng-click="edit_order(order)">
-                                    <p class="bar">
-                                        <i class="icon-save bigger-230"></i>
-                                    </p>
-                                </a>
-                                </button>
-
-                            </td>
-
-                        </tr>
-
-
-
-                    </table>
+                <td>
+                    <input type="float" ng-model="order.weight"/>
                 </td>
+                <td>
+                    משקל בטונות:
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>
+                    <input type="date" ng-model="order.start_date">
+                </td>
+                <td>
+                    תאריך התחלה
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>
+                    <input type="date" ng-model="order.end_date">
+                </td>
+                <td>
+                    תאריך סיום:
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>
+                    <input type="float" ng-model="order.tons_per_hour">
+                </td>
+                <td>
+                    טונות לשעה:
+                </td>
+
             </tr>
 
+
+            <tr>
+
+                <td>
+                    <input type="text" ng-model="order.goods_type">
+                </td>
+                <td>
+                    סוג הסחורה:
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <select ng-model="order.work_type"
+                            ng-options="work_type.name as work_type.name for work_type in [{name: 'בודדת'},
+                                        {name: 'רציפה לאורך היום'}]">
+                    </select>
+                </td>
+                <td>
+                    סוג העבודה:
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <input type="text" ng-model="order.source.address" ng-readonly="true"
+                           style="height:30px;"/>
+                </td>
+                <td>
+                    כתובת מקור:
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <input type="text" ng-model="order.destination.address" ng-readonly="true"
+                           style="height:30px;"/>
+                </td>
+                <td>
+                    כתובת יעד:
+                </td>
+            </tr>
+            <tr>
+                <td class="bar" style="padding-left: 10px">
+                    <button><a tabindex="0"
+                               ng-click="edit_order(order)">
+                        <p class="bar">
+                            <i class="icon-save bigger-230"></i>
+                        </p>
+                    </a>
+                    </button>
+
+                </td>
+
+            </tr>
+
+
         </table>
+
     </form>
 
 
