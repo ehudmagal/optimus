@@ -2,7 +2,8 @@ require 'admin_gui/admin_gui'
 
 Rails.application.routes.draw do
   get '/admin/users/sign_in' => redirect('/users/sign_in')
-  root to: '/admin'
+  mount AdminGui => '/admin'
+  root 'main#index'
   devise_for :users
   resources :users
   resources :orders do
@@ -11,6 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
-  mount AdminGui => '/admin'
+
 
 end
