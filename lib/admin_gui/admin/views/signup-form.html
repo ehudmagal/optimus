@@ -1,6 +1,6 @@
 <div class="container" data-ng-controller="loginCtrl as lctrl">
     <div class="block-header">
-        <h2>Form Examples</h2>
+        <h2>Sign Up</h2>
 
         <ul class="actions">
             <li>
@@ -35,19 +35,29 @@
 
     <div class="card">
         <div class="card-header">
-            <h2>Basic Example <small>Individual form controls automatically receive some global styling. All textual 'input', 'textarea', and 'select' elements with .form-control are set to width: 100%; by default. Wrap labels and controls in .form-group for optimum spacing.
+            <h2>Login User
     </small></h2>
         </div>
 
         <div class="card-body card-padding">
             <form role="form">
                 <div class="form-group fg-line">
-                    <label for="exampleInputEmail1">Email address</label>
+                    <label >Email address</label>
                     <input ng-model="user.email" type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Enter email">
                 </div>
                 <div class="form-group fg-line">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input ng-model="user.password" type="password" class="form-control input-sm" id="exampleInputPassword1" placeholder="Password">
+                    <label >Name</label>
+                    <input ng-model="user.name" type="text" class="form-control input-sm"  placeholder="Enter name">
+                </div>
+                <div class="form-group fg-line">
+                    <label>Password</label>
+                    <input ng-model="user.password" type="password" class="form-control input-sm"
+                           placeholder="Password">
+                </div>
+                <div class="form-group fg-line">
+                    <label >Password Confirmation</label>
+                    <input ng-model="user.password_confirmation" type="password" class="form-control input-sm"
+                           placeholder="Password Confirmation">
                 </div>
                 <div class="checkbox">
                     <label>
@@ -57,7 +67,7 @@
                     </label>
                 </div>
 
-                <button ng-click="login_user()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
+                <button ng-click="sign_up_user()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
             </form>
         </div>
     </div>

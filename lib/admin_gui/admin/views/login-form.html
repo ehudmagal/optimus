@@ -1,0 +1,67 @@
+<div class="container" data-ng-controller="loginCtrl as lctrl">
+    <div class="block-header">
+        <h2>Form Examples</h2>
+
+        <ul class="actions">
+            <li>
+                <a href="">
+                    <i class="zmdi zmdi-trending-up"></i>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="zmdi zmdi-check-all"></i>
+                </a>
+            </li>
+            <li class="dropdown" uib-dropdown>
+                <a href="" uib-dropdown-toggle>
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a href="">Refresh</a>
+                    </li>
+                    <li>
+                        <a href="">Manage Widgets</a>
+                    </li>
+                    <li>
+                        <a href="">Widgets Settings</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Login User
+    </small></h2>
+        </div>
+
+        <div class="card-body card-padding">
+            <form role="form">
+                <div class="form-group fg-line">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input ng-model="user.email" type="email" class="form-control input-sm" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group fg-line">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input ng-model="user.password" type="password" class="form-control input-sm" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="">
+                        <i class="input-helper"></i>
+                        Don't forget to check me out
+                    </label>
+                </div>
+
+                <button ng-click="login_user()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
