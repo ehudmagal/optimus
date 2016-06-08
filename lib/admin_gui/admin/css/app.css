@@ -16151,3 +16151,39 @@ select.chosen {
 .mCSB_inside > .mCSB_container {
   margin-right: 0;
 }
+
+
+.logout-icon{
+  box-sizing:border-box;
+  color:rgb(76, 76, 76);
+  cursor:auto;
+  direction:ltr;
+  display:block;
+  font-family:Material-Design-Iconic-Font;
+  font-size:20px;
+  font-stretch:normal;
+  font-style:normal;
+  font-variant:normal;
+  font-weight:normal;
+  height:46px;
+  left:16px;
+  line-height:20px;
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  outline-color:rgb(76, 76, 76);
+  outline-style:none;
+  outline-width:0px;
+  padding-bottom:13px;
+  padding-left:0px;
+  padding-right:0px;
+  padding-top:13px;
+  position:absolute;
+  text-align:center;
+  text-rendering:auto;
+  top:0px;
+  width:25px;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+  background-image:url('/admin/img/logout.png');
+}
