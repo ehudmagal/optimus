@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
   def set_cookie_params_user
     if user_signed_in?
       cookies[:user_name] = current_user.name
-      cookies[:email] = current_user.email
+      cookies[:user_email] = current_user.email
+    else
+      cookies[:user_name] = nil
+      cookies[:user_email] = nil
     end
 
   end
