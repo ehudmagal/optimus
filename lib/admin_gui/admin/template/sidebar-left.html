@@ -42,6 +42,9 @@
             <a class="custom-link" href="" ng-click="signout()">
                 <img src="/admin/img/logout.png" class="custom-icon"> Logout</a>
         </li>
+        <li data-ui-sref-active="active">
+            <a data-ui-sref="home({personal: 'true'})"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
+        </li>
         <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('headers') }">
             <a href="" toggle-submenu><i class="zmdi zmdi-view-compact"></i> Headers</a>
 
