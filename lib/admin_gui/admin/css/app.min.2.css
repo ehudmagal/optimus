@@ -4284,6 +4284,10 @@ select.chosen {
   margin-right: 0;
 }
 
-.logout-icon {
-  padding: 14px 20px 14px 5px !important;
+.custom-icon {
+  padding-right: 12px !important;
+}
+
+.custom-link {
+  padding: 14px 20px 14px 19px !important;
 }

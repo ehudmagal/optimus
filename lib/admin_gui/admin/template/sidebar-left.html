@@ -38,8 +38,9 @@
         <li data-ui-sref-active="active">
             <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
         </li>
-        <li>
-            <a href=""><img src="/admin/img/logout.png" > Logout</a>
+        <li data-ui-sref-active="active">
+            <a class="custom-link" data-ui-sref="" >
+                <img src="/admin/img/logout.png" class="custom-icon"> Logout</a>
         </li>
         <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('headers') }">
             <a href="" toggle-submenu><i class="zmdi zmdi-view-compact"></i> Headers</a>
