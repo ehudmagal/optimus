@@ -4286,4 +4286,5 @@ select.chosen {
 
 .logout-icon {
   background-image: url('/admin/img/logout.png');
+  padding-left: 5px !important;
 }
