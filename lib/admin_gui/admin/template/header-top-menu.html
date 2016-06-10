@@ -251,7 +251,7 @@
     </div>
 </div>
 
-<nav class="ha-menu">
+<nav class="ha-menu" data-ng-controller="sidebrCtrl">
     <ul>
         <li class="waves-effect" data-ui-sref-active="active">
             <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
@@ -263,67 +263,11 @@
             <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
         </li>
         <li class="waves-effect" data-ui-sref-active="active">
-            <a class="custom-link" href="" ng-click="signout()">Logout</a>
+            <a  href="" ng-click="signout()">Logout</a>
         </li>
         <li class="waves-effect" data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
             <a data-ui-sref="private_zone" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
         </li>
-
-
-
-        <li class="waves-effect" data-ui-sref-active="active">
-            <a data-ui-sref="typography">Typography</a>
-        </li>
-
-        <li class="dropdown" uib-dropdown>
-            <div class="waves-effect" uib-dropdown-toggle>Widgets</div>
-            <ul class="dropdown-menu">
-                <li data-ui-sref-active="active"><a data-ui-sref="widgets.widget-templates">Templates</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="widgets.widgets">Widgets</a></li>
-            </ul>
-        </li>
-
-        <li class="dropdown" uib-dropdown>
-            <div class="waves-effect" uib-dropdown-toggle>Tables</div>
-            <ul class="dropdown-menu">
-                <li data-ui-sref-active="active"><a data-ui-sref="tables.tables">Normal Tables</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="tables.data-table">Data Tables</a></li>
-            </ul>
-        </li>
-
-        <li class="dropdown" uib-dropdown>
-            <div class="waves-effect" uib-dropdown-toggle>Forms</div>
-            <ul class="dropdown-menu">
-                <li data-ui-sref-active="active"><a data-ui-sref="form.basic-form-elements">Basic Form Elements</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="form.form-components">Form Components</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="form.form-examples">Form Examples</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="form.form-validations">Form Validation</a></li>
-            </ul>
-        </li>
-        <li class="dropdown" uib-dropdown>
-            <div class="waves-effect" uib-dropdown-toggle>User Interface</div>
-            <ul class="dropdown-menu">
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.ui-bootstrap">UI Bootstrap</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.colors">Colors</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.animations">Animations</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.box-shadow">Box Shadow</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.buttons">Buttons</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.icons">Icons</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.alerts">Alerts</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.preloaders">Preloaders</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.notifications-dialogs">Notifications & Dialogs</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.media">Media</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="user-interface.other-components">Others</a></li>
-            </ul>
-        </li>
-        <li class="dropdown" uib-dropdown>
-            <div class="waves-effect" uib-dropdown-toggle>Charts</div>
-            <ul class="dropdown-menu">
-                <li data-ui-sref-active="active"><a data-ui-sref="charts.flot-charts">Flot Charts</a></li>
-                <li data-ui-sref-active="active"><a data-ui-sref="charts.other-charts">Other Charts</a></li>
-            </ul>
-        </li>
-        <li class="waves-effect" data-ui-sref-active="active"><a data-ui-sref="calendar">Calendar</a></li>
     </ul>
 </nav>
 
