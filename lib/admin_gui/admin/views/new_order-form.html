@@ -42,6 +42,11 @@
         <div class="card-body card-padding">
             <form role="form">
                 <div class="form-group fg-line">
+                    <label>Source Address</label>
+                    <input id="autocomplete" placeholder="Enter Source address"
+                           onFocus="geolocate()" type="text">
+                </div>
+                <div class="form-group fg-line">
                     <label>Weight</label>
                     <input ng-model="order.weight" type="number" class="form-control input-sm"
                            placeholder="Enter weight">
