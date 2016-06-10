@@ -1,0 +1,92 @@
+<div class="container" data-ng-controller="newOrderCtrl as octrl">
+    <div class="block-header">
+        <h2>Sign Up</h2>
+
+        <ul class="actions">
+            <li>
+                <a href="">
+                    <i class="zmdi zmdi-trending-up"></i>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="zmdi zmdi-check-all"></i>
+                </a>
+            </li>
+            <li class="dropdown" uib-dropdown>
+                <a href="" uib-dropdown-toggle>
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a href="">Refresh</a>
+                    </li>
+                    <li>
+                        <a href="">Manage Widgets</a>
+                    </li>
+                    <li>
+                        <a href="">Widgets Settings</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Login User
+    </small></h2>
+        </div>
+
+        <div class="card-body card-padding">
+            <form role="form">
+                <div class="form-group fg-line">
+                    <label>Weight</label>
+                    <input ng-model="order.weight" type="number" class="form-control input-sm"
+                           placeholder="Enter weight">
+                </div>
+                <div class="form-group fg-line">
+                    <label >Type Of Goods</label>
+                    <input ng-model="order.goods_type" type="text" class="form-control input-sm"
+                           placeholder="Enter type of goods">
+                </div>
+                <div class="form-group fg-line">
+                    <label>Password</label>
+                    <input ng-model="order.work_type" type="text" class="form-control input-sm"
+                           placeholder="work type">
+                </div>
+                <div class="form-group fg-line">
+                    <label >Transport Type</label>
+                    <input ng-model="order.transport_type" type="text" class="form-control input-sm"
+                           placeholder="Transport Type">
+                </div>
+                <div class="form-group fg-line">
+                    <label >Start Date </label>
+                    <input ng-model="order.start_date" type="date" class="form-control input-sm"
+                           placeholder="Start Date">
+                </div>
+                <div class="form-group fg-line">
+                    <label >End Date </label>
+                    <input ng-model="order.end_date" type="date" class="form-control input-sm"
+                           placeholder="End Date">
+                </div>
+                <div class="form-group fg-line">
+                    <label>Weight</label>
+                    <input ng-model="order.tons_per_hour" type="number" class="form-control input-sm"
+                           placeholder="Tons Per Hour">
+                </div>
+                <div class="form-group fg-line">
+                    <label >Transport Type</label>
+                    <input ng-model="order.deal_type" type="text" class="form-control input-sm"
+                           placeholder="Deal Type">
+                </div>
+
+                <button ng-click="submit_order()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
