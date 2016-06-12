@@ -22,12 +22,12 @@
 
     <div class="card" id="orders_table">
         <div class="card-header">
-            <h2>Phytech Users</h2>
+            <h2>Orders</h2>
         </div>
 
         <div class="card-body">
             <div class="table-responsive">
-                <table ng-table="tctrl.tableFilter" class="table table-striped table-vmiddle" show-filter="true">
+                <table ng-table="tableFilter" class="table table-striped table-vmiddle" show-filter="true">
                     <tr ng-repeat="order in $data track by order.id">
                         <td data-title="'ID'" filter="{ 'id': 'text' }">
                             {{ order.id }}
@@ -38,7 +38,6 @@
                         <td data-title="'Source'" filter="{ 'source.address': 'text' }">
                             {{ order.source.address }}
                         </td>
-                        d
                         <td data-title="'Destination'" filter="{ 'destination.address': 'text' }">
                             {{ order.destination.address }}
                         </td>
