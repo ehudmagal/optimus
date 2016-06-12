@@ -52,11 +52,6 @@
                            ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
                 </div>
                 <div class="form-group fg-line">
-                    <label>Weight</label>
-                    <input ng-model="order.weight" type="number" class="form-control input-sm"
-                           placeholder="Enter weight">
-                </div>
-                <div class="form-group fg-line">
                     <label >Type Of Goods</label>
                     <input ng-model="order.goods_type" type="text" class="form-control input-sm"
                            placeholder="Enter type of goods">
@@ -88,6 +83,11 @@
                     <input type="checkbox"  ng-model="order.work_type.bulk.continuous">
                     <i class="input-helper"></i>
                 </div>
+                <div class="form-group fg-line" ng-show="order.work_type.bulk.continuous">
+                    <label>Weight Per Hour</label>
+                    <input ng-model="order.tons_per_hour" type="number" class="form-control input-sm"
+                           placeholder="Tons Per Hour">
+                </div>
                 <div class="form-group fg-line">
                     <label >Transport Type</label>
                     <input ng-model="order.transport_type" type="text" class="form-control input-sm"
@@ -103,11 +103,7 @@
                     <input ng-model="order.end_date" type="date" class="form-control input-sm"
                            placeholder="End Date">
                 </div>
-                <div class="form-group fg-line">
-                    <label>Weight</label>
-                    <input ng-model="order.tons_per_hour" type="number" class="form-control input-sm"
-                           placeholder="Tons Per Hour">
-                </div>
+
                 <div class="form-group fg-line">
                     <label >Transport Type</label>
                     <input ng-model="order.deal_type" type="text" class="form-control input-sm"
