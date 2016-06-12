@@ -27,7 +27,7 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table ng-table="uctrl.tableFilter" class="table table-striped table-vmiddle" show-filter="true">
+                <table ng-table="tctrl.tableFilter" class="table table-striped table-vmiddle" show-filter="true">
                     <tr ng-repeat="order in $data track by order.id">
                         <td data-title="'ID'" filter="{ 'id': 'text' }">
                             {{ order.id }}
