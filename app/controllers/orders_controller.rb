@@ -22,7 +22,8 @@ class OrdersController < ApplicationController
         order = Order.create(order_params)
         order.update(user_id: current_user.id,
                      source: params['order']['source'],
-                     destination: params['order']['destination'])
+                     destination: params['order']['destination'],
+                     work_type:  params['order']['work_type'])
         render json: order
       }
     end
@@ -41,7 +42,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:source, :destination, :weight,:goods_type,:work_type,:transport_type,
+    params.require(:order).permit(:source, :destination, :weight, :goods_type, :work_type, :transport_type,
                                   :start_date,:end_date,:tons_per_hour,:deal_type)
   end
 
