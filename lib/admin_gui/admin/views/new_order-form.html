@@ -62,9 +62,31 @@
                            placeholder="Enter type of goods">
                 </div>
                 <div class="form-group fg-line">
-                    <label>Work type</label>
-                    <input ng-model="order.work_type" type="text" class="form-control input-sm"
-                           placeholder="work type">
+                    <label>Work type:</label>
+                    <br>
+                    <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=!show_pallets">Pallets</button>
+                    <button class="btn bgm-deeporange waves-effect" ng-click="show_bulk=!show_bulk">Bulk</button>
+                    <button class="btn bgm-indigo waves-effect" ng-click="show_other=!show_other">Other</button>
+                </div>
+                <div class="form-group fg-line" ng-show="show_pallets">
+                    <label >Amount of pallets</label>
+                    <input ng-model="order.work_type.pallet.amount" type="number" class="form-control input-sm"
+                           placeholder="Enter Amount of pallets">
+                </div>
+                <div class="form-group fg-line" ng-show="show_pallets">
+                    <label >Weight Per Pallet</label>
+                    <input ng-model="order.work_type.pallet.weight" type="number" class="form-control input-sm"
+                           placeholder="Enter Weight of each pallet">
+                </div>
+                <div class="form-group fg-line" ng-show="show_bulk">
+                    <label >Total Weight Of Bulk</label>
+                    <input ng-model="order.work_type.bulk.weight" type="number" class="form-control input-sm"
+                           placeholder="Enter Total weight of bulk">
+                </div>
+                <div class="checkbox"  ng-show="show_bulk">
+                    <label>Continuous Work  </label>
+                    <input type="checkbox"  ng-model="order.work_type.bulk.continuous">
+                    <i class="input-helper"></i>
                 </div>
                 <div class="form-group fg-line">
                     <label >Transport Type</label>
