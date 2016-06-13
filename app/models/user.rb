@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   def default_values
     if role.nil?
-      role = 'customer'
+      self.role = 'customer'
     end
   end
 end
