@@ -14,7 +14,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'pry'
 gem 'byebug'
 gem 'pry-byebug', platform: [:ruby_20]
-
+gem 'dotenv-rails'
 group :development do
   gem 'web-console', '~> 2.0'
 end
