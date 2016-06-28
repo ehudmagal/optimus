@@ -1,0 +1,24 @@
+<header id="header-2" data-current-skin={{mactrl.currentSkin}} data-ng-include src="'template/header.html'" data-ng-controller="headerCtrl as hctrl"></header>
+<aside id="sidebar" data-ng-include="'template/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+<style>
+
+
+    #map {
+        height: 100% !important;
+        position: absolute !important;
+        width: 100% !important;
+    }
+    #over_map { position: absolute; top: 20%; right: 10px; z-index: 99; }
+</style>
+
+<section id="map" style="overflow: hidden;overflow-y: hidden;" data-ng-controller="newOrderCtrl as octrl"></section>
+<div id="over_map" data-ng-controller="newOrderCtrl as octrl">
+
+
+    <button id="show_list_button" ng-click="listView()" class="btn btn-default btn-icon-text waves-effect">
+        <i class="zmdi zmdi-format-list-bulleted zmdi-hc-fw"></i> List
+    </button>
+
+</div>
+<footer id="footer" data-ng-include="'template/footer.html'"></footer>
