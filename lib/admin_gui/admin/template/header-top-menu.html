@@ -8,35 +8,35 @@
     </li>
 
 
-
+    <nav class="ha-menu" data-ng-controller="sidebrCtrl">
+        <ul>
+            <li class="waves-effect" data-ui-sref-active="active">
+                <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
+            </li>
+            <li class="waves-effect" data-ui-sref-active="active">
+                <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
+            </li>
+            <li class="waves-effect" data-ui-sref-active="active" >
+                <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
+            </li>
+            <li class="waves-effect" data-ui-sref-active="active">
+                <a  href="" ng-click="signout()">Logout</a>
+            </li>
+            <li class="waves-effect" data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
+                <a data-ui-sref="private_zone" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
+            </li>
+            <li class="waves-effect" data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
+                <a data-ui-sref="form.new_order" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order</a>
+            </li>
+            <li class="waves-effect" data-ui-sref-active="active">
+                <a  href="" > Welcome {{devise_user_name}}</a>
+            </li>
+        </ul>
+    </nav>
 </ul>
 
 
 
-<nav class="ha-menu" data-ng-controller="sidebrCtrl">
-    <ul>
-        <li class="waves-effect" data-ui-sref-active="active">
-            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
-        </li>
-        <li class="waves-effect" data-ui-sref-active="active">
-            <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
-        </li>
-        <li class="waves-effect" data-ui-sref-active="active" >
-            <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
-        </li>
-        <li class="waves-effect" data-ui-sref-active="active">
-            <a  href="" ng-click="signout()">Logout</a>
-        </li>
-        <li class="waves-effect" data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
-            <a data-ui-sref="private_zone" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
-        </li>
-        <li class="waves-effect" data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
-            <a data-ui-sref="form.new_order" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order</a>
-        </li>
-        <li class="waves-effect" data-ui-sref-active="active">
-            <a  href="" > Welcome {{devise_user_name}}</a>
-        </li>
-    </ul>
-</nav>
+
 
 
