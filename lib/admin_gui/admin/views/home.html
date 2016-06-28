@@ -1,14 +1,76 @@
 <header id="header-2" data-current-skin={{mactrl.currentSkin}} data-ng-include src="'template/header-top-menu.html'" data-ng-controller="headerCtrl as hctrl"></header>
 
-<section id="main">
+<style>
 
-    <section id="content">
 
-       <div data-ng-include="'/admin/views/data-table.html'">
+    #map {
+        height: 100% !important;
+        position: absolute !important;
+        width: 100% !important;
+    }
+    #over_map { position: absolute; top: 10px; left: 10px; z-index: 99; }
+</style>
+<div class="container" data-ng-controller="tableCtrl as tctrl" id="orders_table">
 
-       </div>
+    <div class="block-header">
 
-    </section>
-</section>
+    </div>
 
+    <div class="card" >
+        <div class="card-header">
+            <h2>Orders</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table ng-table="tableFilter" class="table table-striped table-vmiddle" show-filter="true">
+                    <tr ng-repeat="order in $data track by order.id">
+                        <td data-title="'ID'" filter="{ 'id': 'text' }">
+                            {{ order.id }}
+                        </td>
+                        <td data-title="'User Email'" filter="{ 'user.email': 'text' }">
+                            {{ order.user.email }}
+                        </td>
+                        <td data-title="'Source'" filter="{ 'source.address': 'text' }">
+                            {{ order.source.address }}
+                        </td>
+                        <td data-title="'Destination'" filter="{ 'destination.address': 'text' }">
+                            {{ order.destination.address }}
+                        </td>
+                        <td data-title="'Goods Type'" filter="{ 'goods_type': 'text' }">
+                            {{ order.goods_type }}
+                        </td>
+                        <td data-title="'Work Type'">
+                            {{ order.work_type }}
+                        </td>
+                        <td data-title="'Transport Type'" filter="{ 'transport_type': 'text' }">
+                            {{ order.transport_type }}
+                        </td>
+                        <td data-title="'Start Date'" filter="{ 'start_date': 'text' }">
+                            {{ order.start_date }}
+                        </td>
+                        <td data-title="'End Date'" filter="{ 'end_date': 'text' }">
+                        {{ order.end_date }}
+                    </td>
+                        <td data-title="'Deal Type'" filter="{ 'deal_type': 'text' }">
+                            {{ order.deal_type }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section id="map" style="overflow: hidden;overflow-y: hidden;" data-ng-controller="tableCtrl as tctrl"></section>
+<div id="over_map" data-ng-controller="tableCtrl as tctrl">
+    <button id="show_map_button" ng-click="mapView()" class="btn btn-default btn-icon-text waves-effect">
+        <i class="zmdi zmdi-map zmdi-hc-fw"></i> Map
+    </button>
+
+    <button id="show_list_button" ng-click="listView()" class="btn btn-default btn-icon-text waves-effect">
+        <i class="zmdi zmdi-format-list-bulleted zmdi-hc-fw"></i> List
+    </button>
+
+</div>
 <footer id="footer" data-ng-include="'template/footer.html'"></footer>

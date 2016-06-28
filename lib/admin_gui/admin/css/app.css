@@ -16151,11 +16151,3 @@ select.chosen {
 .mCSB_inside > .mCSB_container {
   margin-right: 0;
 }
-
-
-.custom-icon{
-  padding-right: 12px !important;
-}
-.custom-link{
-  padding: 14px 20px 14px 19px !important;
-}
