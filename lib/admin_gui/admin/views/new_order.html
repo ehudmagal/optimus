@@ -19,10 +19,17 @@
         z-index: 99;
         background: white;
     }
+    .margin{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
 </style>
 
 <section id="map" style="overflow: hidden;overflow-y: hidden;" data-ng-controller="newOrderCtrl as octrl"></section>
 <div id="over_map" data-ng-controller="newOrderCtrl as octrl">
+    <div class="margin">
     <form role="form">
         <div class="form-group fg-line">
             <label>Source Address</label>
@@ -95,5 +102,6 @@
 
         <button ng-click="submit_order()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
     </form>
+    </div>
 </div>
 <footer id="footer" data-ng-include="'template/footer.html'"></footer>
