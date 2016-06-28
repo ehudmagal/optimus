@@ -2,8 +2,9 @@
 
 
     #map {
-        height: 100%;
-        min-height: 600px;
+        height: 100% !important;
+        position: absolute !important;
+        width: 100% !important;
     }
 </style>
 <div class="container" data-ng-controller="tableCtrl as tctrl">
@@ -64,7 +65,7 @@
             </div>
         </div>
     </div>
-    <div class="card" id="map"></div>
+    <section id="map" style="overflow: hidden;overflow-y: hidden;"></section>
 
 </div>
 
