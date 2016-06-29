@@ -43,12 +43,12 @@
                 <input id="autocomplete1" placeholder="Enter Destination address"
                        ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
             </div>
-            <div class="form-group fg-line" id="form_3">
+            <div class="form-group fg-line" id="form_2">
                 <label>Type Of Goods</label>
                 <input ng-model="order.goods_type" type="text" class="form-control input-sm"
                        placeholder="Enter type of goods">
             </div>
-            <div id="form_4">
+            <div id="form_3">
                 <div class="form-group fg-line">
                     <label>Work type:</label>
                     <br>
@@ -83,31 +83,32 @@
                            placeholder="Tons Per Hour">
                 </div>
             </div>
-            <div class="form-group fg-line" id="form_5">
+            <div class="form-group fg-line" id="form_4">
                 <label>Transport Type</label>
                 <input ng-model="order.transport_type" type="text" class="form-control input-sm"
                        placeholder="Transport Type">
             </div>
-            <div class="form-group fg-line" id="form_6">
+            <div class="form-group fg-line" id="form_5">
                 <label>Start Date </label>
                 <input ng-model="order.start_date" type="date" class="form-control input-sm"
                        placeholder="Start Date">
             </div>
-            <div class="form-group fg-line" id="form_7">
+            <div class="form-group fg-line" id="form_6">
                 <label>End Date </label>
                 <input ng-model="order.end_date" type="date" class="form-control input-sm"
                        placeholder="End Date">
             </div>
 
-            <div class="form-group fg-line" id="form_8">
+            <div class="form-group fg-line" id="form_7">
                 <label>Transport Type</label>
                 <input ng-model="order.deal_type" type="text" class="form-control input-sm"
                        placeholder="Deal Type">
             </div>
-
-            <button id="form_9" ng-click="submit_order()" type="submit"
-                    class="btn btn-primary btn-sm m-t-10">Submit
-            </button>
+            <div class="form-group fg-line" id="form_8">
+                <button ng-click="submit_order()" type="submit"
+                        class="btn btn-primary btn-sm m-t-10">Submit
+                </button>
+            </div>
             </form>
             <table>
                 <tr>
