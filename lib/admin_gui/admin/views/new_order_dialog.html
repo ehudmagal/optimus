@@ -19,7 +19,8 @@
         z-index: 99;
         background: white;
     }
-    .margin{
+
+    .margin {
         margin-top: 30px;
         margin-bottom: 30px;
         margin-right: 30px;
@@ -27,93 +28,98 @@
     }
 </style>
 
-<section id="map" style="overflow: hidden;overflow-y: hidden;" data-ng-controller="newOrderDialogCtrl as octrl"></section>
+<section id="map" style="overflow: hidden;overflow-y: hidden;"
+         data-ng-controller="newOrderDialogCtrl as octrl"></section>
 <div id="over_map" data-ng-controller="newOrderDialogCtrl as octrl">
     <div class="margin">
-    <div role="form">
-        <div class="form-group fg-line" ng-show="showField(0)">
-            <label>Source Address</label>
-            <input id="autocomplete" placeholder="Enter Source address"
-                   ng-change="geolocate('source')" ng-model="addressQuery" type="text">
-        </div>
-        <div class="form-group fg-line" ng-show="showField(1)">
-            <label>Destination Address</label>
-            <input id="autocomplete1" placeholder="Enter Destination address"
-                   ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
-        </div>
-        <div class="form-group fg-line" ng-show="showField(3)">
-            <label>Type Of Goods</label>
-            <input ng-model="order.goods_type" type="text" class="form-control input-sm"
-                   placeholder="Enter type of goods">
-        </div>
-        <div ng-show="showField(4)">
-        <div class="form-group fg-line" >
-            <label>Work type:</label>
-            <br>
-            <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=!show_pallets">Pallets</button>
-            <button class="btn bgm-deeporange waves-effect" ng-click="show_bulk=!show_bulk">Bulk</button>
-            <button class="btn bgm-indigo waves-effect" ng-click="show_other=!show_other">Other</button>
-        </div>
-        <div class="form-group fg-line" ng-show="show_pallets">
-            <label>Amount of pallets</label>
-            <input ng-model="order.work_type.pallet.amount" type="number" class="form-control input-sm"
-                   placeholder="Enter Amount of pallets">
-        </div>
-        <div class="form-group fg-line" ng-show="show_pallets">
-            <label>Weight Per Pallet</label>
-            <input ng-model="order.work_type.pallet.weight" type="number" class="form-control input-sm"
-                   placeholder="Enter Weight of each pallet">
-        </div>
-        <div class="form-group fg-line" ng-show="show_bulk">
-            <label>Total Weight Of Bulk</label>
-            <input ng-model="order.work_type.bulk.weight" type="number" class="form-control input-sm"
-                   placeholder="Enter Total weight of bulk">
-        </div>
-        <div class="checkbox" ng-show="show_bulk">
-            <label>Continuous Work </label>
-            <input type="checkbox" ng-model="order.work_type.bulk.continuous">
-            <i class="input-helper"></i>
-        </div>
-        <div class="form-group fg-line" ng-show="order.work_type.bulk.continuous">
-            <label>Weight Per Hour</label>
-            <input ng-model="order.tons_per_hour" type="number" class="form-control input-sm"
-                   placeholder="Tons Per Hour">
-        </div>
-        </div>
-        <div class="form-group fg-line" ng-show="showField(5)">
-            <label>Transport Type</label>
-            <input ng-model="order.transport_type" type="text" class="form-control input-sm"
-                   placeholder="Transport Type">
-        </div>
-        <div class="form-group fg-line" ng-show="showField(6)">
-            <label>Start Date </label>
-            <input ng-model="order.start_date" type="date" class="form-control input-sm"
-                   placeholder="Start Date">
-        </div>
-        <div class="form-group fg-line" ng-show="showField(7)">
-            <label>End Date </label>
-            <input ng-model="order.end_date" type="date" class="form-control input-sm"
-                   placeholder="End Date">
-        </div>
+        <div role="form">
+            <div class="form-group fg-line" ng-show="showField(0)">
+                <label>Source Address</label>
+                <input id="autocomplete" placeholder="Enter Source address"
+                       ng-change="geolocate('source')" ng-model="addressQuery" type="text">
+            </div>
+            <div class="form-group fg-line" ng-show="showField(1)">
+                <label>Destination Address</label>
+                <input id="autocomplete1" placeholder="Enter Destination address"
+                       ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
+            </div>
+            <div class="form-group fg-line" ng-show="showField(3)">
+                <label>Type Of Goods</label>
+                <input ng-model="order.goods_type" type="text" class="form-control input-sm"
+                       placeholder="Enter type of goods">
+            </div>
+            <div ng-show="showField(4)">
+                <div class="form-group fg-line">
+                    <label>Work type:</label>
+                    <br>
+                    <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=!show_pallets">Pallets
+                    </button>
+                    <button class="btn bgm-deeporange waves-effect" ng-click="show_bulk=!show_bulk">Bulk</button>
+                    <button class="btn bgm-indigo waves-effect" ng-click="show_other=!show_other">Other</button>
+                </div>
+                <div class="form-group fg-line" ng-show="show_pallets">
+                    <label>Amount of pallets</label>
+                    <input ng-model="order.work_type.pallet.amount" type="number" class="form-control input-sm"
+                           placeholder="Enter Amount of pallets">
+                </div>
+                <div class="form-group fg-line" ng-show="show_pallets">
+                    <label>Weight Per Pallet</label>
+                    <input ng-model="order.work_type.pallet.weight" type="number" class="form-control input-sm"
+                           placeholder="Enter Weight of each pallet">
+                </div>
+                <div class="form-group fg-line" ng-show="show_bulk">
+                    <label>Total Weight Of Bulk</label>
+                    <input ng-model="order.work_type.bulk.weight" type="number" class="form-control input-sm"
+                           placeholder="Enter Total weight of bulk">
+                </div>
+                <div class="checkbox" ng-show="show_bulk">
+                    <label>Continuous Work </label>
+                    <input type="checkbox" ng-model="order.work_type.bulk.continuous">
+                    <i class="input-helper"></i>
+                </div>
+                <div class="form-group fg-line" ng-show="order.work_type.bulk.continuous">
+                    <label>Weight Per Hour</label>
+                    <input ng-model="order.tons_per_hour" type="number" class="form-control input-sm"
+                           placeholder="Tons Per Hour">
+                </div>
+            </div>
+            <div class="form-group fg-line" ng-show="showField(5)">
+                <label>Transport Type</label>
+                <input ng-model="order.transport_type" type="text" class="form-control input-sm"
+                       placeholder="Transport Type">
+            </div>
+            <div class="form-group fg-line" ng-show="showField(6)">
+                <label>Start Date </label>
+                <input ng-model="order.start_date" type="date" class="form-control input-sm"
+                       placeholder="Start Date">
+            </div>
+            <div class="form-group fg-line" ng-show="showField(7)">
+                <label>End Date </label>
+                <input ng-model="order.end_date" type="date" class="form-control input-sm"
+                       placeholder="End Date">
+            </div>
 
-        <div class="form-group fg-line" ng-show="showField(8)">
-            <label>Transport Type</label>
-            <input ng-model="order.deal_type" type="text" class="form-control input-sm"
-                   placeholder="Deal Type">
-        </div>
+            <div class="form-group fg-line" ng-show="showField(8)">
+                <label>Transport Type</label>
+                <input ng-model="order.deal_type" type="text" class="form-control input-sm"
+                       placeholder="Deal Type">
+            </div>
 
-        <button ng-show="showField(9)" ng-click="submit_order()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
-    </form>
-        <table>
-            <tr>
-                <td>
-                    <button ng-click="moveWizard('minus')" class="btn bgm-blue waves-effect">Prev</button>
-                </td>
-                <td>
-                    <button ng-click="moveWizard('plus') class="btn bgm-blue waves-effect">Next</button>
-                </td>
-            </tr>
-        </table>
+            <button ng-show="showField(9)" ng-click="submit_order()" type="submit"
+                    class="btn btn-primary btn-sm m-t-10">Submit
+            </button>
+            </form>
+            <table>
+                <tr>
+                    <td style="padding-right: 10px;">
+                        <button ng-click="moveWizard('minus')" class="btn bgm-blue waves-effect">Prev</button>
+                    </td>
+                    <td>
+                        <button ng-click="moveWizard('plus')" class=" btn bgm-blue waves-effect">Next</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <footer id="footer" data-ng-include="'template/footer.html'"></footer>
