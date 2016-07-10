@@ -59,6 +59,12 @@
                     <input ng-model="user.password_confirmation" type="password" class="form-control input-sm"
                            placeholder="Password Confirmation">
                 </div>
+                <div class="form-group fg-line">
+                    <label >Role</label>
+                    <select  class="form-control input-sm" ng-model="user.role"
+                             ng-options="role as role for role in ['customer','supplier']"
+                    ng-init="user.role='cutomer'"></select>
+                </div>
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" value="">
