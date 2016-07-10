@@ -62,8 +62,8 @@
                 <div class="form-group fg-line">
                     <label >Role</label>
                     <select  class="form-control input-sm" ng-model="user.role"
-                             ng-options="role as role for role in ['customer','supplier']"
-                    ng-init="user.role='cutomer'"></select>
+                             ng-options="role as role for role in roles"
+                    ng-init="user.role=roles[0]"></select>
                 </div>
                 <div class="checkbox">
                     <label>
