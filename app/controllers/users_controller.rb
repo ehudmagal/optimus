@@ -12,4 +12,13 @@ class UsersController < ApplicationController
     end
   end
 
+  protected
+
+  def configure_devise_permitted_parameters
+    registration_params = [:name, :email, :password, :password_confirmation, :role]
+    devise_parameter_sanitizer.for(:sign_up) {
+        |u| u.permit(registration_params)
+    }
+  end
+
 end
