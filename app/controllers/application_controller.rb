@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       cookies[:user_name] = current_user.name
       cookies[:user_email] = current_user.email
+      cookies[:user_role] = current_user.role
     else
       cookies[:user_name] = nil
       cookies[:user_email] = nil
