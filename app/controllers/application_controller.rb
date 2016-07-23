@@ -8,11 +8,13 @@ class ApplicationController < ActionController::Base
   after_filter :set_csrf_cookie
   after_filter :set_cookie_params_user
   respond_to :html, :json
+
   def set_csrf_cookie
     if protect_against_forgery?
       cookies.permanent['CSRF-TOKEN'] = form_authenticity_token
     end
   end
+
   def set_cookie_params_user
     if user_signed_in?
       cookies[:user_name] = current_user.name
@@ -26,11 +28,11 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
+  
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password,:role) }
+    registration_params = [:email, :name, :password, :password_confirmation, :role]
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(registration_params) }
   end
-
 
 
 end
