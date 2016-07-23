@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'main#index'
   devise_for :users
   resources :users
+  resources :bids
   resources :orders do
     collection do
       get "user_index", defaults: {format: :json}
