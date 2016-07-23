@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
     else
       cookies[:user_name] = nil
       cookies[:user_email] = nil
+      cookies[:user_role] = nil
     end
 
   end

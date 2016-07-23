@@ -17,6 +17,7 @@ class BidsController < ApplicationController
       format.html {super}
       format.json {
         bid = Bid.create(bid_params)
+        bid.update(user_id: current_user.id)
         render bid.json_attributes
       }
     end
