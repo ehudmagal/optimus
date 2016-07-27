@@ -82,8 +82,16 @@
                             </table>
                         </td>
                         <td ng-show="user.role == 'supplier'">
-                            <input type="number" ng-model="order.current_bid_price">
-                            <button  class="btn bgm-indigo waves-effect" ng-click="place_bid(order)" >Place Bid</button>
+                            <table>
+                                <tr>
+                                    <td style="padding-right: 15px;">
+                                        <input type="number" ng-model="order.current_bid_price">
+                                    </td>
+                                    <td>
+                                        <button  class="btn bgm-indigo waves-effect" ng-click="place_bid(order)" >Place Bid</button>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
