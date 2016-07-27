@@ -68,7 +68,7 @@
                         <td>
                             {{ order.deal_type }}
                         </td>
-                        <td >
+                        <td  ng-show="user.role == 'Guest'">
                             <button   class="btn bgm-indigo waves-effect"
                                     ng-click="order.show_bids = !order.show_bids">
                                 view bids
@@ -84,9 +84,12 @@
                         <td ng-show="user.role == 'supplier'">
                             <table>
                                 <tr>
-                                    <td style="padding-right: 15px;">
+                                    <td >
                                         <input type="number" ng-model="order.current_bid_price">
                                     </td>
+
+                                </tr>
+                                <tr>
                                     <td>
                                         <button  class="btn bgm-indigo waves-effect" ng-click="place_bid(order)" >Place Bid</button>
                                     </td>
