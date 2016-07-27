@@ -68,7 +68,7 @@
                         <td>
                             {{ order.deal_type }}
                         </td>
-                        <td  ng-show="user.role == 'Guest'">
+                        <td  ng-show="user.role != '' && user.role">
                             <button   class="btn bgm-indigo waves-effect"
                                     ng-click="order.show_bids = !order.show_bids">
                                 view bids
