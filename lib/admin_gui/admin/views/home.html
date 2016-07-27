@@ -68,8 +68,8 @@
                         <td>
                             {{ order.deal_type }}
                         </td>
-                        <td ng-show="private_zone && order.bids.length">
-                            <button class="btn bgm-indigo waves-effect">
+                        <td >
+                            <button ng-show="show_bids(orde)"  class="btn bgm-indigo waves-effect">
                                 view bids
                             </button>
                         </td>
