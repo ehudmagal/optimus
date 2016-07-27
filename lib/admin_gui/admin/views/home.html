@@ -69,19 +69,21 @@
                             {{ order.deal_type }}
                         </td>
                         <td >
-                            <button ng-show="show_bids(order)"  class="btn bgm-indigo waves-effect" ng-click="order.show_bids">
+                            <button ng-show="show_bids(order)"  class="btn bgm-indigo waves-effect"
+                                    ng-click="order.show_bids = !order.show_bids">
                                 view bids
                             </button>
                             <table ng-show="order.show_bids">
                                 <tr ng-repeat="bid in order.bids">
                                     <td>
-                                        {{bid.price}}
+                                        {{bid.price}} NIS
                                     </td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
                 </table>
+
             </div>
         </div>
     </div>
