@@ -19,7 +19,10 @@
         z-index: 99;
     }
 </style>
-<div class="container" data-ng-controller="tableCtrl as tctrl" id="orders_table">
+<div data-ng-controller="tableCtrl as tctrl" >
+
+
+<div class="container" id="orders_table">
 
     <div class="block-header">
 
@@ -95,13 +98,13 @@
     </div>
 
 </div>
-<section id="map" style="overflow: hidden;overflow-y: hidden;" data-ng-controller="tableCtrl as tctrl"></section>
-<div id="over_map" data-ng-controller="tableCtrl as tctrl">
-
-
+<section id="map" style="overflow: hidden;overflow-y: hidden;" ></section>
+<div id="over_map" >
+    
     <button id="show_list_button" ng-click="listView()" class="btn btn-default btn-icon-text waves-effect">
         <i class="zmdi zmdi-format-list-bulleted zmdi-hc-fw"></i> List
     </button>
 
+</div>
 </div>
 <footer id="footer" data-ng-include="'template/footer.html'"></footer>
