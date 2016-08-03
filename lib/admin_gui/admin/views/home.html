@@ -68,8 +68,8 @@
                         <td>
                             {{ order.deal_type }}
                         </td>
-                        <td  ng-show="user.role != '' && user.role">
-                            <button   class="btn bgm-indigo waves-effect"
+                        <td ng-show="user.role != '' && user.role">
+                            <button class="btn bgm-indigo waves-effect"
                                     ng-click="order.show_bids = !order.show_bids">
                                 view bids
                             </button>
@@ -82,19 +82,10 @@
                             </table>
                         </td>
                         <td ng-show="user.role == 'supplier'">
-                            <table>
-                                <tr>
-                                    <td >
-                                        <input type="number" ng-model="order.current_bid_price">
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button  class="btn bgm-indigo waves-effect" ng-click="place_bid(order)" >Place Bid</button>
-                                    </td>
-                                </tr>
-                            </table>
+                            <input type="number" ng-model="order.current_bid_price">
+                        </td>
+                        <td ng-show="user.role == 'supplier'">
+                            <button class="btn bgm-indigo waves-effect" ng-click="place_bid(order)">Place Bid</button>
                         </td>
                     </tr>
                 </table>
