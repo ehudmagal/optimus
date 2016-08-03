@@ -708,13 +708,15 @@ app.factory('transitService', function($rootScope, $http, $q, $log) {
 app.factory('CenterOfCoordsService', function($rootScope, $http, $q, $log) {
     return {
         centerOfCoords: function (coords) {
-            var res = null;
+            var res = {lat: 32.933052, lng: 35.08267799999999};
             var bound = new google.maps.LatLngBounds();
-            for (var i = 0; i < coords.length; i++) {
-                var latLng = coords[i];
-                bound.extend(latLng);
+            if(coords.length) {
+                for (var i = 0; i < coords.length; i++) {
+                    var latLng = coords[i];
+                    bound.extend(latLng);
+                }
+                res = bound.getCenter();
             }
-            res = bound.getCenter();
             return res;
         }
     };
