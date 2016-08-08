@@ -48,6 +48,8 @@
                                 <th>
                                     Bids
                                 </th>
+                                <th>Place Bid</th>
+                                <th>Bid Price</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -76,10 +78,10 @@
                                     </table>
                                 </td>
                                 <td>
-                                    <button ng-click="place_bid(order)">Place Bid</button>
+                                    <button ng-click="place_bid(order)" class="btn bgm-indigo waves-effect">Place Bid</button>
                                 </td>
                                 <td>
-                                    <input type="number" step="10" ng-model="order.current_bid_price">
+                                    <input type="number" step="10" ng-model="order.current_bid_price" placeholder="Bid Price">
                                 </td>
                             </tr>
                             </tbody>
