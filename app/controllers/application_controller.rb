@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
       cookies[:user_name] = current_user.name
       cookies[:user_email] = current_user.email
       cookies[:user_role] = current_user.role
+      cookies[:user_id] = current_user.id
     else
       cookies[:user_name] = nil
       cookies[:user_email] = nil
