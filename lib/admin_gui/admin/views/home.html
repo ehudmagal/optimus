@@ -75,6 +75,12 @@
                                         </tbody>
                                     </table>
                                 </td>
+                                <td>
+                                    <button ng-click="place_bid(order)">Place Bid</button>
+                                </td>
+                                <td>
+                                    <input type="number" step="10" ng-model="order.current_bid_price">
+                                </td>
                             </tr>
                             </tbody>
                         </table>
