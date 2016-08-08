@@ -68,7 +68,7 @@
                                         <tbody>
                                         <tr ng-repeat="bid in order.bids | bidsByUser: user">
                                             <td>
-                                                {{bid.user_id}}
+                                                {{bid.user.name}}
                                             </td>
                                             <td>
                                                 {{bid.price}}
