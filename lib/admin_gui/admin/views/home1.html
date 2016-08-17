@@ -56,7 +56,7 @@
                                 <td>{{order.user.email}}</td>
                                 <td>{{order.source.address}}</td>
                                 <td>{{order.destination.address}}</td>
-                                <td >
+                                <td>
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -77,10 +77,12 @@
                                     </table>
                                 </td>
                                 <td ng-show="user.role == 'supplier'">
-                                    <button ng-click="place_bid(order)" class="btn bgm-indigo waves-effect">Place Bid</button>
+                                    <button ng-click="place_bid(order)" class="btn bgm-indigo waves-effect">Place Bid
+                                    </button>
                                 </td>
                                 <td ng-show="user.role == 'supplier'">
-                                    <input type="number" step="10" ng-model="order.current_bid_price" placeholder="Bid Price">
+                                    <input type="number" step="10" ng-model="order.current_bid_price"
+                                           placeholder="Bid Price">
                                 </td>
                             </tr>
                             </tbody>
@@ -93,12 +95,196 @@
         </div>
 
     </div>
-    <section >
+    <section>
         <div class="card">
             <div class="card-header"></div>
             <div class="card-body" id="map"></div>
         </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header bgm-cyan">
+                        <h2>Shippers
+                            <small></small>
+                        </h2>
+
+
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-header-alt clearfix">
+                                <h2 class="lvh-label hidden-xs"></h2>
+
+                                <!-- ngIf: mactrl.listviewSearchStat -->
+
+                                <ul class="lv-actions actions">
+
+
+                                </ul>
+                            </div>
+
+                            <div class="lv-body">
+
+
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Access To Trucks</div>
+                                        <small class="lv-small"></small>
+
+                                        <div class="lv-actions actions dropdown" uib-dropdown="">
+                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
+                                               class="dropdown-toggle" aria-haspopup="true">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">GPS Tracking</div>
+                                        <small class="lv-small"></small>
+
+                                        <div class="lv-actions actions dropdown" uib-dropdown="">
+                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
+                                               class="dropdown-toggle" aria-haspopup="true">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">Instant PODs</div>
+                                        <small class="lv-small"></small>
+
+                                        <div class="lv-actions actions dropdown" uib-dropdown="">
+                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
+                                               class="dropdown-toggle" aria-haspopup="true">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header bgm-orange">
+                        <h2>Carriers
+                            <small></small>
+                        </h2>
+
+                        
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-header-alt clearfix">
+                                <h2 class="lvh-label hidden-xs"></h2>
+
+                                <!-- ngIf: mactrl.listviewSearchStat -->
+
+                                <ul class="lv-actions actions">
+
+
+                                </ul>
+                            </div>
+
+                            <div class="lv-body">
+
+
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Extra Shipments</div>
+                                        <small class="lv-small"></small>
+
+
+                                    </div>
+
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">Track Your Trucks</div>
+                                        <small class="lv-small"></small>
+
+                                        <div class="lv-actions actions dropdown" uib-dropdown="">
+                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
+                                               class="dropdown-toggle" aria-haspopup="true">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">Fast Payment</div>
+                                        <small class="lv-small"></small>
+
+                                        <div class="lv-actions actions dropdown" uib-dropdown="">
+                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
+                                               class="dropdown-toggle" aria-haspopup="true">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 </div>
-<footer id="footer" data-ng-include="'template/footer.html'"></footer>
