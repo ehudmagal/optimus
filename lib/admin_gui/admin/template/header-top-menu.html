@@ -23,10 +23,10 @@
             <li class="waves-effect" data-ui-sref-active="active">
                 <a  href="" ng-click="signout()">Logout</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
+            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'" >
                 <a data-ui-sref="private_zone" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
+            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'" >
                 <a data-ui-sref="form.new_order" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order</a>
             </li>
             <li class="waves-effect" data-ui-sref-active="active">
