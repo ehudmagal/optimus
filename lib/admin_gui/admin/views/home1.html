@@ -32,7 +32,7 @@
             </div>
             <div class="card-body">
                 <uib-accordion close-others="true">
-                    <div uib-accordion-group ng-repeat="order in orders" class="panel-default" heading="{{order.id}}">
+                    <div uib-accordion-group ng-repeat="order in orders" class="panel-default" heading="{{get_list_heading(order)}}">
                         <table class="table">
                             <thead>
                             <tr>
