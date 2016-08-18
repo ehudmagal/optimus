@@ -1,6 +1,14 @@
 <header id="header-2" data-current-skin={{mactrl.currentSkin}} data-ng-include src="'template/header.html'" data-ng-controller="headerCtrl as hctrl"></header>
 <aside id="sidebar" data-ng-include="'template/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
 
+<style>
+    #main {
+        height: 100% !important;
+        width: 100% !important;
+        background-image: url('/admin/img/truck1.jpg');
+    }
+</style>
+
 <section id="main">
 
     <section id="content" class="page-view" data-ui-view></section>
