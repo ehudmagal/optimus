@@ -19,21 +19,16 @@
     }
 </style>
 <div data-ng-controller="tableCtrl as tctrl">
-
-
-    <div class="container" id="orders_table">
-
-        <div class="block-header">
-
+    <section>
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body" id="map"></div>
         </div>
-
         <div class="card">
             <div class="card-header">
                 <h2>Orders</h2>
                 <br>
-                <button id="show_map_button" ng-click="mapView()" class="btn btn-default btn-icon-text waves-effect">
-                    <i class="zmdi zmdi-map zmdi-hc-fw"></i> Map
-                </button>
+
             </div>
             <div class="card-body">
                 <uib-accordion close-others="true">
@@ -92,13 +87,6 @@
 
             </div>
 
-        </div>
-
-    </div>
-    <section>
-        <div class="card">
-            <div class="card-header"></div>
-            <div class="card-body" id="map"></div>
         </div>
         <div class="row">
             <div class="col-sm-6">
@@ -164,7 +152,7 @@
                                     <div class="media-body">
                                         <div class="lv-title">Instant PODs</div>
                                         <small class="lv-small"></small>
-                                        
+
                                     </div>
                                 </div>
 
