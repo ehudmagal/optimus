@@ -34,91 +34,72 @@
 
                 </div>
 
-                <div class="lv-body">
-                    <div class="lv-item media"  ng-repeat="order in orders" ng-click="order_clicked(order)">
-                        <div class="checkbox pull-left">
-                            <label>
-                                <input type="checkbox" value="">
-                                <i class="input-helper"></i>
-                            </label>
-                        </div>
-                        <div class="media-body">
-                            <div class="lv-title">Per an error perpetua, fierent fastidii recteque ad pro. Mei id brute intellegam</div>
+              <div class="card-body">
+                  <table class="table" >
+                   <thead>
+                   <tr>
+                       <th>
+                           Shipper
+                       </th>
+                       <th>
+                           From
+                       </th>
+                       <th>
+                           To
+                       </th>
+                       <th>
+                           Start Date
+                       </th>
+                   </tr>
+                   </thead>
+                      <tbody>
+                      <tr ng-repeat-start="order in orders" data-ng-click="order.expended = !order.expended">
+                          <td>
+                              {{order.user.email}}
+                          </td>
+                          <td>
+                              {{order.source.address}}
+                          </td>
+                          <td>
+                              {{order.destination.address}}
+                          </td>
+                          <td>
+                              {{order.start_date}}
+                          </td>
+                      </tr>
+                      <tr ng-if="order.expended" ng-repeat-end="">
+                          <td colspan="4">
+                              <div class="card">
+                                  <div class="card-header">
+                                      Bids
+                                  </div>
+                                  <div class="card-body">
+                                      <table class="table">
+                                          <thead>
+                                          <tr>
+                                              <th>User</th>
+                                              <th>Price</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          <tr ng-repeat="bid in order.bids | bidsByUser: user">
+                                              <td>
+                                                  {{bid.user.name}}
+                                              </td>
+                                              <td>
+                                                  {{bid.price}}
+                                              </td>
+                                          </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
 
-                            <div class="lv-actions actions dropdown" uib-dropdown="">
-                                <a href="" uib-dropdown-toggle="" aria-expanded="false" class="dropdown-toggle" aria-haspopup="true">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        <div class="card" ng-show="user.role">
-            <div class="card-header">
-                <h2>Orders</h2>
-                <br>
-
-            </div>
-            <div class="card-body">
-                <uib-accordion close-others="true">
-                    <div uib-accordion-group ng-repeat="order in orders" class="panel-default" heading="{{get_list_heading(order)}}">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Carrier Email</th>
-                                <th>Source</th>
-                                <th>Destination</th>
-                                <th>
-                                    Bids
-                                </th>
-                                <th ng-show="user.role == 'supplier'">Place Bid</th>
-                                <th ng-show="user.role == 'supplier'">Bid Price</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>{{order.user.email}}</td>
-                                <td>{{order.source.address}}</td>
-                                <td>{{order.destination.address}}</td>
-                                <td>
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>User</th>
-                                            <th>Price</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr ng-repeat="bid in order.bids | bidsByUser: user">
-                                            <td>
-                                                {{bid.user.name}}
-                                            </td>
-                                            <td>
-                                                {{bid.price}}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                                <td ng-show="user.role == 'supplier'">
-                                    <button ng-click="place_bid(order)" class="btn bgm-indigo waves-effect">Place Bid
-                                    </button>
-                                </td>
-                                <td ng-show="user.role == 'supplier'">
-                                    <input type="number" step="10" ng-model="order.current_bid_price"
-                                           placeholder="Bid Price">
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </uib-accordion>
-
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
             </div>
 
         </div>
