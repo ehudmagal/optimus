@@ -25,6 +25,40 @@
             <div class="card-body" id="map"></div>
         </div>
         <div class="card" ng-show="user.role">
+            <div class="listview lv-bordered lv-lg">
+                <div class="lv-header-alt clearfix">
+                    <h2 class="lvh-label hidden-xs">Orders</h2>
+
+                    <!-- ngIf: mactrl.listviewSearchStat -->
+
+
+                </div>
+
+                <div class="lv-body">
+                    <div class="lv-item media"  ng-repeat="order in orders" ng-click="order_clicked(order)">
+                        <div class="checkbox pull-left">
+                            <label>
+                                <input type="checkbox" value="">
+                                <i class="input-helper"></i>
+                            </label>
+                        </div>
+                        <div class="media-body">
+                            <div class="lv-title">Per an error perpetua, fierent fastidii recteque ad pro. Mei id brute intellegam</div>
+
+                            <div class="lv-actions actions dropdown" uib-dropdown="">
+                                <a href="" uib-dropdown-toggle="" aria-expanded="false" class="dropdown-toggle" aria-haspopup="true">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="card" ng-show="user.role">
             <div class="card-header">
                 <h2>Orders</h2>
                 <br>
@@ -169,7 +203,7 @@
                             <small></small>
                         </h2>
 
-                        
+
                     </div>
 
                     <div class="card-body card-padding">
