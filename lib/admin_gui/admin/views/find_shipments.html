@@ -1,0 +1,271 @@
+<header id="header-2" data-current-skin="blue" data-ng-include src="'template/header.html'"
+        data-ng-controller="headerCtrl as hctrl"></header>
+<aside id="sidebar" data-ng-include="'template/sidebar-left.html'"
+       data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+
+<style>
+
+
+    #map {
+        height: 400px !important;
+        width: 100% !important;
+    }
+
+    #over_map {
+        position: absolute;
+        top: 20%;
+        right: 10px;
+        z-index: 99;
+    }
+</style>
+<div data-ng-controller="tableCtrl as tctrl">
+    <section>
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body" id="map"></div>
+        </div>
+        <div class="card">
+            <div class="listview lv-bordered lv-lg">
+                <div class="lv-header-alt clearfix">
+                    <h2 class="lvh-label hidden-xs">Orders</h2>
+
+                    <!-- ngIf: mactrl.listviewSearchStat -->
+
+
+                </div>
+
+              <div class="card-body">
+                  <table class="table" >
+                   <thead>
+                   <tr>
+                       <th>
+                           Shipper
+                       </th>
+                       <th>
+                           From
+                       </th>
+                       <th>
+                           To
+                       </th>
+                       <th>
+                           Start Date
+                       </th>
+                   </tr>
+                   </thead>
+                      <tbody>
+                      <tr ng-repeat-start="order in orders" data-ng-click="order.expended = !order.expended">
+                          <td>
+                              {{order.user.email}}
+                          </td>
+                          <td>
+                              {{order.source.address}}
+                          </td>
+                          <td>
+                              {{order.destination.address}}
+                          </td>
+                          <td>
+                              {{order.start_date}}
+                          </td>
+                      </tr>
+                      <tr ng-if="order.expended" ng-repeat-end="">
+                          <td colspan="4">
+                              <div class="card">
+                                  <div class="card-header">
+                                      Bids
+                                  </div>
+                                  <div class="card-body">
+                                      <table class="table">
+                                          <thead>
+                                          <tr>
+                                              <th>User</th>
+                                              <th>Price</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          <tr ng-repeat="bid in order.bids | bidsByUser: user">
+                                              <td>
+                                                  {{bid.user.name}}
+                                              </td>
+                                              <td>
+                                                  {{bid.price}}
+                                              </td>
+                                          </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+
+                          </td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header bgm-cyan">
+                        <h2>Shippers
+                            <small></small>
+                        </h2>
+
+
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-header-alt clearfix">
+                                <h2 class="lvh-label hidden-xs"></h2>
+
+                                <!-- ngIf: mactrl.listviewSearchStat -->
+
+                                <ul class="lv-actions actions">
+
+
+                                </ul>
+                            </div>
+
+                            <div class="lv-body">
+
+
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Access To Trucks</div>
+                                        <small class="lv-small"></small>
+
+
+                                    </div>
+
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">GPS Tracking</div>
+                                        <small class="lv-small"></small>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">Instant PODs</div>
+                                        <small class="lv-small"></small>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header bgm-orange">
+                        <h2>Carriers
+                            <small></small>
+                        </h2>
+
+
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div class="listview lv-bordered lv-lg">
+                            <div class="lv-header-alt clearfix">
+                                <h2 class="lvh-label hidden-xs"></h2>
+
+                                <!-- ngIf: mactrl.listviewSearchStat -->
+
+                                <ul class="lv-actions actions">
+
+
+                                </ul>
+                            </div>
+
+                            <div class="lv-body">
+
+
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">Extra Shipments</div>
+                                        <small class="lv-small"></small>
+
+
+                                    </div>
+
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">Track Your Trucks</div>
+                                        <small class="lv-small"></small>
+
+                                        <div class="lv-actions actions dropdown" uib-dropdown="">
+                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
+                                               class="dropdown-toggle" aria-haspopup="true">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="lv-item media">
+
+                                    <div class="pull-left">
+                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="lv-title">Fast Payment</div>
+                                        <small class="lv-small"></small>
+
+                                        <div class="lv-actions actions dropdown" uib-dropdown="">
+                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
+                                               class="dropdown-toggle" aria-haspopup="true">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
