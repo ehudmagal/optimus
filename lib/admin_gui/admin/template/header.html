@@ -25,7 +25,7 @@
             <li class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="carriers" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Carriers</a>
             </li>
-            <li  ng-show="user.role != 'guest'" class="waves-effect" data-ui-sref-active="active">
+            <li  ng-show="user.role == 'guest'" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> About Us</a>
             </li>
             <li class="waves-effect" data-ui-sref-active="active">
