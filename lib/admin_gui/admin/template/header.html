@@ -19,10 +19,10 @@
             <li class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active">
+            <li ng-show="user.role == 'guest'"  class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="shippers" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Shippers</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active">
+            <li ng-show="user.role == 'guest'"  class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="carriers" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Carriers</a>
             </li>
             <li  ng-show="user.role == 'guest'" class="waves-effect" data-ui-sref-active="active">
