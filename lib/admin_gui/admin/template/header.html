@@ -34,15 +34,7 @@
             <li  ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> About Us</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active">
-                <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
-            </li>
-            <li class="waves-effect" data-ui-sref-active="active" >
-                <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
-            </li>
-            <li  ng-show="user.role != ''"  class="waves-effect" data-ui-sref-active="active">
-                <a  href="" ng-click="signout()">Logout</a>
-            </li>
+
             <li  ng-show="user.role != ''" class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'" >
                 <a data-ui-sref="private_zone" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
             </li>
@@ -50,8 +42,21 @@
             <li ng-show="false" class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'">
                 <a data-ui-sref="new_order_dialog" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order Wizard</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active">
-                <a  href="" > Welcome {{user.name}}</a>
+            <li class="pull-right">
+                <ul class="top-menu">
+                    <li class="waves-effect" data-ui-sref-active="active">
+                        <a  href="" > Welcome {{user.name}}</a>
+                    </li>
+                    <li   ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
+                        <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
+                    </li>
+                    <li  ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active" >
+                        <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
+                    </li>
+                    <li  ng-show="user.role != ''"  class="waves-effect" data-ui-sref-active="active">
+                        <a  href="" ng-click="signout()">Logout</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>
