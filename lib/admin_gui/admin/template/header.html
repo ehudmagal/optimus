@@ -45,7 +45,7 @@
             <li class="pull-right">
                 <ul class="top-menu">
                     <li class="waves-effect" data-ui-sref-active="active">
-                        <a  href="" > Welcome {{user.name}}</a>
+                        <a  href="" > Welcome {{getUserName(user)}}</a>
                     </li>
                     <li   ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
                         <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
