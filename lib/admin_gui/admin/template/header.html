@@ -44,7 +44,7 @@
             </li>
             <li class="pull-right">
                 <ul class="top-menu">
-                    <li class="waves-effect" data-ui-sref-active="active">
+                    <li   class="waves-effect" data-ui-sref-active="active">
                         <a  href="" > {{getUserName(user)}}</a>
                     </li>
                     <li   ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
@@ -54,7 +54,7 @@
                         <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
                     </li>
                     <li  ng-show="user.role != ''"  class="waves-effect" data-ui-sref-active="active">
-                        <a  href="" ng-click="signout()">Logout</a>
+                        <a  href="" ng-click="signout()">        Logout</a>
                     </li>
                 </ul>
             </li>
