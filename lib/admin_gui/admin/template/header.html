@@ -61,12 +61,12 @@
                         <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
                     </li>
 
-                    <li class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
+                    <li ng-show="user.role != ''  && user.role"  class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
                                                             aria-haspopup="true" aria-expanded="false">
                         <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i></a>
                         <ul class="dropdown-menu dm-icon pull-right">
 
-                            <li ng-show="user.role != ''  && user.role"  class="hidden-xs"><a data-ng-click="signout()" href=""> Sign Out</a></li>
+                            <li  class="hidden-xs"><a data-ng-click="signout()" href=""> Sign Out</a></li>
                             <li class="divider hidden-xs"></li>
                         </ul>
                     </li>
