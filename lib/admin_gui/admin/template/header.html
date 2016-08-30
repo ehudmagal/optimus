@@ -49,9 +49,7 @@
             </li>
             <li class="pull-right">
                 <ul class="top-menu">
-                    <li style="margin: 0 5px" class="waves-effect" data-ui-sref-active="active">
-                        <a href=""> {{getUserName(user)}}</a>
-                    </li>
+
                     <li style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect"
                         data-ui-sref-active="active">
                         <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
@@ -65,9 +63,12 @@
                                                             aria-haspopup="true" aria-expanded="false">
                         <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i></a>
                         <ul class="dropdown-menu dm-icon pull-right">
-
-                            <li  class="hidden-xs"><a data-ng-click="signout()" href=""> Sign Out</a></li>
+                            <li class="hidden-xs" >
+                                <a href=""> {{getUserName(user)}}</a>
+                            </li>
                             <li class="divider hidden-xs"></li>
+                            <li  class="hidden-xs"><a data-ng-click="signout()" href=""> Sign Out</a></li>
+
                         </ul>
                     </li>
                 </ul>
