@@ -1,9 +1,10 @@
 <ul class="header-inner clearfix">
-    <li id="menu-trigger" data-target="mainmenu" data-toggle-sidebar data-model-left="mactrl.sidebarToggle.left" data-ng-class="{ 'open': mactrl.sidebarToggle.left === true }">
+    <li id="menu-trigger" data-target="mainmenu" data-toggle-sidebar data-model-left="mactrl.sidebarToggle.left"
+        data-ng-class="{ 'open': mactrl.sidebarToggle.left === true }">
         <div class="line-wrap">
             <div class="line top"></div>
             <div class="line center"></div>
-            <div class="line bottom"></div>  
+            <div class="line bottom"></div>
         </div>
     </li>
 
@@ -17,44 +18,83 @@
     <nav class="ha-menu" data-ng-controller="sidebrCtrl">
         <ul>
             <li class="waves-effect" data-ui-sref-active="active">
-                <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
+                <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i>
+                    Home</a>
             </li>
-            <li ng-show="user.role == ''"  class="waves-effect" data-ui-sref-active="active">
+            <li ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="shippers" data-ng-click="mactrl.sidebarStat($event)">For Shippers</a>
             </li>
-            <li ng-show="user.role == ''"  class="waves-effect" data-ui-sref-active="active">
+            <li ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="carriers" data-ng-click="mactrl.sidebarStat($event)">For Carriers</a>
             </li>
-            <li   class="waves-effect" data-ui-sref-active="active">
+            <li class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="find_shipments" data-ng-click="mactrl.sidebarStat($event)">Find Shipments</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'" >
-                <a data-ui-sref="new_order" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Shipment</a>
+            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'">
+                <a data-ui-sref="new_order"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Shipment</a>
             </li>
-            <li  ng-show="user.role == '' || !user.role" class="waves-effect" data-ui-sref-active="active">
-                <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> About Us</a>
+            <li ng-show="user.role == '' || !user.role" class="waves-effect" data-ui-sref-active="active">
+                <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> About
+                    Us</a>
             </li>
 
-            <li  ng-show="user.role != ''" class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'" >
-                <a data-ui-sref="private_zone" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
+            <li ng-show="user.role != ''" class="waves-effect" data-ui-sref-active="active"
+                ng-show="user.name != 'Guest'">
+                <a data-ui-sref="private_zone"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
             </li>
 
             <li ng-show="false" class="waves-effect" data-ui-sref-active="active" ng-show="user.name != 'Guest'">
-                <a data-ui-sref="new_order_dialog" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order Wizard</a>
+                <a data-ui-sref="new_order_dialog"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order
+                    Wizard</a>
             </li>
             <li class="pull-right">
                 <ul class="top-menu">
-                    <li  style="margin: 0 5px" class="waves-effect" data-ui-sref-active="active">
-                        <a  href="" > {{getUserName(user)}}</a>
+                    <li style="margin: 0 5px" class="waves-effect" data-ui-sref-active="active">
+                        <a href=""> {{getUserName(user)}}</a>
                     </li>
-                    <li    style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect" data-ui-sref-active="active">
+                    <li style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect"
+                        data-ui-sref-active="active">
                         <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
                     </li>
-                    <li  style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect" data-ui-sref-active="active" >
+                    <li style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect"
+                        data-ui-sref-active="active">
                         <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
                     </li>
-                    <li  style="margin: 0 5px" ng-show="user.role != '' && user.role"  class="waves-effect" data-ui-sref-active="active">
-                        <a  href="" ng-click="signout()"> Logout</a>
+                    <li style="margin: 0 5px" ng-show="user.role != '' && user.role" class="waves-effect"
+                        data-ui-sref-active="active">
+                        <a href="" ng-click="signout()"> Logout</a>
+                    </li>
+                    <li class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
+                                                            aria-haspopup="true" aria-expanded="false"><i
+                            class="tm-icon zmdi zmdi-more-vert"></i></a>
+                        <ul class="dropdown-menu dm-icon pull-right">
+                            <li class="skin-switch hidden-xs"><!-- ngRepeat: w in mactrl.skinList | limitTo : 6 --><span
+                                    ng-repeat="w in mactrl.skinList | limitTo : 6" class="ss-skin bgm-lightblue"
+                                    data-ng-click="mactrl.skinSwitch(w)"></span>
+                                <!-- end ngRepeat: w in mactrl.skinList | limitTo : 6 --><span
+                                        ng-repeat="w in mactrl.skinList | limitTo : 6" class="ss-skin bgm-bluegray"
+                                        data-ng-click="mactrl.skinSwitch(w)"></span>
+                                <!-- end ngRepeat: w in mactrl.skinList | limitTo : 6 --><span
+                                        ng-repeat="w in mactrl.skinList | limitTo : 6" class="ss-skin bgm-cyan"
+                                        data-ng-click="mactrl.skinSwitch(w)"></span>
+                                <!-- end ngRepeat: w in mactrl.skinList | limitTo : 6 --><span
+                                        ng-repeat="w in mactrl.skinList | limitTo : 6" class="ss-skin bgm-teal"
+                                        data-ng-click="mactrl.skinSwitch(w)"></span>
+                                <!-- end ngRepeat: w in mactrl.skinList | limitTo : 6 --><span
+                                        ng-repeat="w in mactrl.skinList | limitTo : 6" class="ss-skin bgm-green"
+                                        data-ng-click="mactrl.skinSwitch(w)"></span>
+                                <!-- end ngRepeat: w in mactrl.skinList | limitTo : 6 --><span
+                                        ng-repeat="w in mactrl.skinList | limitTo : 6" class="ss-skin bgm-orange"
+                                        data-ng-click="mactrl.skinSwitch(w)"></span>
+                                <!-- end ngRepeat: w in mactrl.skinList | limitTo : 6 --></li>
+                            <li class="divider hidden-xs"></li>
+                            <li class="hidden-xs"><a data-ng-click="hctrl.fullScreen()" href=""><i
+                                    class="zmdi zmdi-fullscreen"></i> Toggle Fullscreen</a></li>
+                            <li><a data-ng-click="hctrl.clearLocalStorage()" href=""><i class="zmdi zmdi-delete"></i>
+                                Clear Local Storage</a></li>
+                            <li><a href=""><i class="zmdi zmdi-face"></i> Privacy Settings</a></li>
+                            <li><a href=""><i class="zmdi zmdi-settings"></i> Other Settings</a></li>
+                        </ul>
                     </li>
                 </ul>
             </li>
