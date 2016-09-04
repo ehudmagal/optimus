@@ -39,32 +39,27 @@
                    <thead>
                    <tr>
                        <th>
-                           Shipper
+                           ID
                        </th>
                        <th>
-                           From
+                           Description
                        </th>
                        <th>
-                           To
+                           Lowest Price
                        </th>
-                       <th>
-                           Start Date
-                       </th>
+
                    </tr>
                    </thead>
                       <tbody>
                       <tr ng-repeat-start="order in orders" data-ng-click="order.expended = !order.expended">
+                          <th>
+                              {{order.id}}
+                          </th>
                           <td>
-                              {{order.user.email}}
+                               {{order.goods_type}} {{order.wight}}
                           </td>
                           <td>
-                              {{order.source.address}}
-                          </td>
-                          <td>
-                              {{order.destination.address}}
-                          </td>
-                          <td>
-                              {{order.start_date}}
+                              {{order_lowest_price(order)}}
                           </td>
                       </tr>
                       <tr ng-if="order.expended" ng-repeat-end="">
