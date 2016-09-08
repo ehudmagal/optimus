@@ -111,10 +111,79 @@
 
                 <div class="card-body card-padding">
                     <div class="form-group fg-line">
-                        <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=!show_pallets">Pallets
+                        <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=true">Pallets
                         </button>
-                        <button class="btn bgm-deeporange waves-effect" ng-click="show_bulk=!show_bulk">Boxes</button>
-                        <button class="btn bgm-indigo waves-effect" ng-click="show_other=!show_other">Truckload</button>
+                        <button class="btn bgm-deeporange waves-effect" ng-click="show_boxes=true">Boxes</button>
+                        <button class="btn bgm-indigo waves-effect" ng-click="clear_order_loads()">Truckload</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>Weight in KG</label>
+                                <input  type="number"  ng-init="order.weight=0"
+                                        ng-model="order.weight" class="form-control input-sm" placeholder="Wight">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="show_pallets" class="row">
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>Pallets</label>
+                                <input  type="number"  ng-init="order.pallets_count=0"
+                                        ng-model="order.pallets_count" class="form-control input-sm" placeholder="number of pallets">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>L cm</label>
+                                <input  type="number" ng-init="order.pallets_length=40" ng-model="order.pallets_length"
+                                        class="form-control input-sm" placeholder="Length">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>W cm</label>
+                                <input  type="number" ng-model="order.pallets_width" ng-init="order.pallets_width=40"
+                                        class="form-control input-sm" placeholder="Width">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>H cm</label>
+                                <input  type="number" ng-model="order.pallets_height" class="form-control input-sm"
+                                        ng-init="order.pallets_height=60" placeholder="Height">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="show_boxes" class="row">
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>Boxes</label>
+                                <input  type="number"  ng-init="order.boxes_count=0"
+                                        ng-model="order.boxes_count" class="form-control input-sm" placeholder="number of Boxes">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>L cm</label>
+                                <input  type="number" ng-init="order.boxes_length=0" ng-model="order.boxes_length"
+                                        class="form-control input-sm" placeholder="Length">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>W cm</label>
+                                <input  type="number" ng-model="order.boxes_width" ng-init="order.boxes_width=0"
+                                        class="form-control input-sm" placeholder="Width">
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="fg-line form-group">
+                                <label>H cm</label>
+                                <input  type="number" ng-model="order.boxes_height" class="form-control input-sm"
+                                        ng-init="order.boxes_height=0" placeholder="Height">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
