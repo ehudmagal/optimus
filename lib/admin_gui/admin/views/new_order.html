@@ -105,10 +105,17 @@
 
     <div class="card">
         <div class="card-header ch-alt" style="background-color: #536268;">
-            <h2 style="color: white;">Scheduling <small></small></h2>
+            <h2 style="color: white;">Scheduling </h2>
         </div>
 
         <div class="card-body card-padding">
+            <div class="form-group fg-float m-b-30">
+                <div class="fg-line">
+                    <h2>
+                        <label>Pickup</label>
+                    </h2>
+                </div>
+            </div>
             <table>
                 <tr>
                     <td>
@@ -122,8 +129,8 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input ng-model="order.start_date" type="date" class="form-control input-sm"
-                                                   placeholder="Start Date">
+                                            <input ng-model="order.pickup_time" type="date" class="form-control input-sm"
+                                                   placeholder="Pickup Day">
                                         </td>
                                     </tr>
                                 </table>
@@ -131,7 +138,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>
+                    <td style="padding-left: 30px;">
                         <div class="form-group fg-float m-b-30">
                             <div class="fg-line">
                                 <table>
@@ -142,7 +149,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" id="time" data-format="HH:mm" data-template="HH : mm" name="datetime">
+                                            <input type="text" id="time" ng-model="order.pickup_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
                                         </td>
                                     </tr>
                                 </table>
@@ -160,7 +167,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" id="cutoff_time" data-format="HH:mm" data-template="HH : mm" name="datetime">
+                                            <input type="text" id="cutoff_time" ng-model="order.pickup_cutoff_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
                                         </td>
                                     </tr>
                                 </table>
@@ -169,10 +176,75 @@
                     </td>
                 </tr>
             </table>
+            <div class="form-group fg-float m-b-30">
+                <div class="fg-line">
+                    <h2>
+                        <label>Delivery</label>
+                    </h2>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="form-group fg-float m-b-30">
+                            <div class="fg-line">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Delivery</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input ng-model="order.delivery_time" type="date" class="form-control input-sm"
+                                                   placeholder="Delivery Day">
+                                        </td>
+                                    </tr>
+                                </table>
 
-
-
+                            </div>
+                        </div>
+                    </td>
+                    <td style="padding-left: 30px;">
+                        <div class="form-group fg-float m-b-30">
+                            <div class="fg-line">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Deliver After </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="deliver_after_time" ng-model="order.deliver_after_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="padding-left: 30px;">
+                        <div class="form-group fg-float m-b-30">
+                            <div class="fg-line">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Cutoff Time </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="deliver_cutoff_time" ng-model="order.deliver_cutoff_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
+
 </div>
 <footer id="footer" data-ng-include="'template/footer.html'"></footer>
