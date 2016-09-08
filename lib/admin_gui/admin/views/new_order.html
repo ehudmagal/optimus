@@ -1,4 +1,4 @@
-<header id="header-2" data-current-skin={{mactrl.currentSkin}} data-ng-include src="'template/header.html'"
+<header id="header" data-current-skin="blue" data-ng-include src="'template/header.html'"
         data-ng-controller="headerCtrl as hctrl"></header>
 <aside id="sidebar" data-ng-include="'template/sidebar-left.html'"
        data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
@@ -13,12 +13,11 @@
     }
 
     #over_map {
-        position: absolute;
-        top: 20%;
+        top: 30%;
         left: 10px;
         z-index: 99;
         background: transparent;
-        width: 50%;
+        width: 40%;
     }
 
     .margin {
@@ -30,221 +29,250 @@
 </style>
 
 <section id="map" style="overflow: hidden;overflow-y: hidden;" data-ng-controller="newOrderCtrl as octrl"></section>
-<div id="over_map" data-ng-controller="newOrderCtrl as octrl">
-    <!--div class="section">
-        <form role="form">
-            <div class="form-group fg-line">
-                <label>Source Address</label>
-                <input id="autocomplete" placeholder="Enter Source address"
-                       ng-change="geolocate('source')" ng-model="addressQuery" type="text">
-            </div>
-            <div class="form-group fg-line">
-                <label>Destination Address</label>
-                <input id="autocomplete1" placeholder="Enter Destination address"
-                       ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
-            </div>
-            <div class="form-group fg-line">
-                <label>Type Of Goods</label>
-                <input ng-model="order.goods_type" type="text" class="form-control input-sm"
-                       placeholder="Enter type of goods">
-            </div>
-            <div class="form-group fg-line">
-                <label>Work type:</label>
-                <br>
-                <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=!show_pallets">Pallets</button>
-                <button class="btn bgm-deeporange waves-effect" ng-click="show_bulk=!show_bulk">Bulk</button>
-                <button class="btn bgm-indigo waves-effect" ng-click="show_other=!show_other">Other</button>
-            </div>
-            <div class="form-group fg-line" ng-show="show_pallets">
-                <label>Amount of pallets</label>
-                <input ng-model="order.work_type.pallet.amount" type="number" class="form-control input-sm"
-                       placeholder="Enter Amount of pallets">
-            </div>
-            <div class="form-group fg-line" ng-show="show_pallets">
-                <label>Weight Per Pallet In KG</label>
-                <input ng-model="order.work_type.pallet.weight" type="number" class="form-control input-sm"
-                       placeholder="Enter Weight of each pallet in KG">
-            </div>
-            <div class="form-group fg-line" ng-show="show_bulk">
-                <label>Total Weight Of Bulk In Tons</label>
-                <input ng-model="order.work_type.bulk.weight" type="number" class="form-control input-sm"
-                       placeholder="Enter Total weight of bulk in Tons">
-            </div>
-            <div class="checkbox" ng-show="show_bulk">
-                <label>Continuous Work </label>
-                <input type="checkbox" ng-model="order.work_type.bulk.continuous">
-                <i class="input-helper"></i>
-            </div>
-            <div class="form-group fg-line" ng-show="order.work_type.bulk.continuous">
-                <label>Weight Per Hour</label>
-                <input ng-model="order.tons_per_hour" type="number" class="form-control input-sm"
-                       placeholder="Tons Per Hour">
-            </div>
-            <div class="form-group fg-line">
-                <label>Transport Type</label>
-                <input ng-model="order.transport_type" type="text" class="form-control input-sm"
-                       placeholder="Transport Type">
-            </div>
 
-
-            <div class="form-group fg-line">
-                <label>End Date </label>
-                <input ng-model="order.end_date" type="date" class="form-control input-sm"
-                       placeholder="End Date">
-            </div>
-
-            <div class="form-group fg-line">
-                <label>Deal Type</label>
-                <input ng-model="order.deal_type" type="text" class="form-control input-sm"
-                       placeholder="Deal Type">
-            </div>
-
-            <button ng-click="submit_order()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
-        </form>
-    </div-->
-
-    <div class="card">
-        <div class="card-header ch-alt" style="background-color: #536268;">
-            <h2 style="color: white;">Scheduling </h2>
+<!--div class="section">
+    <form role="form">
+        <div class="form-group fg-line">
+            <label>Source Address</label>
+            <input id="autocomplete" placeholder="Enter Source address"
+                   ng-change="geolocate('source')" ng-model="addressQuery" type="text">
+        </div>
+        <div class="form-group fg-line">
+            <label>Destination Address</label>
+            <input id="autocomplete1" placeholder="Enter Destination address"
+                   ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
+        </div>
+        <div class="form-group fg-line">
+            <label>Type Of Goods</label>
+            <input ng-model="order.goods_type" type="text" class="form-control input-sm"
+                   placeholder="Enter type of goods">
+        </div>
+        <div class="form-group fg-line">
+            <label>Work type:</label>
+            <br>
+            <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=!show_pallets">Pallets</button>
+            <button class="btn bgm-deeporange waves-effect" ng-click="show_bulk=!show_bulk">Bulk</button>
+            <button class="btn bgm-indigo waves-effect" ng-click="show_other=!show_other">Other</button>
+        </div>
+        <div class="form-group fg-line" ng-show="show_pallets">
+            <label>Amount of pallets</label>
+            <input ng-model="order.work_type.pallet.amount" type="number" class="form-control input-sm"
+                   placeholder="Enter Amount of pallets">
+        </div>
+        <div class="form-group fg-line" ng-show="show_pallets">
+            <label>Weight Per Pallet In KG</label>
+            <input ng-model="order.work_type.pallet.weight" type="number" class="form-control input-sm"
+                   placeholder="Enter Weight of each pallet in KG">
+        </div>
+        <div class="form-group fg-line" ng-show="show_bulk">
+            <label>Total Weight Of Bulk In Tons</label>
+            <input ng-model="order.work_type.bulk.weight" type="number" class="form-control input-sm"
+                   placeholder="Enter Total weight of bulk in Tons">
+        </div>
+        <div class="checkbox" ng-show="show_bulk">
+            <label>Continuous Work </label>
+            <input type="checkbox" ng-model="order.work_type.bulk.continuous">
+            <i class="input-helper"></i>
+        </div>
+        <div class="form-group fg-line" ng-show="order.work_type.bulk.continuous">
+            <label>Weight Per Hour</label>
+            <input ng-model="order.tons_per_hour" type="number" class="form-control input-sm"
+                   placeholder="Tons Per Hour">
+        </div>
+        <div class="form-group fg-line">
+            <label>Transport Type</label>
+            <input ng-model="order.transport_type" type="text" class="form-control input-sm"
+                   placeholder="Transport Type">
         </div>
 
-        <div class="card-body card-padding">
-            <div class="form-group fg-float m-b-30">
-                <div class="fg-line">
-                    <h2>
-                        <label>Pickup</label>
-                    </h2>
+
+        <div class="form-group fg-line">
+            <label>End Date </label>
+            <input ng-model="order.end_date" type="date" class="form-control input-sm"
+                   placeholder="End Date">
+        </div>
+
+        <div class="form-group fg-line">
+            <label>Deal Type</label>
+            <input ng-model="order.deal_type" type="text" class="form-control input-sm"
+                   placeholder="Deal Type">
+        </div>
+
+        <button ng-click="submit_order()" type="submit" class="btn btn-primary btn-sm m-t-10">Submit</button>
+    </form>
+</div-->
+<div class="container" style="padding-top: 10%;">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header ch-alt" style="background-color: #536268;">
+                    <h2 style="color: white;">Load Details </h2>
+                </div>
+
+                <div class="card-body card-padding">
+                    <div class="form-group fg-line">
+                        <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=!show_pallets">Pallets
+                        </button>
+                        <button class="btn bgm-deeporange waves-effect" ng-click="show_bulk=!show_bulk">Boxes</button>
+                        <button class="btn bgm-indigo waves-effect" ng-click="show_other=!show_other">Truckload</button>
+                    </div>
                 </div>
             </div>
-            <table>
-                <tr>
-                    <td>
-                        <div class="form-group fg-float m-b-30">
-                            <div class="fg-line">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Pickup</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input ng-model="order.pickup_time" type="date" class="form-control input-sm"
-                                                   placeholder="Pickup Day">
-                                        </td>
-                                    </tr>
-                                </table>
+            <div class="card">
+                <div class="card-header ch-alt" style="background-color: #536268;">
+                    <h2 style="color: white;">Scheduling </h2>
+                </div>
 
-                            </div>
+                <div class="card-body card-padding">
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line">
+                            <h2>
+                                <label>Pickup</label>
+                            </h2>
                         </div>
-                    </td>
-                    <td style="padding-left: 30px;">
-                        <div class="form-group fg-float m-b-30">
-                            <div class="fg-line">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Ready Time </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" id="time" ng-model="order.pickup_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="form-group fg-float m-b-30">
+                                    <div class="fg-line">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Pickup</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input ng-model="order.pickup_time" type="date"
+                                                           class="form-control input-sm"
+                                                           placeholder="Pickup Day">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding-left: 30px;">
+                                <div class="form-group fg-float m-b-30">
+                                    <div class="fg-line">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Ready Time </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="time" ng-model="order.pickup_hour"
+                                                           data-format="HH:mm" data-template="HH : mm" name="datetime">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding-left: 30px;">
+                                <div class="form-group fg-float m-b-30">
+                                    <div class="fg-line">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Cutoff Time </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="cutoff_time"
+                                                           ng-model="order.pickup_cutoff_hour" data-format="HH:mm"
+                                                           data-template="HH : mm" name="datetime">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line">
+                            <h2>
+                                <label>Delivery</label>
+                            </h2>
                         </div>
-                    </td>
-                    <td style="padding-left: 30px;">
-                        <div class="form-group fg-float m-b-30">
-                            <div class="fg-line">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Cutoff Time </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" id="cutoff_time" ng-model="order.pickup_cutoff_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <div class="form-group fg-float m-b-30">
-                <div class="fg-line">
-                    <h2>
-                        <label>Delivery</label>
-                    </h2>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="form-group fg-float m-b-30">
+                                    <div class="fg-line">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Delivery</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input ng-model="order.delivery_time" type="date"
+                                                           class="form-control input-sm"
+                                                           placeholder="Delivery Day">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding-left: 30px;">
+                                <div class="form-group fg-float m-b-30">
+                                    <div class="fg-line">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Deliver After </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="deliver_after_time"
+                                                           ng-model="order.deliver_after_hour" data-format="HH:mm"
+                                                           data-template="HH : mm" name="datetime">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding-left: 30px;">
+                                <div class="form-group fg-float m-b-30">
+                                    <div class="fg-line">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Cutoff Time </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="deliver_cutoff_time"
+                                                           ng-model="order.deliver_cutoff_hour" data-format="HH:mm"
+                                                           data-template="HH : mm" name="datetime">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <table>
-                <tr>
-                    <td>
-                        <div class="form-group fg-float m-b-30">
-                            <div class="fg-line">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Delivery</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input ng-model="order.delivery_time" type="date" class="form-control input-sm"
-                                                   placeholder="Delivery Day">
-                                        </td>
-                                    </tr>
-                                </table>
-
-                            </div>
-                        </div>
-                    </td>
-                    <td style="padding-left: 30px;">
-                        <div class="form-group fg-float m-b-30">
-                            <div class="fg-line">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Deliver After </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" id="deliver_after_time" ng-model="order.deliver_after_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </td>
-                    <td style="padding-left: 30px;">
-                        <div class="form-group fg-float m-b-30">
-                            <div class="fg-line">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Cutoff Time </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" id="deliver_cutoff_time" ng-model="order.deliver_cutoff_hour" data-format="HH:mm" data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
         </div>
     </div>
-
 </div>
-<footer id="footer" data-ng-include="'template/footer.html'"></footer>
+
+
+
+
