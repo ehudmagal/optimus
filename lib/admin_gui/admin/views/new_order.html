@@ -121,7 +121,7 @@
 
                         </div>
                     </div>
-                    <div ng-show="show_pallets" class="row">
+                    <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group fg-line">
                                 <label>Destination Address</label>
@@ -148,8 +148,8 @@
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>Weight in KG</label>
-                                <input  type="number"  ng-init="order.weight=0"
-                                        ng-model="order.weight" class="form-control input-sm" placeholder="Wight">
+                                <input type="number" ng-init="order.weight=0"
+                                       ng-model="order.weight" class="form-control input-sm" placeholder="Wight">
                             </div>
                         </div>
                     </div>
@@ -157,29 +157,30 @@
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>Pallets</label>
-                                <input  type="number"  ng-init="order.pallets_count=0"
-                                        ng-model="order.pallets_count" class="form-control input-sm" placeholder="number of pallets">
+                                <input type="number" ng-init="order.pallets_count=0"
+                                       ng-model="order.pallets_count" class="form-control input-sm"
+                                       placeholder="number of pallets">
                             </div>
                         </div>
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>L cm</label>
-                                <input  type="number" ng-init="order.pallets_length=40" ng-model="order.pallets_length"
-                                        class="form-control input-sm" placeholder="Length">
+                                <input type="number" ng-init="order.pallets_length=40" ng-model="order.pallets_length"
+                                       class="form-control input-sm" placeholder="Length">
                             </div>
                         </div>
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>W cm</label>
-                                <input  type="number" ng-model="order.pallets_width" ng-init="order.pallets_width=40"
-                                        class="form-control input-sm" placeholder="Width">
+                                <input type="number" ng-model="order.pallets_width" ng-init="order.pallets_width=40"
+                                       class="form-control input-sm" placeholder="Width">
                             </div>
                         </div>
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>H cm</label>
-                                <input  type="number" ng-model="order.pallets_height" class="form-control input-sm"
-                                        ng-init="order.pallets_height=60" placeholder="Height">
+                                <input type="number" ng-model="order.pallets_height" class="form-control input-sm"
+                                       ng-init="order.pallets_height=60" placeholder="Height">
                             </div>
                         </div>
                     </div>
@@ -187,29 +188,30 @@
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>Boxes</label>
-                                <input  type="number"  ng-init="order.boxes_count=0"
-                                        ng-model="order.boxes_count" class="form-control input-sm" placeholder="number of Boxes">
+                                <input type="number" ng-init="order.boxes_count=0"
+                                       ng-model="order.boxes_count" class="form-control input-sm"
+                                       placeholder="number of Boxes">
                             </div>
                         </div>
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>L cm</label>
-                                <input  type="number" ng-init="order.boxes_length=0" ng-model="order.boxes_length"
-                                        class="form-control input-sm" placeholder="Length">
+                                <input type="number" ng-init="order.boxes_length=0" ng-model="order.boxes_length"
+                                       class="form-control input-sm" placeholder="Length">
                             </div>
                         </div>
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>W cm</label>
-                                <input  type="number" ng-model="order.boxes_width" ng-init="order.boxes_width=0"
-                                        class="form-control input-sm" placeholder="Width">
+                                <input type="number" ng-model="order.boxes_width" ng-init="order.boxes_width=0"
+                                       class="form-control input-sm" placeholder="Width">
                             </div>
                         </div>
                         <div class="col-xs-3">
                             <div class="fg-line form-group">
                                 <label>H cm</label>
-                                <input  type="number" ng-model="order.boxes_height" class="form-control input-sm"
-                                        ng-init="order.boxes_height=0" placeholder="Height">
+                                <input type="number" ng-model="order.boxes_height" class="form-control input-sm"
+                                       ng-init="order.boxes_height=0" placeholder="Height">
                             </div>
                         </div>
                     </div>
@@ -228,70 +230,48 @@
                             </h2>
                         </div>
                     </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="form-group fg-float m-b-30">
-                                    <div class="fg-line">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <label>Pickup</label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input ng-model="order.pickup_time" type="date"
-                                                           class="form-control input-sm"
-                                                           placeholder="Pickup Day">
-                                                </td>
-                                            </tr>
-                                        </table>
 
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 30px;">
-                                <div class="form-group fg-float m-b-30">
-                                    <div class="fg-line">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <label>Ready Time </label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" id="time" ng-model="order.pickup_hour"
-                                                           data-format="HH:mm" data-template="HH : mm" name="datetime">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 30px;">
-                                <div class="form-group fg-float m-b-30">
-                                    <div class="fg-line">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <label>Cutoff Time </label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" id="cutoff_time"
-                                                           ng-model="order.pickup_cutoff_hour" data-format="HH:mm"
-                                                           data-template="HH : mm" name="datetime">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="fg-line form-group">
+                                <label>Pickup</label>
+                                <input ng-model="order.pickup_time" type="date"
+                                       class="form-control input-sm"
+                                       placeholder="Pickup Day">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="fg-line form-group">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Ready Time </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="time" ng-model="order.pickup_hour"
+                                                   data-format="HH:mm" data-template="HH : mm" name="datetime">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="fg-line form-group">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Cutoff Time </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="cutoff_time"
+                                                   ng-model="order.pickup_cutoff_hour" data-format="HH:mm"
+                                                   data-template="HH : mm" name="datetime">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group fg-float m-b-30">
                         <div class="fg-line">
                             <h2>
@@ -299,71 +279,49 @@
                             </h2>
                         </div>
                     </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="form-group fg-float m-b-30">
-                                    <div class="fg-line">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <label>Delivery</label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input ng-model="order.delivery_time" type="date"
-                                                           class="form-control input-sm"
-                                                           placeholder="Delivery Day">
-                                                </td>
-                                            </tr>
-                                        </table>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="fg-line form-group">
+                                <label>Delivery</label>
 
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 30px;">
-                                <div class="form-group fg-float m-b-30">
-                                    <div class="fg-line">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <label>Deliver After </label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" id="deliver_after_time"
-                                                           ng-model="order.deliver_after_hour" data-format="HH:mm"
-                                                           data-template="HH : mm" name="datetime">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="padding-left: 30px;">
-                                <div class="form-group fg-float m-b-30">
-                                    <div class="fg-line">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    <label>Cutoff Time </label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" id="deliver_cutoff_time"
-                                                           ng-model="order.deliver_cutoff_hour" data-format="HH:mm"
-                                                           data-template="HH : mm" name="datetime">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                                <input ng-model="order.delivery_time" type="date"
+                                       class="form-control input-sm">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="fg-line form-group">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Deliver After </label>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="deliver_after_time"
+                                                   ng-model="order.deliver_after_hour" data-format="HH:mm"
+                                                   data-template="HH : mm" name="datetime">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="fg-line form-group">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Cutoff Time </label>
+
+                                        </td>
+                                        <td>
+                                            <input type="text" id="deliver_cutoff_time"
+                                                   ng-model="order.deliver_cutoff_hour" data-format="HH:mm"
+                                                   data-template="HH : mm" name="datetime">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
