@@ -106,6 +106,34 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header ch-alt" style="background-color: #536268;">
+                    <h2 style="color: white;">Route</h2>
+                </div>
+
+                <div class="card-body card-padding">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group fg-line">
+                                <label>Source Address</label>
+                                <input id="autocomplete" placeholder="Enter Source address"
+                                       ng-change="geolocate('source')" ng-model="addressQuery" type="text">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div ng-show="show_pallets" class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group fg-line">
+                                <label>Destination Address</label>
+                                <input id="autocomplete1" placeholder="Enter Destination address"
+                                       ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header ch-alt" style="background-color: #536268;">
                     <h2 style="color: white;">Load Details </h2>
                 </div>
 
