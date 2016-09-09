@@ -43,20 +43,25 @@
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="form-group fg-line">
-                                <label>Source Address</label>
-                                <input id="autocomplete" placeholder="Enter Source address"
-                                       ng-change="geolocate('source')" ng-model="addressQuery" type="text">
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <label>Source Address</label>
+                                    <input id="autocomplete" placeholder="Enter Source address"
+                                           class="form-control input-lg"
+                                           ng-change="geolocate('source')" ng-model="addressQuery" type="text">
+                                </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="form-group fg-line">
-                                <label>Destination Address</label>
-                                <input id="autocomplete1" placeholder="Enter Destination address"
-                                       ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <label>Source Address</label>
+                                    <input id="autocomplete1"  class="form-control input-lg"
+                                           placeholder="Enter Destination address"
+                                           ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -72,10 +77,12 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <form>
-                                <div class="form-group fg-line">
-                                    <label>Description</label>
-                                    <input placeholder="Description"
-                                           ng-model="order.description" type="text">
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Description</label>
+                                        <input placeholder="Description" class="form-control input-lg"
+                                               ng-model="order.description" type="text">
+                                    </div>
                                 </div>
                             </form>
                         </div>
