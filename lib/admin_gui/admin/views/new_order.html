@@ -28,271 +28,292 @@
     }
 </style>
 
-<div  data-ng-controller="newOrderCtrl as octrl">
-<section id="map" style="overflow: hidden;overflow-y: hidden;"></section>
+<div data-ng-controller="newOrderCtrl as octrl">
+    <section id="map" style="overflow: hidden;overflow-y: hidden;"></section>
 
 
-<div class="container" style="padding-top: 10%;">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header ch-alt" style="background-color: #536268;">
-                    <h2 style="color: white;">Route</h2>
-                </div>
-
-                <div class="card-body card-padding">
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group">
-                                <div class="fg-line">
-                                    <label>Source Address</label>
-                                    <input id="autocomplete" placeholder="Enter Source address"
-                                           class="form-control input-lg"
-                                           ng-change="geolocate('source')" ng-model="addressQuery" type="text">
-                                </div>
-                            </div>
-                        </div>
+    <div class="container" style="padding-top: 10%;">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header ch-alt" style="background-color: #536268;">
+                        <h2 style="color: white;">Route</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group">
-                                <div class="fg-line">
-                                    <label>Source Address</label>
-                                    <input id="autocomplete1"  class="form-control input-lg"
-                                           placeholder="Enter Destination address"
-                                           ng-change="geolocate('destination')" ng-model="addressQuery1" type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header ch-alt" style="background-color: #536268;">
-                    <h2 style="color: white;">Description</h2>
-                </div>
 
-                <div class="card-body card-padding">
+                    <div class="card-body card-padding">
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <form>
+                        <div class="row">
+                            <div class="col-xs-12">
                                 <div class="form-group">
                                     <div class="fg-line">
-                                        <label>Description</label>
-                                        <input placeholder="Description" class="form-control input-lg"
-                                               ng-model="order.description" type="text">
+                                        <label>Source Address</label>
+                                        <input id="autocomplete" placeholder="Enter Source address"
+                                               class="form-control input-lg"
+                                               ng-change="geolocate('source')" ng-model="addressQuery" type="text">
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
                                 <div class="form-group">
                                     <div class="fg-line">
-                                        <label>Contact Info</label>
-                                        <input placeholder="Contact Info" class="form-control input-lg"
-                                               ng-model="order.contact_info" type="text">
+                                        <label>Source Address</label>
+                                        <input id="autocomplete1" class="form-control input-lg"
+                                               placeholder="Enter Destination address"
+                                               ng-change="geolocate('destination')" ng-model="addressQuery1"
+                                               type="text">
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header ch-alt" style="background-color: #536268;">
-                    <h2 style="color: white;">Load Details </h2>
-                </div>
-
-                <div class="card-body card-padding">
-                    <div class="form-group fg-line">
-                        <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=true">Pallets
-                        </button>
-                        <button class="btn bgm-deeporange waves-effect" ng-click="show_boxes=true">Boxes</button>
-                        <button class="btn bgm-indigo waves-effect" ng-click="clear_order_loads()">Truckload</button>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>Weight in KG</label>
-                                <input type="number" ng-init="order.weight=0"
-                                       ng-model="order.weight" class="form-control input-sm" placeholder="Wight">
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-show="show_pallets" class="row">
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>Pallets</label>
-                                <input type="number" ng-init="order.pallets_count=0"
-                                       ng-model="order.pallets_count" class="form-control input-sm"
-                                       placeholder="number of pallets">
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>L cm</label>
-                                <input type="number" ng-init="order.pallets_length=40" ng-model="order.pallets_length"
-                                       class="form-control input-sm" placeholder="Length">
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>W cm</label>
-                                <input type="number" ng-model="order.pallets_width" ng-init="order.pallets_width=40"
-                                       class="form-control input-sm" placeholder="Width">
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>H cm</label>
-                                <input type="number" ng-model="order.pallets_height" class="form-control input-sm"
-                                       ng-init="order.pallets_height=60" placeholder="Height">
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-show="show_boxes" class="row">
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>Boxes</label>
-                                <input type="number" ng-init="order.boxes_count=0"
-                                       ng-model="order.boxes_count" class="form-control input-sm"
-                                       placeholder="number of Boxes">
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>L cm</label>
-                                <input type="number" ng-init="order.boxes_length=0" ng-model="order.boxes_length"
-                                       class="form-control input-sm" placeholder="Length">
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>W cm</label>
-                                <input type="number" ng-model="order.boxes_width" ng-init="order.boxes_width=0"
-                                       class="form-control input-sm" placeholder="Width">
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="fg-line form-group">
-                                <label>H cm</label>
-                                <input type="number" ng-model="order.boxes_height" class="form-control input-sm"
-                                       ng-init="order.boxes_height=0" placeholder="Height">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header ch-alt" style="background-color: #536268;">
-                    <h2 style="color: white;">Scheduling </h2>
+                <div class="card">
+                    <div class="card-header ch-alt" style="background-color: #536268;">
+                        <h2 style="color: white;">Description</h2>
+                    </div>
+
+                    <div class="card-body card-padding">
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <form>
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label>Description</label>
+                                            <input placeholder="Description" class="form-control input-lg"
+                                                   ng-model="order.description" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label>Contact Info</label>
+                                            <input placeholder="Contact Info" class="form-control input-lg"
+                                                   ng-model="order.contact_info" type="text">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-                <div class="card-body card-padding">
-                    <div class="form-group fg-float m-b-30">
-                        <div class="fg-line">
-                            <h2>
-                                <label>Pickup</label>
-                            </h2>
-                        </div>
+                <div class="card">
+                    <div class="card-header ch-alt" style="background-color: #536268;">
+                        <h2 style="color: white;">Load Details </h2>
                     </div>
 
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <div class="fg-line form-group">
-                                <label>Pickup</label>
-                                <input ng-model="order.pickup_time" type="date"
-                                       class="form-control input-sm"
-                                       placeholder="Pickup Day">
+                    <div class="card-body card-padding">
+                        <div class="form-group fg-line">
+                            <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=true">Pallets
+                            </button>
+                            <button class="btn bgm-deeporange waves-effect" ng-click="show_boxes=true">Boxes</button>
+                            <button class="btn bgm-indigo waves-effect" ng-click="clear_order_loads()">Truckload
+                            </button>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>Weight in KG</label>
+                                    <input type="number" ng-init="order.weight=0"
+                                           ng-model="order.weight" class="form-control input-sm" placeholder="Wight">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-4">
-                            <div class="fg-line form-group">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Ready Time </label>
-                                        </td>
-                                        <td>
-                                            <input type="text" id="time" ng-model="order.pickup_hour"
-                                                   data-format="HH:mm" data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
+                        <div ng-show="show_pallets" class="row">
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>Pallets</label>
+                                    <input type="number" ng-init="order.pallets_count=0"
+                                           ng-model="order.pallets_count" class="form-control input-sm"
+                                           placeholder="number of pallets">
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>L cm</label>
+                                    <input type="number" ng-init="order.pallets_length=40"
+                                           ng-model="order.pallets_length"
+                                           class="form-control input-sm" placeholder="Length">
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>W cm</label>
+                                    <input type="number" ng-model="order.pallets_width" ng-init="order.pallets_width=40"
+                                           class="form-control input-sm" placeholder="Width">
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>H cm</label>
+                                    <input type="number" ng-model="order.pallets_height" class="form-control input-sm"
+                                           ng-init="order.pallets_height=60" placeholder="Height">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-4">
-                            <div class="fg-line form-group">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Cutoff Time </label>
-                                        </td>
-                                        <td>
-                                            <input type="text" id="cutoff_time"
-                                                   ng-model="order.pickup_cutoff_hour" data-format="HH:mm"
-                                                   data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
+                        <div ng-show="show_boxes" class="row">
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>Boxes</label>
+                                    <input type="number" ng-init="order.boxes_count=0"
+                                           ng-model="order.boxes_count" class="form-control input-sm"
+                                           placeholder="number of Boxes">
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>L cm</label>
+                                    <input type="number" ng-init="order.boxes_length=0" ng-model="order.boxes_length"
+                                           class="form-control input-sm" placeholder="Length">
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>W cm</label>
+                                    <input type="number" ng-model="order.boxes_width" ng-init="order.boxes_width=0"
+                                           class="form-control input-sm" placeholder="Width">
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="fg-line form-group">
+                                    <label>H cm</label>
+                                    <input type="number" ng-model="order.boxes_height" class="form-control input-sm"
+                                           ng-init="order.boxes_height=0" placeholder="Height">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group fg-float m-b-30">
-                        <div class="fg-line">
-                            <h2>
-                                <label>Delivery</label>
-                            </h2>
+                </div>
+                <div class="card">
+                    <div class="card-header ch-alt" style="background-color: #536268;">
+                        <h2 style="color: white;">Scheduling </h2>
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div class="form-group fg-float m-b-30">
+                            <div class="fg-line">
+                                <h2>
+                                    <label>Pickup</label>
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <label>Pickup</label>
+                                    <input ng-model="order.pickup_time" type="date"
+                                           class="form-control input-sm"
+                                           placeholder="Pickup Day">
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>Ready Time </label>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="time" ng-model="order.pickup_hour"
+                                                       data-format="HH:mm" data-template="HH : mm" name="datetime">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>Cutoff Time </label>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="cutoff_time"
+                                                       ng-model="order.pickup_cutoff_hour" data-format="HH:mm"
+                                                       data-template="HH : mm" name="datetime">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group fg-float m-b-30">
+                            <div class="fg-line">
+                                <h2>
+                                    <label>Delivery</label>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <label>Delivery</label>
+
+                                    <input ng-model="order.delivery_time" type="date"
+                                           class="form-control input-sm">
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>Deliver After </label>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="deliver_after_time"
+                                                       ng-model="order.deliver_after_hour" data-format="HH:mm"
+                                                       data-template="HH : mm" name="datetime">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>Cutoff Time </label>
+
+                                            </td>
+                                            <td>
+                                                <input type="text" id="deliver_cutoff_time"
+                                                       ng-model="order.deliver_cutoff_hour" data-format="HH:mm"
+                                                       data-template="HH : mm" name="datetime">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <div class="fg-line form-group">
-                                <label>Delivery</label>
+                </div>
+                <div class="card">
+                    <div class="card-header ch-alt" style="background-color: #536268;">
+                        <h2 style="color: white;">Submit Shipment</h2>
+                    </div>
 
-                                <input ng-model="order.delivery_time" type="date"
-                                       class="form-control input-sm">
+                    <div class="card-body card-padding">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <form>
+                                    <div class="form-group">
+                                        <button class="btn bgm-blue waves-effect">Submit Shipment</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div class="col-xs-4">
-                            <div class="fg-line form-group">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Deliver After </label>
-                                        </td>
-                                        <td>
-                                            <input type="text" id="deliver_after_time"
-                                                   ng-model="order.deliver_after_hour" data-format="HH:mm"
-                                                   data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-xs-4">
-                            <div class="fg-line form-group">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label>Cutoff Time </label>
 
-                                        </td>
-                                        <td>
-                                            <input type="text" id="deliver_cutoff_time"
-                                                   ng-model="order.deliver_cutoff_hour" data-format="HH:mm"
-                                                   data-template="HH : mm" name="datetime">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
 
