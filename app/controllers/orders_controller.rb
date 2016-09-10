@@ -3,11 +3,12 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    render json: @orders.map{|order| order.json_attributes}
+    render json: @orders.map { |order| order.json_attributes }
   end
+
   def user_index
     orders = Order.where(user_id: current_user.id)
-    render json: orders.map{|order| order.json_attributes}
+    render json: orders.map { |order| order.json_attributes }
   end
 
   def show
@@ -17,13 +18,13 @@ class OrdersController < ApplicationController
 
   def create
     respond_to do |format|
-      format.html {super}
+      format.html { super }
       format.json {
         order = Order.create(order_params)
         order.update(user_id: current_user.id,
                      source: params['order']['source'],
                      destination: params['order']['destination'],
-                     work_type:  params['order']['work_type'])
+                     work_type: params['order']['work_type'])
         render json: order
       }
     end
@@ -31,7 +32,7 @@ class OrdersController < ApplicationController
 
   def update
     respond_to do |format|
-      format.html {super}
+      format.html { super }
       format.json {
         order = Order.find params['order']['id']
         order.update(params['order'])
@@ -43,7 +44,11 @@ class OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:source, :destination, :weight, :goods_type, :work_type, :transport_type,
-                                  :start_date,:end_date,:tons_per_hour,:deal_type,:fixed_price)
+                                  :start_date, :end_date, :tons_per_hour, :deal_type, :fixed_price, :description,
+                                  :contact_info, :pallets_count, :pallets_height, :pallets_length, :pallets_width,
+                                  :boxes_count, :boxes_height, :boxes_length, :boxes_width,
+                                  :pickup_cutoff_time,:pickup_time,:delivery_cutoff_time,:delivery_time
+    )
   end
 
 
