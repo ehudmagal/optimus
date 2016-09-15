@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
                                   :contact_info, :pallets_count, :pallets_height, :pallets_length, :pallets_width,
                                   :boxes_count, :boxes_height, :boxes_length, :boxes_width,
                                   :pickup_cutoff_time,:pickup_time,:delivery_cutoff_time,:delivery_time,
-                                  :distance
+                                  :distance,:selected_bid_id
     )
   end
 
