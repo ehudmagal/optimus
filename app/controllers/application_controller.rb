@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def render_json_errors errors
+    render json: errors,
+           status: :unprocessable_entity
+  end
+
   def set_cookie_params_user
     if user_signed_in?
       cookies[:user_name] = current_user.name
