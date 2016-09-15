@@ -16,8 +16,7 @@ class UsersController < ApplicationController
     unless user.role == "supplier"
       render_json_errors ['user closing bids must be driver']
     end
-    bids = Bid.where(user_id: user.id);
-    orders = Order.where(selected_bid_id: bids.pluck(:id))
+    orders = orders_closed_with_user user.id
     render json: orders.count
   end
 
