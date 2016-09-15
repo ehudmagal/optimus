@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
   def set_bids_status
     unless selected_bid_id.nil?
       over_bids = bids.where.not(id: selected_bid_id)
-      cancelled_bids.each do |bid|
+      over_bids.each do |bid|
         bid.update status: 'over'
       end
       selected_bid = bids.where(id: selected_bid_id).first
