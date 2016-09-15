@@ -45,6 +45,21 @@
                            Description
                        </th>
                        <th>
+                           Pickup Location
+                       </th>
+                       <th>
+                           Pickup Time
+                       </th>
+                       <th>
+                           Drop Off Location
+                       </th>
+                       <th>
+                           Drop Off Time
+                       </th>
+                       <th>
+                           Total Weight KG
+                       </th>
+                       <th>
                            Lowest Price
                        </th>
 
@@ -56,7 +71,22 @@
                               {{order.id}}
                           </th>
                           <td>
-                               {{order.goods_type}} {{order.wight}}
+                               {{order.description}}
+                          </td>
+                          <td>
+                              {{order.source.address}}
+                          </td>
+                          <td>
+                              {{order.pickup_time}}
+                          </td>
+                          <td>
+                              {{order.destination.address}}
+                          </td>
+                          <td>
+                              {{order.delivery_time}}
+                          </td>
+                          <td>
+                              {{order.weight}}
                           </td>
                           <td>
                               {{order_lowest_price(order)}}
