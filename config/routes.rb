@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   mount AdminGui => '/admin'
   root 'main#index'
   devise_for :users
-  resources :users
+  resources :users do
+    collection do
+      get "num_of_closed_bids_with_user", defaults: {format: :json}
+    end
+  end
   resources :bids
   resources :orders do
     collection do
