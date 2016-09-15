@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       format.html { super }
       format.json {
         order = Order.find params['order']['id']
-        order.update(params['order'])
+        order.update!(order_params)
         render json: order
       }
     end
