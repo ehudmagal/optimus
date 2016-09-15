@@ -76,32 +76,32 @@
                    </tr>
                    </thead>
                       <tbody>
-                      <tr ng-repeat-start="order in orders" data-ng-click="order.expended = !order.expended">
-                          <th>
+                      <tr ng-repeat-start="order in orders">
+                          <td  data-ng-click="order.expended = !order.expended" >
                               {{order.id}}
-                          </th>
-                          <td>
+                          </td>
+                          <td  data-ng-click="order.expended = !order.expended">
                                {{order.description}}
                           </td>
-                          <td>
+                          <td  data-ng-click="order.expended = !order.expended">
                               {{order.source.address}}
                           </td>
-                          <td>
+                          <td  data-ng-click="order.expended = !order.expended">
                               {{order.pickup_time}}
-                          </td>
-                          <td>
+                          </td >
+                          <td  data-ng-click="order.expended = !order.expended">
                               {{order.destination.address}}
                           </td>
-                          <td>
+                          <td  data-ng-click="order.expended = !order.expended">
                               {{order.delivery_time}}
                           </td>
-                          <td>
+                          <td  data-ng-click="order.expended = !order.expended">
                               {{order.weight}}
                           </td>
-                          <td>
+                          <td  data-ng-click="order.expended = !order.expended">
                               {{order.distance}}
                           </td>
-                          <td>
+                          <td  data-ng-click="order.expended = !order.expended">
                               {{order_lowest_price(order)}}
                           </td>
                           <td>
