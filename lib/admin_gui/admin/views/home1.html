@@ -66,6 +66,12 @@
                        <th>
                            Lowest Price
                        </th>
+                       <th>
+                           Status
+                       </th>
+                       <th>
+                           Follow Shipment
+                       </th>
 
                    </tr>
                    </thead>
@@ -97,6 +103,14 @@
                           </td>
                           <td>
                               {{order_lowest_price(order)}}
+                          </td>
+                          <td>
+
+                          </td>
+                          <td>
+                              <label class="checkbox checkbox-inline m-r-20">
+                                  <input type="checkbox" >
+                              </label>
                           </td>
                       </tr>
                       <tr ng-if="order.expended" ng-repeat-end="">
