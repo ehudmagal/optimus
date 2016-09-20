@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915195332) do
+ActiveRecord::Schema.define(version: 20160920184448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160915195332) do
     t.float    "boxes_width"
     t.float    "distance"
     t.integer  "selected_bid_id"
+    t.string   "status"
   end
 
   add_index "orders", ["selected_bid_id"], name: "index_orders_on_selected_bid_id", using: :btree
