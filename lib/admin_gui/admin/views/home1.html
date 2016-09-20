@@ -141,7 +141,7 @@
                                           </tr>
                                           </thead>
                                           <tbody>
-                                          <tr ng-repeat="bid in order.bids | bidsByUser: user">
+                                          <tr ng-repeat="bid in order.bids | bidsByUser: user"  bgcolor="{{BidColorService.color(bid)}}">
                                               <td>
                                                   {{bid.user.name}}
                                               </td>
