@@ -2,7 +2,9 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :bids
   before_save :set_bids_status
-
+  after_create :set_default_status
+  STATUSES = {booked: 'booked', bidded: 'bidded',approved: 'approved',
+              before_pickup: 'before_pickup', picked_up: 'picked_up', delivered: 'delivered'}
   def json_attributes
     json = as_json
     json['user'] = user
@@ -24,4 +26,10 @@ class Order < ActiveRecord::Base
       end
     end
   end
+
+  private
+  def set_default_status
+    self.status = STATUSES[:booked]
+  end
+
 end
