@@ -17,10 +17,11 @@
         right: 10px;
         z-index: 99;
     }
-    .invisible_button{
+
+    .invisible_button {
         float: left;
-        top:0;
-        left:0;
+        top: 0;
+        left: 0;
         position: absolute;
         background-color: #2196F3;
         border-color: transparent;
@@ -36,6 +37,7 @@
         <div class="row" style="display:none" id="order_dialog">
             <div class="col-sm-12">
                 <div class="card">
+
                     <div class="card-header ch-alt" style="background-color: #2196F3;">
                         <button class="invisible_button"
                                 ng-click="close_order_dialog()">
@@ -43,29 +45,59 @@
                         </button>
                         <h2 style="color: white;">Order Details</h2>
                     </div>
-
                     <div class="card-body card-padding">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <form >
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label>Pickup Location</label>
+                                            <input  class="form-control input-lg" ng-model="order_to_show.source.address" ng-disabled="true"
+                                                   type="text">
+                                        </div>
+                                    </div>
 
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <div class="fg-line">
-                                        <label>Source Address</label>
-                                        <input ng-model="order_to_show.source.address"  ng-disabled="true"
-                                               type="text">
+
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label>Drop Off Location</label>
+                                            <input  class="form-control input-lg"
+                                                    ng-model="order_to_show.destination.address" ng-disabled="true"
+                                                   type="text">
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <div class="fg-line">
-                                        <label>Destination Address</label>
-                                        <input ng-model="order_to_show.destination.address"  ng-disabled="true"
-                                               type="text">
+
+
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label>Total Weight</label>
+                                            <input ng-model="order_to_show.weight"  class="form-control input-lg"
+                                                   ng-disabled="true"
+                                                   type="text">
+                                        </div>
                                     </div>
-                                </div>
+
+
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label>Distance in KM</label>
+                                            <input  class="form-control input-lg"
+                                                    ng-model="order_to_show.distance" ng-disabled="true"
+                                                   type="text">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label> Follow Shipment</label>
+                                            <button class="btn bgm-indigo waves-effect"  class="form-control input-lg" >
+                                                Follow Shipment
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -82,154 +114,133 @@
 
                 </div>
 
-              <div class="card-body">
-                  <table class="table" >
-                   <thead>
-                   <tr>
-                       <th>
-                           ID
-                       </th>
-                       <th>
-                           Description
-                       </th>
-                       <th>
-                           Pickup Location
-                       </th>
-                       <th>
-                           Pickup Time
-                       </th>
-                       <th>
-                           Drop Off Location
-                       </th>
-                       <th>
-                           Drop Off Time
-                       </th>
-                       <th>
-                           Total Weight KG
-                       </th>
-                       <th>
-                           Distance KM
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Pickup Location
+                            </th>
+                            <th>
+                                Pickup Time
+                            </th>
+                            <th>
+                                Drop Off Location
+                            </th>
+                            <th>
+                                Drop Off Time
+                            </th>
+                            <th>
+                                Lowest Price
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Details
+                            </th>
 
-                       </th>
-                       <th>
-                           Lowest Price
-                       </th>
-                       <th>
-                           Status
-                       </th>
-                       <th>
-                           Details
-                       </th>
-                       <th>
-                           Follow Shipment
-                       </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat-start="order in orders">
+                            <td data-ng-click="order.expended = !order.expended">
+                                {{order.id}}
+                            </td>
+                            <td data-ng-click="order_clicked(order)">
+                                {{order.description}}
+                            </td>
+                            <td data-ng-click="order_clicked(order)">
+                                {{order.source.address}}
+                            </td>
+                            <td data-ng-click="order_clicked(order)">
+                                {{GetDateStringFactory.getDateString(order.pickup_time)}}
+                            </td>
+                            <td data-ng-click="order_clicked(order)">
+                                {{order.destination.address}}
+                            </td>
+                            <td data-ng-click="order_clicked(order)">
+                                {{GetDateStringFactory.getDateString(order.delivery_time)}}
+                            </td>
+                            <td data-ng-click="order_clicked(order)">
+                                {{order_lowest_price(order)}}
+                            </td>
+                            <td>
+                                {{order.status}}
+                            </td>
+                            <td>
+                                <button class="btn bgm-indigo waves-effect"
+                                        ng-click="show_order_dialog(order)">
+                                    Show Order Details
+                                </button>
+                            </td>
+                        </tr>
+                        <tr ng-if="order.expended" ng-repeat-end="">
+                            <td colspan="4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Bids
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>User</th>
+                                                <th>Rating</th>
+                                                <th>Price</th>
+                                                <th>
+                                                    Times Worked With Him
+                                                </th>
+                                                <th>
+                                                    Status
+                                                </th>
+                                                <th>
+                                                    Accept
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="bid in order.bids | bidsByUser: user"
+                                                bgcolor="{{BidColorService.color(bid)}}"
+                                                style="{{BidFontStyleService.style(bid)}}">
+                                                <td>
+                                                    {{bid.user.name}}
+                                                </td>
+                                                <td>
+                                                    100
+                                                </td>
+                                                <td>
+                                                    {{bid.price}}
+                                                </td>
+                                                <td>
+                                                    {{bid.times_user_worked_with}}
+                                                </td>
+                                                <td>
+                                                    {{bid.status}}
+                                                </td>
+                                                <td>
+                                                    <button class="btn bgm-indigo waves-effect"
+                                                            ng-click="accept_bid(bid,order)"
+                                                            ng-show="show_bid_accept(bid)">Accept
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
-                   </tr>
-                   </thead>
-                      <tbody>
-                      <tr ng-repeat-start="order in orders">
-                          <td  data-ng-click="order.expended = !order.expended" >
-                              {{order.id}}
-                          </td>
-                          <td  data-ng-click="order_clicked(order)">
-                               {{order.description}}
-                          </td>
-                          <td  data-ng-click="order_clicked(order)">
-                              {{order.source.address}}
-                          </td>
-                          <td  data-ng-click="order_clicked(order)">
-                              {{GetDateStringFactory.getDateString(order.pickup_time)}}
-                          </td >
-                          <td  data-ng-click="order_clicked(order)">
-                              {{order.destination.address}}
-                          </td>
-                          <td  data-ng-click="order_clicked(order)">
-                              {{GetDateStringFactory.getDateString(order.delivery_time)}}
-                          </td>
-                          <td  data-ng-click="order_clicked(order)">
-                              {{order.weight}}
-                          </td>
-                          <td  data-ng-click="order_clicked(order)">
-                              {{order.distance}}
-                          </td>
-                          <td  data-ng-click="order_clicked(order)">
-                              {{order_lowest_price(order)}}
-                          </td>
-                          <td>
-                              {{order.status}}
-                          </td>
-                          <td>
-                              <button class="btn bgm-indigo waves-effect"
-                                      ng-click="show_order_dialog(order)">
-                                  Show Order Details</button>
-                          </td>
-                          <td>
-                              <div class="checkbox m-b-15">
-                                  <label>
-                                      <input type="checkbox" value="">
-                                      <i class="input-helper"></i>
-                                  </label>
-                              </div>
-                          </td>
-                      </tr>
-                      <tr ng-if="order.expended" ng-repeat-end="">
-                          <td colspan="4">
-                              <div class="card">
-                                  <div class="card-header">
-                                      Bids
-                                  </div>
-                                  <div class="card-body">
-                                      <table class="table">
-                                          <thead>
-                                          <tr>
-                                              <th>User</th>
-                                              <th>Rating</th>
-                                              <th>Price</th>
-                                              <th>
-                                                  Times Worked With Him
-                                              </th>
-                                              <th>
-                                                  Status
-                                              </th>
-                                              <th>
-                                                  Accept
-                                              </th>
-                                          </tr>
-                                          </thead>
-                                          <tbody>
-                                          <tr ng-repeat="bid in order.bids | bidsByUser: user"  bgcolor="{{BidColorService.color(bid)}}"
-                                              style="{{BidFontStyleService.style(bid)}}">
-                                              <td>
-                                                  {{bid.user.name}}
-                                              </td>
-                                              <td>
-                                                  100
-                                              </td>
-                                              <td>
-                                                  {{bid.price}}
-                                              </td>
-                                              <td>
-                                                 {{bid.times_user_worked_with}}
-                                              </td>
-                                              <td>
-                                                  {{bid.status}}
-                                              </td>
-                                              <td>
-                                                  <button class="btn bgm-indigo waves-effect"
-                                                  ng-click="accept_bid(bid,order)"
-                                                          ng-show="show_bid_accept(bid)">Accept</button>
-                                              </td>
-                                          </tr>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                              </div>
-
-                          </td>
-                      </tr>
-                      </tbody>
-                  </table>
-              </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
