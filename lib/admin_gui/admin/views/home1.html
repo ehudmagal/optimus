@@ -19,10 +19,48 @@
     }
 </style>
 <div data-ng-controller="tableCtrl as tctrl">
+
     <section>
         <div class="card">
             <div class="card-header"></div>
             <div class="card-body" id="map"></div>
+        </div>
+        <div class="row" style="display:none" id="order_dialog">
+          <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header ch-alt" style="background-color: #536268;">
+                        <h2 style="color: white;">Order Details</h2>
+                    </div>
+
+                    <div class="card-body card-padding">
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Source Address</label>
+                                        <input ng-model="order_to_show.source.address"  ng-disabled="true"
+                                               type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Destination Address</label>
+                                        <input ng-model="order_to_show.destination.address"  ng-disabled="true"
+                                               type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
         <div class="card" ng-show="user.role">
             <div class="listview lv-bordered lv-lg">
@@ -70,6 +108,9 @@
                            Status
                        </th>
                        <th>
+                           Details
+                       </th>
+                       <th>
                            Follow Shipment
                        </th>
 
@@ -106,6 +147,11 @@
                           </td>
                           <td>
                               {{order.status}}
+                          </td>
+                          <td>
+                              <button class="btn bgm-indigo waves-effect"
+                                      ng-click="show_order_dialog(order)">
+                                  Show Order Details</button>
                           </td>
                           <td>
                               <div class="checkbox m-b-15">
