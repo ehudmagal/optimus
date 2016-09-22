@@ -92,6 +92,15 @@
                                     ng-show="user.role=='customer'">
                                         Follow Shipment
                                     </button>
+
+                                    <button class="btn bgm-indigo waves-effect"  class="form-control input-lg"
+                                            ng-show="show_progress_buttons(order_to_show)">
+                                        On My Way To Pickup
+                                    </button>
+                                    <button class="btn bgm-indigo waves-effect"  class="form-control input-lg"
+                                            ng-show="show_progress_buttons(order_to_show)">
+                                        Pickuped Up
+                                    </button>
                                 </form>
                             </div>
                         </div>
