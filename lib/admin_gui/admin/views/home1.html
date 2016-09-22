@@ -97,14 +97,14 @@
                                     <div class="form-group">
                                         <button class="btn bgm-indigo waves-effect" class="form-control input-lg"
                                                 ng-show="show_progress_buttons(order_to_show)"
-                                                ng-click="change_order_status('before_pickup')">
+                                                ng-click="change_order_status(order_to_show,'before_pickup')">
                                             On My Way To Pickup
                                         </button>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn bgm-indigo waves-effect" class="form-control input-lg"
                                                 ng-show="show_progress_buttons(order_to_show)"
-                                                ng-click="change_order_status('picked_up')">
+                                                ng-click="change_order_status(order_to_show,'picked_up')">
                                             Pickuped Up
                                         </button>
                                     </div>
