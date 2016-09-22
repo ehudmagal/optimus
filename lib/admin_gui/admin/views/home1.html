@@ -87,13 +87,13 @@
                               {{order.source.address}}
                           </td>
                           <td  data-ng-click="order_clicked(order)">
-                              {{date_string(order.pickup_time)}}
+                              {{GetDateStringFactory.getDateString(order.pickup_time)}}
                           </td >
                           <td  data-ng-click="order_clicked(order)">
                               {{order.destination.address}}
                           </td>
                           <td  data-ng-click="order_clicked(order)">
-                              {{order.delivery_time}}
+                              {{GetDateStringFactory.getDateString(order.delivery_time)}}
                           </td>
                           <td  data-ng-click="order_clicked(order)">
                               {{order.weight}}
