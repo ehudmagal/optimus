@@ -17,6 +17,14 @@
         right: 10px;
         z-index: 99;
     }
+    .invisible_button{
+        float: left;
+        top:0;
+        left:0;
+        position: absolute;
+        background-color: #2196F3;
+        border-color: transparent;
+    }
 </style>
 <div data-ng-controller="tableCtrl as tctrl">
 
@@ -28,7 +36,11 @@
         <div class="row" style="display:none" id="order_dialog">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header ch-alt" style="background-color: #536268;">
+                    <div class="card-header ch-alt" style="background-color: #2196F3;">
+                        <button class="invisible_button"
+                                ng-click="close_order_dialog()">
+                            <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
+                        </button>
                         <h2 style="color: white;">Order Details</h2>
                     </div>
 
