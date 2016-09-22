@@ -87,7 +87,14 @@
                                                    type="text">
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <div class="fg-line">
+                                            <label>Status</label>
+                                            <input class="form-control input-lg"
+                                                   ng-model="order_to_show.status" ng-disabled="true"
+                                                   type="text">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <button class="btn bgm-indigo waves-effect" class="form-control input-lg"
                                                 ng-show="user.role=='customer'">
@@ -95,7 +102,7 @@
                                         </button>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn bgm-indigo waves-effect" class="form-control input-lg"
+                                        <button ng-class="progress_button_class(order_to_show,'before_pickup')" class="form-control input-lg"
                                                 ng-show="show_progress_buttons_driver(order_to_show)"
                                                 ng-click="change_order_status(order_to_show,'before_pickup')">
                                             On My Way To Pickup
