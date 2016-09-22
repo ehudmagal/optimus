@@ -87,7 +87,7 @@
                               {{order.source.address}}
                           </td>
                           <td  data-ng-click="order_clicked(order)">
-                              {{order.pickup_time}}
+                              {{date_string(order.pickup_time)}}
                           </td >
                           <td  data-ng-click="order_clicked(order)">
                               {{order.destination.address}}
