@@ -167,7 +167,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat-start="order in orders">
+                        <tr ng-repeat-start="order in orders| orderBy:'id'">
                             <td data-ng-click="order.expended = !order.expended">
                                 {{order.id}}
                             </td>
