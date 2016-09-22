@@ -21,7 +21,6 @@ class Order < ActiveRecord::Base
       end
       selected_bid = bids.where(id: selected_bid_id).first
       selected_bid.update status: Bid::STATUSES[:selected]
-      self.update status: STATUSES[:approved]
     else
       bids.each do |bid|
         bid.update status:  Bid::STATUSES[:pending]
