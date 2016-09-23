@@ -27,8 +27,8 @@ class BidsController < ApplicationController
     respond_to do |format|
       format.html {super}
       format.json {
-        bid = Bid.find params['bid']['id']
-        bid.update(params['bid'])
+        bid = Bid.find params[:id]
+        bid.update!(params['bid'])
         render bid.json_attributes
       }
     end
