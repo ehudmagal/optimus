@@ -149,6 +149,9 @@
                         <tr>
                             <th>
                                 ID
+                                <input type="text" name="id"
+                                      class="input-filter" placeholder="SEARCH ID"
+                                ng-change="searchOrders(orders)" ng-model="order_id">
                             </th>
                             <th>
                                 Description
@@ -178,7 +181,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat-start="order in orders| orderBy:'id'">
+                        <tr ng-repeat-start="order in orders| searchAnything:order_id:['id'] |orderBy:'id'">
                             <td data-ng-click="order.expended = !order.expended">
                                 {{order.id}}
                             </td>
