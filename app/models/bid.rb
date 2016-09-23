@@ -2,7 +2,7 @@ class Bid < ActiveRecord::Base
   belongs_to :user
   belongs_to :order
   after_create :default_values
-  STATUSES = {pending: 'pending', over: 'over',selected: 'selected'}
+  STATUSES = {pending: 'pending', over: 'over',selected: 'selected',cancelled: 'cancelled'}
   def json_attributes
     json = as_json
     json['user'] = user

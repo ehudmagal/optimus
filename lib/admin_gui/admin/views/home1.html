@@ -258,6 +258,12 @@
                                                 </td>
                                                 <td>
                                                     <button class="btn bgm-indigo waves-effect"
+                                                            ng-click="cancel_bid(bid)"
+                                                            ng-show="show_bid_cancel(bid)">Accept
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="btn bgm-indigo waves-effect"
                                                             ng-click="accept_bid(bid,order)"
                                                             ng-show="show_bid_accept(bid)">Accept
                                                     </button>
