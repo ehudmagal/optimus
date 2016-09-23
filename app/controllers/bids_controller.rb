@@ -9,7 +9,7 @@ class BidsController < ApplicationController
 
   def show
     bid = Bid.find(params[:id])
-    render bid.json_attributes
+    render json: bid.json_attributes
   end
 
   def create
@@ -18,7 +18,7 @@ class BidsController < ApplicationController
       format.json {
         bid = Bid.create(bid_params)
         bid.update(user_id: current_user.id)
-        render json: bid
+        render json: bid.json_attributes
       }
     end
   end
@@ -27,9 +27,9 @@ class BidsController < ApplicationController
     respond_to do |format|
       format.html {super}
       format.json {
-        bid = Bid.find params[:id]
-        bid.update!(params['bid'])
-        render bid.json_attributes
+        @bid = Bid.find params[:id]
+        @bid.update!(bid_params)
+        render json: @bid.json_attributes
       }
     end
   end
