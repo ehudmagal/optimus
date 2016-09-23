@@ -34,9 +34,9 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { super }
       format.json {
-        order = Order.find params['order']['id']
-        order.update!(order_params)
-        render json: order
+        @order = Order.find params['id']
+        @order.update!(order_params)
+        render json: @order
       }
     end
   end
