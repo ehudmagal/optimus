@@ -136,7 +136,7 @@
         <div class="card" ng-show="user.role">
             <div class="listview lv-bordered lv-lg">
                 <div class="lv-header-alt clearfix">
-                    <h2 class="lvh-label hidden-xs">Orders</h2>
+                    <h2 class="lvh-label hidden-xs">My Orders</h2>
 
                     <!-- ngIf: mactrl.listviewSearchStat -->
 
@@ -257,7 +257,7 @@
                                                     {{bid.times_user_worked_with}}
                                                 </td>
                                                 <td>
-                                                    {{bid.status}}
+                                                    {{get_bid_status(bid.status)}}
                                                 </td>
                                                 <td>
                                                     <button class="btn bgm-indigo waves-effect"
