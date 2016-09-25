@@ -37,7 +37,10 @@
                 <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> About
                     Us</a>
             </li>
-
+            <li  class="waves-effect" data-ui-sref-active="active"
+                ng-show="user.role == 'supplier'">
+                <a href="/mobile_navigator"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Driver Mobile Site</a>
+            </li>
             <li ng-show="user.role != ''" class="waves-effect" data-ui-sref-active="active"
                 ng-show="user.name != 'Guest'">
                 <a data-ui-sref="private_zone"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
