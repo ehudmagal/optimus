@@ -1,0 +1,14 @@
+<div ui-content-for="title">
+
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
+        <div class="list-group">
+            <a ng-repeat="rl in failed_installations track by $index" class="list-group-item">
+                {{ rl.id }} <i class="fa fa-chevron-right pull-right"></i>
+            </a>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+
+<div ui-content-for="title">
+
+
+</div>
+<div class="btn-group pull-right" ui-content-for="navbarActionRight">
+
+</div>
+<div class="scrollable" style="background-color: white;">
+    <div class="scrollable-content">
+        <div class="section"  id="set_location_button">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <button class="btn btn-primary btn-block" ng-click='set_location_pushed()' >
+                            Set Location For <span id="logger_span"></span>
+                        </button>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="camera_zone">
+            <div class="panel panel-default">
+                <div id="camera"></div>
+            </div>
+            <div class="form-group">
+                <label>Logger Id</label>
+                <input type="number" class="form-control needsclick" placeholder="Logger Id" ng-model="manual_logger_id">
+            </div>
+            <button class="btn btn-primary btn-block" ng-click="submit_logger_id(manual_logger_id)">
+                Submit Logger ID
+            </button>
+        </div>
+    </div>
+
+</div>

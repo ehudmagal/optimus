@@ -1,0 +1,35 @@
+
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+   
+  <form role="form" ng-submit='login()'>
+    <fieldset>
+      <legend>Soil Moisture Sensors</legend>
+
+      <div class="form-group" ng-repeat="sensor in soil_sensors track by $index">
+        <label>Sensor Id: {{sensor.id}}</label>
+        <table>
+          <tr>
+            <td>30</td>
+            <td>
+              <ui-switch
+                      ng-model='sensor.sixty'></ui-switch>
+            </td>
+            <td>60</td>
+          </tr>
+        </table>
+
+        </div>
+    </fieldset>
+    <hr>
+
+    <button class="btn btn-primary btn-block" ng-click='submit_datasets(soil_datasets)'>
+      Submit Sensors
+    </button>
+
+
+
+  </form>
+ </div>
+</div>
