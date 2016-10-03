@@ -248,7 +248,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat-start="order in orders| searchAnything:order_id:['id'] |
-                        searchDate: pickup_time |pagination: curPage * pageSize | limitTo: pageSize |orderBy:'id'">
+                        searchDate: pickup_time: 'pickup_time' |pagination: curPage * pageSize | limitTo: pageSize |orderBy:'id'">
                             <td data-ng-click="order.expended = !order.expended">
                                 {{order.id}}
                             </td>
