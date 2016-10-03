@@ -26,6 +26,26 @@
         background-color: #2196F3;
         border-color: transparent;
     }
+    .paginationclass{
+
+        margin: 19px 28px;
+    }
+    .paginationclass span{
+        margin-left:15px;
+        display:inline-block;
+    }
+    .pagination-controle li{
+        display: inline-block;
+    }
+    .pagination-controle button{
+        font-size: 12px;
+        margin-top: -26px;
+        cursor:pointer;
+
+    }
+    .pagination{
+        margin:5px 12px !important;
+    }
 </style>
 <div data-ng-controller="tableCtrl as tctrl">
 
@@ -181,7 +201,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat-start="order in orders| searchAnything:order_id:['id'] |orderBy:'id'">
+                        <tr ng-repeat-start="order in orders| searchAnything:order_id:['id'] |
+                        pagination: curPage * pageSize | limitTo: pageSize |orderBy:'id'">
                             <td data-ng-click="order.expended = !order.expended">
                                 {{order.id}}
                             </td>
@@ -281,6 +302,22 @@
                         </tr>
                         </tbody>
                     </table>
+                    <div class="pagination pagination-centered" ng-show="datalists.length">
+                        <ul class="pagination-controle pagination">
+                            <li>
+                                <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                                        ng-click="curPage=curPage-1"> PREV</button>
+                            </li>
+                            <li>
+                                <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-primary"
+                                        ng-disabled="curPage >= orders.length/pageSize - 1"
+                                        ng-click="curPage = curPage+1">NEXT</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
