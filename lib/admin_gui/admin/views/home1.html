@@ -5,7 +5,7 @@
 
 <style>
 
-    .paging_span{
+    .paging_span {
         background-color: rgb(255, 255, 255);
         border-bottom-color: rgb(221, 221, 221);
         border-bottom-style: solid;
@@ -26,7 +26,7 @@
         border-top-width: 1px;
         box-sizing: border-box;
         color: rgb(66, 139, 202);
-        floatleftfont-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        floatleftfont-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 14px;
         line-height: 20px;
         list-style-image: none;
@@ -48,6 +48,7 @@
         -moz-border-right-colors: none;
         -moz-border-top-colors: none;
     }
+
     #map {
         height: 450px !important;
         width: 100% !important;
@@ -68,25 +69,30 @@
         background-color: #2196F3;
         border-color: transparent;
     }
-    .paginationclass{
+
+    .paginationclass {
 
         margin: 19px 28px;
     }
-    .paginationclass span{
-        margin-left:15px;
-        display:inline-block;
-    }
-    .pagination-controle li{
+
+    .paginationclass span {
+        margin-left: 15px;
         display: inline-block;
     }
-    .pagination-controle button{
+
+    .pagination-controle li {
+        display: inline-block;
+    }
+
+    .pagination-controle button {
         font-size: 12px;
         margin-top: -26px;
-        cursor:pointer;
+        cursor: pointer;
 
     }
-    .pagination{
-        margin:5px 12px !important;
+
+    .pagination {
+        margin: 5px 12px !important;
     }
 </style>
 <div data-ng-controller="tableCtrl as tctrl">
@@ -212,8 +218,8 @@
                             <th>
                                 ID
                                 <input type="text" name="id"
-                                      class="input-filter" placeholder="SEARCH ID"
-                                ng-change="searchOrdersOnMap(orders)" ng-model="order_id">
+                                       class="input-filter" placeholder="SEARCH ID"
+                                       ng-change="searchOrdersOnMap(orders)" ng-model="order_id">
                             </th>
                             <th>
                                 Description
@@ -226,14 +232,17 @@
                             </th>
                             <th>
                                 Pickup Time
-                                <input  class="input-filter"
-                                        type="date"
-                                        ng-model="pickup_time"
-                                        ng-change="searchOrdersOnMap(orders)"
-                                        placeholder="Pickup Day">
+                                <input class="input-filter"
+                                       type="date"
+                                       ng-model="pickup_time"
+                                       ng-change="searchOrdersOnMap(orders)"
+                                       placeholder="Pickup Day">
                             </th>
                             <th>
                                 Drop Off Location
+                                <input type="text" name="destination address"
+                                       class="input-filter" placeholder="Destination Address"
+                                       ng-change="searchOrdersOnMap(orders)" ng-model="destination_address">
                             </th>
                             <th>
                                 Drop Off Time
@@ -253,6 +262,7 @@
                         <tbody>
                         <tr ng-repeat-start="order in orders| searchAnything:order_id:['id'] |
                         searchAnything:source_address:['source.address'] |
+                        searchAnything:destination_address:['destination.address'] |
                         searchDate: pickup_time: 'pickup_time':DaysBetweenFactory |pagination: curPage * pageSize | limitTo: pageSize |orderBy:'id'">
                             <td data-ng-click="order.expended = !order.expended">
                                 {{order.id}}
@@ -358,7 +368,9 @@
                             <tr>
                                 <td>
                                     <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
-                                             ng-click="curPage=curPage-1"> PREV</button></td>
+                                            ng-click="curPage=curPage-1"> PREV
+                                    </button>
+                                </td>
                                 <td>
                                     <span class="paging_span">
                                         Page {{curPage + 1}} of {{ numberOfPages() }}
@@ -367,7 +379,8 @@
                                 <td>
                                     <button type="button" class="btn btn-primary"
                                             ng-disabled="curPage >= orders.length/pageSize - 1"
-                                            ng-click="curPage = curPage+1">NEXT</button>
+                                            ng-click="curPage = curPage+1">NEXT
+                                    </button>
                                 </td>
                                 <td>
 
