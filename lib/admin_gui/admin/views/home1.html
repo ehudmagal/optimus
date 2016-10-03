@@ -360,6 +360,14 @@
                                             ng-disabled="curPage >= orders.length/pageSize - 1"
                                             ng-click="curPage = curPage+1">NEXT</button>
                                 </td>
+                                <td>
+
+                                    Page Size:
+                                    <select ng-model="pageSize"
+                                            ng-options="opt as opt.label for opt in options">
+                                    </select>
+
+                                </td>
                             </tr>
                         </table>
                     </div>
