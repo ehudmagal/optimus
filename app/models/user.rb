@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     return orders
   end
 
+  def active_adminable?
+    role == ROLES[:admin]
+  end
+
 end
