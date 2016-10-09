@@ -8,7 +8,9 @@ class Ability
     else
       #orders
       can :manage, Order
+      #bids
       can :manage, Bid
+      #user
       can :manage, User
     end
   end
