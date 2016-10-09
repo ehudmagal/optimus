@@ -20,16 +20,26 @@
         margin-right: 30px;
         margin-left: 30px;
     }
+    .card.narrow_buttom{
+        margin-bottom: 5px;
+    }
+    .container.narrow_left{
+        margin-left: 0px;
+    }
+    .container.narrow_top{
+        margin-top: 5%;
+    }
 </style>
 
 <div data-ng-controller="newOrderCtrl as octrl" style="width: 100%;height: 100%">
     <section id="map" ></section>
 
 
-    <div class="container" style="padding-top: 10%;">
+    <div class="container narrow_left narrow_top">
         <div class="row">
+
             <div class="col-sm-6">
-                <div class="card">
+                <div class="card narrow_buttom" >
                     <div class="card-header ch-alt" style="background-color: #536268;">
                         <h2 style="color: white;">Route</h2>
                     </div>
@@ -63,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card narrow_buttom">
                     <div class="card-header ch-alt" style="background-color: #536268;">
                         <h2 style="color: white;">Description</h2>
                     </div>
@@ -93,7 +103,7 @@
 
                     </div>
                 </div>
-                <div class="card">
+                <div class="card narrow_buttom">
                     <div class="card-header ch-alt" style="background-color: #536268;">
                         <h2 style="color: white;">Load Details </h2>
                     </div>
@@ -180,7 +190,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card narrow_buttom">
                     <div class="card-header ch-alt" style="background-color: #536268;">
                         <h2 style="color: white;">Scheduling </h2>
                     </div>
@@ -287,7 +297,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card narrow_buttom">
                     <div class="card-header ch-alt" style="background-color: #536268;">
                         <h2 style="color: white;">Submit Shipment</h2>
                     </div>
@@ -307,6 +317,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
