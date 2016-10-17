@@ -252,6 +252,10 @@
                             </th>
                             <th>
                                 Status
+                                <select ng-model="status_query"
+                                        ng-options="status as status for status in get_status_array()"
+                                        required
+                                ></select>
                             </th>
                             <th>
                                 Details
@@ -260,10 +264,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat-start="order in orders| searchAnything:order_id:['id'] |
+                        <tr ng-repeat-start="order in orders |orderBy:'id' | searchAnything:order_id:['id'] |
                         searchAnything:source_address:['source.address'] |
                         searchAnything:destination_address:['destination.address'] |
-                        searchDate: pickup_time: 'pickup_time':DaysBetweenFactory |pagination: curPage * pageSize | limitTo: pageSize |orderBy:'-id'">
+                        searchDate: pickup_time: 'pickup_time':DaysBetweenFactory |pagination: curPage * pageSize | limitTo: pageSize">
                             <td data-ng-click="order.expended = !order.expended">
                                 {{order.id}}
                             </td>
