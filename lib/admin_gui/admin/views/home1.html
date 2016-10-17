@@ -255,6 +255,7 @@
                                 <select ng-model="status_query"
                                         ng-init="status_query='approved'"
                                         ng-options="value as name for (name,value) in get_status_array()"
+                                        ng-change="searchOrdersOnMap(orders)"
                                         required
                                 ></select>
                             </th>
