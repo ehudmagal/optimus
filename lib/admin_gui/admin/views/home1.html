@@ -264,7 +264,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat-start="order in orders |orderBy:'id' | searchAnything:order_id:['id'] |
+                        <tr ng-repeat-start="order in orders |orderBy:'id' |
+                        searchAnything:status_query:['status'] |
+                        searchAnything:order_id:['id'] |
                         searchAnything:source_address:['source.address'] |
                         searchAnything:destination_address:['destination.address'] |
                         searchDate: pickup_time: 'pickup_time':DaysBetweenFactory |pagination: curPage * pageSize | limitTo: pageSize">
