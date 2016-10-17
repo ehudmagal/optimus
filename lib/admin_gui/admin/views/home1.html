@@ -253,7 +253,7 @@
                             <th>
                                 Status
                                 <select ng-model="status_query"
-                                        ng-options="status as status for status in get_status_array()"
+                                        ng-options="value for (name,value) in get_status_array()"
                                         required
                                 ></select>
                             </th>
