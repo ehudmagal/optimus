@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   after_filter :set_csrf_cookie
   after_filter :set_cookie_params_user
   respond_to :html, :json
-  
+
   rescue_from CanCan::AccessDenied do |exception|
     head :forbidden
   end
