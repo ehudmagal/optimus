@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :bids
   after_save :set_bids_status
+  before_save :email_driver
   after_create :set_default_status
   STATUSES = {booked: 'booked', bidded: 'bidded', approved: 'approved',
               before_pickup: 'before_pickup', picked_up: 'picked_up', delivered: 'delivered'}
@@ -17,13 +18,31 @@ class Order < ActiveRecord::Base
     unless selected_bid_id.nil?
       over_bids = bids.where.not(id: selected_bid_id)
       over_bids.each do |bid|
-        bid.update status:  Bid::STATUSES[:over]
+        bid.update status: Bid::STATUSES[:over]
       end
       selected_bid = bids.where(id: selected_bid_id).first
       selected_bid.update status: Bid::STATUSES[:selected]
     else
       bids.each do |bid|
-        bid.update status:  Bid::STATUSES[:pending]
+        bid.update status: Bid::STATUSES[:pending]
+      end
+    end
+  end
+
+  def driver
+    res = nil
+    unless selected_bid_id.nil?
+      bid = Bid.find selected_bid_id
+      res = bid.user
+    end
+    return res
+  end
+
+  def email_driver
+    if params[:status] == STATUSES[:approved]
+      driver = driver
+      unless driver.nil?
+        ExampleMailer.sample_email(@user).deliver
       end
     end
   end

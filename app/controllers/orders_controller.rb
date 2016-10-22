@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show, :index]
-
   def index
     @orders = Order.all
     render json: @orders.map { |order| order.json_attributes }
@@ -52,6 +51,8 @@ class OrdersController < ApplicationController
                                   :distance,:selected_bid_id,:status
     )
   end
+
+
 
 
 end
