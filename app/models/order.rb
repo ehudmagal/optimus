@@ -2,7 +2,6 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :bids
   after_save :set_bids_status
-  before_save :email_driver
   after_create :set_default_status
   STATUSES = {booked: 'booked', bidded: 'bidded', approved: 'approved',
               before_pickup: 'before_pickup', picked_up: 'picked_up', delivered: 'delivered'}
@@ -38,14 +37,7 @@ class Order < ActiveRecord::Base
     return res
   end
 
-  def email_driver
-    if params[:status] == STATUSES[:approved]
-      driver = driver
-      unless driver.nil?
-        ExampleMailer.sample_email(@user).deliver
-      end
-    end
-  end
+
 
   private
   def set_default_status

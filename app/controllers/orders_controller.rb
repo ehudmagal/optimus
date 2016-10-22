@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show, :index]
+  before_action :email_driver, :except => [:show, :index]
   def index
     @orders = Order.all
     render json: @orders.map { |order| order.json_attributes }
@@ -50,6 +51,17 @@ class OrdersController < ApplicationController
                                   :pickup_cutoff_time,:pickup_time,:delivery_cutoff_time,:delivery_time,
                                   :distance,:selected_bid_id,:status
     )
+  end
+
+  def email_driver
+    binding.pry
+    @order = Order.find(params[:id])
+    if params[:status] == STATUSES[:approved]
+      driver = @order.driver
+      unless driver.nil?
+        ExampleMailer.sample_email(driver).deliver
+      end
+    end
   end
 
 
