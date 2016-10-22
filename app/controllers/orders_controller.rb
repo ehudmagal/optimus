@@ -55,8 +55,8 @@ class OrdersController < ApplicationController
 
   def email_driver
     binding.pry
-    @order = Order.find(params[:id])
-    if params[:status] == STATUSES[:approved]
+    @order = Order.find_by(id: params[:id])
+    if params[:order][:status] == Order::STATUSES[:approved] and !@order.nil?
       driver = @order.driver
       unless driver.nil?
         ExampleMailer.sample_email(driver).deliver
