@@ -32,11 +32,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
+      :api_key              => ENV['mail_gun_key'],
+      :address              => "smtp.mailgun.org",
       :port                 => 587,
-      :domain               => 'gmail.com',
-      :user_name            => ENV['gmail_username'],
-      :password             => ENV['gmail_password'],
+      :domain               => ENV['mail_gun_domain'],
+      :user_name            => ENV['mail_gun_login'],
+      :password             => ENV['mail_gun_password'],
       :authentication       => "plain",
       :enable_starttls_auto => true
   }
