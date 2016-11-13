@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show, :index]
-  before_action :email_driver, :except => [:show, :index]
+  #before_action :email_driver, :except => [:show, :index]
   def index
     @orders = Order.all
     render json: @orders.map { |order| order.json_attributes }
@@ -54,7 +54,6 @@ class OrdersController < ApplicationController
   end
 
   def email_driver
-    binding.pry
     @order = Order.find_by(id: params[:id])
     if params[:order][:status] == Order::STATUSES[:approved] and !@order.nil?
       driver = @order.driver
