@@ -28,22 +28,22 @@ Rails.application.configure do
   config.assets.debug = true
 
 
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :sendmail
   config.action_mailer.delivery_method = :smtp
-  # SMTP settings for gmail
+  #SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :api_key              => ENV['mail_gun_key'],
-      :address              => "smtp.mailgun.org",
+      :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => ENV['mail_gun_domain'],
-      :user_name            => ENV['mail_gun_login'],
-      :password             => ENV['mail_gun_password'],
+      :user_name            => 'ehudmagal@gmail.com',
+      :password             => 'uzliguzli1',
       :authentication       => "plain",
       :enable_starttls_auto => true
   }
+
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   # Send email in development mode?
   config.action_mailer.perform_deliveries = true
