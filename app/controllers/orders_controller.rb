@@ -38,8 +38,8 @@ class OrdersController < ApplicationController
         @order = Order.find params['id']
         @order.update!(order_params)
         if @order.status == Order::STATUSES[:approved]
-          ExampleMailer.sample_email @order.user
-          ExampleMailer.sample_email @order.driver
+          ExampleMailer.sample_email @order.user, @order
+          ExampleMailer.sample_email @order.driver, @order
         end
         render json: @order
       }

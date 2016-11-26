@@ -6,7 +6,21 @@
 <body>
 <h1>Hi <%= @user.name %></h1>
 <p>
-  Sample mail sent using smtp.
+  Your Order <%= @order.id %> Have been approved by driver <%=@order.driver%>
 </p>
+<p>
+  Pickup Time:  <%= @order.pickup_time %>
+</p>
+<p>
+  Delivery Time:  <%= @order.delivery_time %>
+</p>
+<p>
+  Pickup Address:  <%= @order.source.address %>
+</p>
+<p>
+  Delivery Address:  <%= @order.destination.address %>
+</p>
+
+
 </body>
 </html>
