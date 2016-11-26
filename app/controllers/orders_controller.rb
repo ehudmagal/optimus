@@ -37,6 +37,10 @@ class OrdersController < ApplicationController
       format.json {
         @order = Order.find params['id']
         @order.update!(order_params)
+        if @order.status == Order::STATUSES[:approved]
+          ExampleMailer.sample_email @order.user
+          ExampleMailer.sample_email @order.driver
+        end
         render json: @order
       }
     end
@@ -53,7 +57,7 @@ class OrdersController < ApplicationController
     )
   end
 
-  def email_driver
+  def email
     @order = Order.find_by(id: params[:id])
     if params[:order][:status] == Order::STATUSES[:approved] and !@order.nil?
       driver = @order.driver
