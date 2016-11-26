@@ -15,10 +15,10 @@
   Delivery Time:  <%= @order.delivery_time %>
 </p>
 <p>
-  Pickup Address:  <%= @order.source.address %>
+  Pickup Address:  <%= @order.source['address'] %>
 </p>
 <p>
-  Delivery Address:  <%= @order.destination.address %>
+  Delivery Address:  <%= @order.destination['address'] %>
 </p>
 
 
