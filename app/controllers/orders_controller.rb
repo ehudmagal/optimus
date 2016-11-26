@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show, :index]
-  #before_action :email_driver, :except => [:show, :index]
   def index
     @orders = Order.all
     render json: @orders.map { |order| order.json_attributes }
@@ -39,8 +38,7 @@ class OrdersController < ApplicationController
         @order.update!(order_params)
         if @order.status == Order::STATUSES[:approved]
           begin
-            ExampleMailer.sample_email @order.user, @order
-            ExampleMailer.sample_email @order.driver, @order
+            email_participents @order
           rescue  => e
           end
         end
@@ -60,14 +58,13 @@ class OrdersController < ApplicationController
     )
   end
 
-  def email
-    @order = Order.find_by(id: params[:id])
-    if params[:order][:status] == Order::STATUSES[:approved] and !@order.nil?
-      driver = @order.driver
-      unless driver.nil?
-        ExampleMailer.sample_email(driver).deliver
-      end
-    end
+
+
+  def email_participents order
+    mailer = ExampleMailer.sample_email order.user, order
+    mailer.deliver
+    mailer = ExampleMailer.sample_email order.driver, order
+    mailer.deliver
   end
 
 
