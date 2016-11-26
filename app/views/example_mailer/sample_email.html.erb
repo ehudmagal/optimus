@@ -6,7 +6,7 @@
 <body>
 <h1>Hi <%= @user.name %></h1>
 <p>
-  Your Order <%= @order.id %> Have been approved by driver <%=@order.driver%>
+  Your Order <%= @order.id %> Have been approved by driver <%=@order.driver.email%>
 </p>
 <p>
   Pickup Time:  <%= @order.pickup_time %>
