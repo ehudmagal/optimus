@@ -1,4 +1,5 @@
-<header id="header" data-current-skin="blue" data-ng-include src="'template/header.html'"
+<header id="header" data-current-skin="blue" data-ng-include
+        src="'template/header.html'"
         data-ng-controller="headerCtrl as hctrl"></header>
 <aside id="sidebar" data-ng-include="'template/sidebar-left.html'"
        data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
@@ -50,15 +51,20 @@
     }
 
     #map {
-        height: 450px !important;
-        width: 100% !important;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
     }
 
-    #over_map {
+    .over_map {
         position: absolute;
-        top: 20%;
-        right: 10px;
-        z-index: 99;
+        bottom: 0;
+        left: 0;
+        height: 20%;
+        z-index: 2;
     }
 
     .invisible_button {
@@ -97,16 +103,13 @@
 </style>
 <div data-ng-controller="tableCtrl as tctrl">
 
-    <section>
-        <div class="card">
-            <div class="card-header"></div>
-            <div class="card-body" id="map"></div>
-        </div>
+    <section id="map">
         <div class="row" style="display:none" id="order_dialog">
             <div class="col-sm-12">
                 <div class="card">
 
-                    <div class="card-header ch-alt" style="background-color: #2196F3;">
+                    <div class="card-header ch-alt"
+                         style="background-color: #2196F3;">
                         <button class="invisible_button"
                                 ng-click="close_order_dialog()">
                             <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
@@ -120,7 +123,8 @@
                                     <div class="form-group">
                                         <div class="fg-line">
                                             <label>Pickup Location</label>
-                                            <input class="form-control input-lg" ng-model="order_to_show.source.address"
+                                            <input class="form-control input-lg"
+                                                   ng-model="order_to_show.source.address"
                                                    ng-disabled="true"
                                                    type="text">
                                         </div>
@@ -131,7 +135,8 @@
                                         <div class="fg-line">
                                             <label>Drop Off Location</label>
                                             <input class="form-control input-lg"
-                                                   ng-model="order_to_show.destination.address" ng-disabled="true"
+                                                   ng-model="order_to_show.destination.address"
+                                                   ng-disabled="true"
                                                    type="text">
                                         </div>
                                     </div>
@@ -140,7 +145,8 @@
                                     <div class="form-group">
                                         <div class="fg-line">
                                             <label>Total Weight</label>
-                                            <input ng-model="order_to_show.weight" class="form-control input-lg"
+                                            <input ng-model="order_to_show.weight"
+                                                   class="form-control input-lg"
                                                    ng-disabled="true"
                                                    type="text">
                                         </div>
@@ -151,7 +157,8 @@
                                         <div class="fg-line">
                                             <label>Distance in KM</label>
                                             <input class="form-control input-lg"
-                                                   ng-model="order_to_show.distance" ng-disabled="true"
+                                                   ng-model="order_to_show.distance"
+                                                   ng-disabled="true"
                                                    type="text">
                                         </div>
                                     </div>
@@ -159,12 +166,14 @@
                                         <div class="fg-line">
                                             <label>Status</label>
                                             <input class="form-control input-lg"
-                                                   ng-model="order_to_show.status" ng-disabled="true"
+                                                   ng-model="order_to_show.status"
+                                                   ng-disabled="true"
                                                    type="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn bgm-indigo waves-effect" class="form-control input-lg"
+                                        <button class="btn bgm-indigo waves-effect"
+                                                class="form-control input-lg"
                                                 ng-show="user.role=='customer'">
                                             Follow Shipment
                                         </button>
@@ -201,699 +210,224 @@
                 </div>
             </div>
         </div>
-        <div class="card" ng-show="user.role">
-            <div class="listview lv-bordered lv-lg">
-                <div class="lv-header-alt clearfix">
-                    <h2 class="lvh-label hidden-xs">My Orders</h2>
-
-                    <!-- ngIf: mactrl.listviewSearchStat -->
 
 
-                </div>
+    </section>
+    <div class="card over_map" ng-show="user.role">
+        <div class="listview lv-bordered lv-lg">
+            <div class="lv-header-alt clearfix">
+                <h2 class="lvh-label hidden-xs">My Orders</h2>
 
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>
-                                ID
-                                <input type="text" name="id"
-                                       class="input-filter" placeholder="SEARCH ID"
-                                       ng-change="searchOrdersOnMap(orders)" ng-model="order_id">
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                Pickup Location
-                                <input type="text" name="source address"
-                                       class="input-filter" placeholder="Source Address"
-                                       ng-change="searchOrdersOnMap(orders)" ng-model="source_address">
-                            </th>
-                            <th>
-                                Pickup Time
-                                <input class="input-filter"
-                                       type="date"
-                                       ng-model="pickup_time"
-                                       ng-change="searchOrdersOnMap(orders)"
-                                       placeholder="Pickup Day">
-                            </th>
-                            <th>
-                                Drop Off Location
-                                <input type="text" name="destination address"
-                                       class="input-filter" placeholder="Destination Address"
-                                       ng-change="searchOrdersOnMap(orders)" ng-model="destination_address">
-                            </th>
-                            <th>
-                                Drop Off Time
-                            </th>
-                            <th>
-                                Lowest Price
-                            </th>
-                            <th>
-                                Status
-                                <select ng-model="status_query"
-                                        ng-init="status_query='approved'"
-                                        ng-options="value as name for (name,value) in get_status_array()"
-                                        ng-change="searchOrdersOnMap(orders)"
-                                        required
-                                ></select>
-                            </th>
-                            <th>
-                                Details
-                            </th>
+                <!-- ngIf: mactrl.listviewSearchStat -->
 
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat-start="order in orders |orderBy:'id' |
+
+            </div>
+
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            ID
+                            <input type="text" name="id"
+                                   class="input-filter"
+                                   placeholder="SEARCH ID"
+                                   ng-change="searchOrdersOnMap(orders)"
+                                   ng-model="order_id">
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Pickup Location
+                            <input type="text" name="source address"
+                                   class="input-filter"
+                                   placeholder="Source Address"
+                                   ng-change="searchOrdersOnMap(orders)"
+                                   ng-model="source_address">
+                        </th>
+                        <th>
+                            Pickup Time
+                            <input class="input-filter"
+                                   type="date"
+                                   ng-model="pickup_time"
+                                   ng-change="searchOrdersOnMap(orders)"
+                                   placeholder="Pickup Day">
+                        </th>
+                        <th>
+                            Drop Off Location
+                            <input type="text" name="destination address"
+                                   class="input-filter"
+                                   placeholder="Destination Address"
+                                   ng-change="searchOrdersOnMap(orders)"
+                                   ng-model="destination_address">
+                        </th>
+                        <th>
+                            Drop Off Time
+                        </th>
+                        <th>
+                            Lowest Price
+                        </th>
+                        <th>
+                            Status
+                            <select ng-model="status_query"
+                                    ng-init="status_query='approved'"
+                                    ng-options="value as name for (name,value) in get_status_array()"
+                                    ng-change="searchOrdersOnMap(orders)"
+                                    required
+                            ></select>
+                        </th>
+                        <th>
+                            Details
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat-start="order in orders |orderBy:'id' |
                         searchAnything:status_query:['status'] |
                         searchAnything:order_id:['id'] |
                         searchAnything:source_address:['source.address'] |
                         searchAnything:destination_address:['destination.address'] |
                         searchDate: pickup_time: 'pickup_time':DaysBetweenFactory |pagination: curPage * pageSize | limitTo: pageSize">
-                            <td data-ng-click="order.expended = !order.expended">
-                                {{order.id}}
-                            </td>
-                            <td data-ng-click="order_clicked(order)">
-                                {{order.description}}
-                            </td>
-                            <td data-ng-click="order_clicked(order)">
-                                {{order.source.address}}
-                            </td>
-                            <td data-ng-click="order_clicked(order)">
-                                {{GetDateStringFactory.getDateString(order.pickup_time)}}
-                            </td>
-                            <td data-ng-click="order_clicked(order)">
-                                {{order.destination.address}}
-                            </td>
-                            <td data-ng-click="order_clicked(order)">
-                                {{GetDateStringFactory.getDateString(order.delivery_time)}}
-                            </td>
-                            <td data-ng-click="order_clicked(order)">
-                                {{order_lowest_price(order)}}
-                            </td>
+                        <td data-ng-click="order.expended = !order.expended">
+                            {{order.id}}
+                        </td>
+                        <td data-ng-click="order_clicked(order)">
+                            {{order.description}}
+                        </td>
+                        <td data-ng-click="order_clicked(order)">
+                            {{order.source.address}}
+                        </td>
+                        <td data-ng-click="order_clicked(order)">
+                            {{GetDateStringFactory.getDateString(order.pickup_time)}}
+                        </td>
+                        <td data-ng-click="order_clicked(order)">
+                            {{order.destination.address}}
+                        </td>
+                        <td data-ng-click="order_clicked(order)">
+                            {{GetDateStringFactory.getDateString(order.delivery_time)}}
+                        </td>
+                        <td data-ng-click="order_clicked(order)">
+                            {{order_lowest_price(order)}}
+                        </td>
+                        <td>
+                            {{order.status}}
+                        </td>
+                        <td>
+                            <button class="btn bgm-indigo waves-effect"
+                                    ng-click="show_order_dialog(order)">
+                                Show Order Details
+                            </button>
+                        </td>
+                    </tr>
+                    <tr ng-if="order.expended" ng-repeat-end="">
+                        <td colspan="4">
+                            <div class="card">
+                                <div class="card-header">
+                                    Bids
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Rating</th>
+                                            <th>Price</th>
+                                            <th>
+                                                Times Worked With Him
+                                            </th>
+                                            <th>
+                                                Status
+                                            </th>
+                                            <th>
+                                                Cancel
+                                            </th>
+                                            <th>
+                                                Accept
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="bid in order.bids | bidsByUser: user"
+                                            bgcolor="{{BidColorService.color(bid)}}"
+                                            style="{{BidFontStyleService.style(bid)}}">
+                                            <td>
+                                                {{bid.user.name}}
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                            <td>
+                                                {{bid.price}}
+                                            </td>
+                                            <td>
+                                                {{bid.times_user_worked_with}}
+                                            </td>
+                                            <td>
+                                                {{get_bid_status(bid)}}
+                                            </td>
+                                            <td>
+                                                <button class="btn bgm-indigo waves-effect"
+                                                        ng-click="cancel_bid(bid)"
+                                                        ng-show="show_bid_cancel(bid)">
+                                                    Cancel Bid
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn bgm-indigo waves-effect"
+                                                        ng-click="accept_bid(bid,order)"
+                                                        ng-show="show_bid_accept(bid)">
+                                                    Accept
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="pagination pagination-centered"
+                     ng-show="orders.length">
+                    <table>
+                        <tr>
                             <td>
-                                {{order.status}}
-                            </td>
-                            <td>
-                                <button class="btn bgm-indigo waves-effect"
-                                        ng-click="show_order_dialog(order)">
-                                    Show Order Details
+                                <button type="button"
+                                        class="btn btn-primary"
+                                        ng-disabled="curPage == 0"
+                                        ng-click="curPage=curPage-1"> PREV
                                 </button>
                             </td>
-                        </tr>
-                        <tr ng-if="order.expended" ng-repeat-end="">
-                            <td colspan="4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Bids
-                                    </div>
-                                    <div class="card-body">
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>User</th>
-                                                <th>Rating</th>
-                                                <th>Price</th>
-                                                <th>
-                                                    Times Worked With Him
-                                                </th>
-                                                <th>
-                                                    Status
-                                                </th>
-                                                <th>
-                                                    Cancel
-                                                </th>
-                                                <th>
-                                                    Accept
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr ng-repeat="bid in order.bids | bidsByUser: user"
-                                                bgcolor="{{BidColorService.color(bid)}}"
-                                                style="{{BidFontStyleService.style(bid)}}">
-                                                <td>
-                                                    {{bid.user.name}}
-                                                </td>
-                                                <td>
-                                                    100
-                                                </td>
-                                                <td>
-                                                    {{bid.price}}
-                                                </td>
-                                                <td>
-                                                    {{bid.times_user_worked_with}}
-                                                </td>
-                                                <td>
-                                                    {{get_bid_status(bid)}}
-                                                </td>
-                                                <td>
-                                                    <button class="btn bgm-indigo waves-effect"
-                                                            ng-click="cancel_bid(bid)"
-                                                            ng-show="show_bid_cancel(bid)">Cancel Bid
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn bgm-indigo waves-effect"
-                                                            ng-click="accept_bid(bid,order)"
-                                                            ng-show="show_bid_accept(bid)">Accept
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="pagination pagination-centered" ng-show="orders.length">
-                        <table>
-                            <tr>
-                                <td>
-                                    <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
-                                            ng-click="curPage=curPage-1"> PREV
-                                    </button>
-                                </td>
-                                <td>
+                            <td>
                                     <span class="paging_span">
                                         Page {{curPage + 1}} of {{ numberOfPages() }}
                                     </span>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-primary"
-                                            ng-disabled="curPage >= orders.length/pageSize - 1"
-                                            ng-click="curPage = curPage+1">NEXT
-                                    </button>
-                                </td>
-                                <td>
+                            </td>
+                            <td>
+                                <button type="button"
+                                        class="btn btn-primary"
+                                        ng-disabled="curPage >= orders.length/pageSize - 1"
+                                        ng-click="curPage = curPage+1">NEXT
+                                </button>
+                            </td>
+                            <td>
 
-                                    Page Size:
-                                    <select ng-model="pageSize"
-                                            ng-options="opt as opt for opt in page_sizes">
-                                    </select>
+                                Page Size:
+                                <select ng-model="pageSize"
+                                        ng-options="opt as opt for opt in page_sizes">
+                                </select>
 
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div ng-show="user.role == '' || !user.role" class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header bgm-cyan">
-                        <h2>Shippers
-                            <small></small>
-                        </h2>
-
-
-                    </div>
-
-                    <div class="card-body card-padding">
-                        <div class="listview lv-bordered lv-lg">
-                            <div class="lv-header-alt clearfix">
-                                <h2 class="lvh-label hidden-xs"></h2>
-
-                                <!-- ngIf: mactrl.listviewSearchStat -->
-
-                                <ul class="lv-actions actions">
-
-
-                                </ul>
-                            </div>
-
-                            <div class="lv-body">
-
-
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Access To Trucks</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">GPS Tracking</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Instant PODs</div>
-                                        <small class="lv-small"></small>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header bgm-orange">
-                        <h2>Carriers
-                            <small></small>
-                        </h2>
-
-
-                    </div>
-
-                    <div class="card-body card-padding">
-                        <div class="listview lv-bordered lv-lg">
-                            <div class="lv-header-alt clearfix">
-                                <h2 class="lvh-label hidden-xs"></h2>
-
-                                <!-- ngIf: mactrl.listviewSearchStat -->
-
-                                <ul class="lv-actions actions">
-
-
-                                </ul>
-                            </div>
-
-                            <div class="lv-body">
-
-
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Extra Shipments</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Track Your Trucks</div>
-                                        <small class="lv-small"></small>
-
-                                        <div class="lv-actions actions dropdown" uib-dropdown="">
-                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
-                                               class="dropdown-toggle" aria-haspopup="true">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Fast Payment</div>
-                                        <small class="lv-small"></small>
-
-                                        <div class="lv-actions actions dropdown" uib-dropdown="">
-                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
-                                               class="dropdown-toggle" aria-haspopup="true">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
-        <div ng-show="user.role == '' || !user.role" class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header bgm-cyan">
-                        <h2>Shippers
-                            <small></small>
-                        </h2>
 
-
-                    </div>
-
-                    <div class="card-body card-padding">
-                        <div class="listview lv-bordered lv-lg">
-                            <div class="lv-header-alt clearfix">
-                                <h2 class="lvh-label hidden-xs"></h2>
-
-                                <!-- ngIf: mactrl.listviewSearchStat -->
-
-                                <ul class="lv-actions actions">
-
-
-                                </ul>
-                            </div>
-
-                            <div class="lv-body">
-
-
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Access To Trucks</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">GPS Tracking</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Instant PODs</div>
-                                        <small class="lv-small"></small>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header bgm-orange">
-                        <h2>Carriers
-                            <small></small>
-                        </h2>
-
-
-                    </div>
-
-                    <div class="card-body card-padding">
-                        <div class="listview lv-bordered lv-lg">
-                            <div class="lv-header-alt clearfix">
-                                <h2 class="lvh-label hidden-xs"></h2>
-
-                                <!-- ngIf: mactrl.listviewSearchStat -->
-
-                                <ul class="lv-actions actions">
-
-
-                                </ul>
-                            </div>
-
-                            <div class="lv-body">
-
-
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Extra Shipments</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Track Your Trucks</div>
-                                        <small class="lv-small"></small>
-
-                                        <div class="lv-actions actions dropdown" uib-dropdown="">
-                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
-                                               class="dropdown-toggle" aria-haspopup="true">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Fast Payment</div>
-                                        <small class="lv-small"></small>
-
-                                        <div class="lv-actions actions dropdown" uib-dropdown="">
-                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
-                                               class="dropdown-toggle" aria-haspopup="true">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div ng-show="user.role == '' || !user.role" class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header bgm-cyan">
-                        <h2>Shippers
-                            <small></small>
-                        </h2>
-
-
-                    </div>
-
-                    <div class="card-body card-padding">
-                        <div class="listview lv-bordered lv-lg">
-                            <div class="lv-header-alt clearfix">
-                                <h2 class="lvh-label hidden-xs"></h2>
-
-                                <!-- ngIf: mactrl.listviewSearchStat -->
-
-                                <ul class="lv-actions actions">
-
-
-                                </ul>
-                            </div>
-
-                            <div class="lv-body">
-
-
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Access To Trucks</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">GPS Tracking</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Instant PODs</div>
-                                        <small class="lv-small"></small>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header bgm-orange">
-                        <h2>Carriers
-                            <small></small>
-                        </h2>
-
-
-                    </div>
-
-                    <div class="card-body card-padding">
-                        <div class="listview lv-bordered lv-lg">
-                            <div class="lv-header-alt clearfix">
-                                <h2 class="lvh-label hidden-xs"></h2>
-
-                                <!-- ngIf: mactrl.listviewSearchStat -->
-
-                                <ul class="lv-actions actions">
-
-
-                                </ul>
-                            </div>
-
-                            <div class="lv-body">
-
-
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Extra Shipments</div>
-                                        <small class="lv-small"></small>
-
-
-                                    </div>
-
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Track Your Trucks</div>
-                                        <small class="lv-small"></small>
-
-                                        <div class="lv-actions actions dropdown" uib-dropdown="">
-                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
-                                               class="dropdown-toggle" aria-haspopup="true">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="lv-item media">
-
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="/admin/img/profile-pics/1.jpg" alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <div class="lv-title">Fast Payment</div>
-                                        <small class="lv-small"></small>
-
-                                        <div class="lv-actions actions dropdown" uib-dropdown="">
-                                            <a href="" uib-dropdown-toggle="" aria-expanded="false"
-                                               class="dropdown-toggle" aria-haspopup="true">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
 </div>
