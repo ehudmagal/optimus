@@ -104,115 +104,113 @@
 <div data-ng-controller="tableCtrl as tctrl">
 
     <section id="map">
-        <div class="row" style="display:none" id="order_dialog">
-            <div class="col-sm-12">
-                <div class="card">
+    </section>
+    <div class="row" style="display:none" id="order_dialog">
+        <div class="col-sm-12">
+            <div class="card">
 
-                    <div class="card-header ch-alt"
-                         style="background-color: #2196F3;">
-                        <button class="invisible_button"
-                                ng-click="close_order_dialog()">
-                            <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
-                        </button>
-                        <h2 style="color: white;">Order Details</h2>
-                    </div>
-                    <div class="card-body card-padding">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <form>
-                                    <div class="form-group">
-                                        <div class="fg-line">
-                                            <label>Pickup Location</label>
-                                            <input class="form-control input-lg"
-                                                   ng-model="order_to_show.source.address"
-                                                   ng-disabled="true"
-                                                   type="text">
-                                        </div>
+                <div class="card-header ch-alt"
+                     style="background-color: #2196F3;">
+                    <button class="invisible_button"
+                            ng-click="close_order_dialog()">
+                        <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
+                    </button>
+                    <h2 style="color: white;">Order Details</h2>
+                </div>
+                <div class="card-body card-padding">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form>
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Pickup Location</label>
+                                        <input class="form-control input-lg"
+                                               ng-model="order_to_show.source.address"
+                                               ng-disabled="true"
+                                               type="text">
                                     </div>
-
-
-                                    <div class="form-group">
-                                        <div class="fg-line">
-                                            <label>Drop Off Location</label>
-                                            <input class="form-control input-lg"
-                                                   ng-model="order_to_show.destination.address"
-                                                   ng-disabled="true"
-                                                   type="text">
-                                        </div>
-                                    </div>
+                                </div>
 
 
-                                    <div class="form-group">
-                                        <div class="fg-line">
-                                            <label>Total Weight</label>
-                                            <input ng-model="order_to_show.weight"
-                                                   class="form-control input-lg"
-                                                   ng-disabled="true"
-                                                   type="text">
-                                        </div>
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Drop Off Location</label>
+                                        <input class="form-control input-lg"
+                                               ng-model="order_to_show.destination.address"
+                                               ng-disabled="true"
+                                               type="text">
                                     </div>
+                                </div>
 
 
-                                    <div class="form-group">
-                                        <div class="fg-line">
-                                            <label>Distance in KM</label>
-                                            <input class="form-control input-lg"
-                                                   ng-model="order_to_show.distance"
-                                                   ng-disabled="true"
-                                                   type="text">
-                                        </div>
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Total Weight</label>
+                                        <input ng-model="order_to_show.weight"
+                                               class="form-control input-lg"
+                                               ng-disabled="true"
+                                               type="text">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="fg-line">
-                                            <label>Status</label>
-                                            <input class="form-control input-lg"
-                                                   ng-model="order_to_show.status"
-                                                   ng-disabled="true"
-                                                   type="text">
-                                        </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Distance in KM</label>
+                                        <input class="form-control input-lg"
+                                               ng-model="order_to_show.distance"
+                                               ng-disabled="true"
+                                               type="text">
                                     </div>
-                                    <div class="form-group">
-                                        <button class="btn bgm-indigo waves-effect"
-                                                class="form-control input-lg"
-                                                ng-show="user.role=='customer'">
-                                            Follow Shipment
-                                        </button>
+                                </div>
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Status</label>
+                                        <input class="form-control input-lg"
+                                               ng-model="order_to_show.status"
+                                               ng-disabled="true"
+                                               type="text">
                                     </div>
-                                    <div class="form-group">
-                                        <button ng-class="progress_button_class(order_to_show,'before_pickup')"
-                                                ng-show="show_progress_buttons_driver(order_to_show)"
-                                                ng-disabled="disabled_progress_buttons(order_to_show,'before_pickup')"
-                                                ng-click="change_order_status(order_to_show,'before_pickup')">
-                                            On My Way To Pickup
-                                        </button>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn bgm-indigo waves-effect"
-                                                ng-class="progress_button_class(order_to_show,'picked_up')"
-                                                ng-show="show_progress_buttons_driver(order_to_show)"
-                                                ng-disabled="disabled_progress_buttons(order_to_show,'picked_up')"
-                                                ng-click="change_order_status(order_to_show,'picked_up')">
-                                            Pickuped Up
-                                        </button>
-                                    </div>
-                                    <div class="form-group">
-                                        <button ng-class="progress_button_class(order_to_show,'delivered')"
-                                                ng-show="show_progress_buttons_customer(order_to_show)"
-                                                ng-disabled="disabled_progress_buttons(order_to_show,'delivered')"
-                                                ng-click="change_order_status(order_to_show,'delivered')">
-                                            Delivered
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn bgm-indigo waves-effect"
+                                            class="form-control input-lg"
+                                            ng-show="user.role=='customer'">
+                                        Follow Shipment
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <button ng-class="progress_button_class(order_to_show,'before_pickup')"
+                                            ng-show="show_progress_buttons_driver(order_to_show)"
+                                            ng-disabled="disabled_progress_buttons(order_to_show,'before_pickup')"
+                                            ng-click="change_order_status(order_to_show,'before_pickup')">
+                                        On My Way To Pickup
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn bgm-indigo waves-effect"
+                                            ng-class="progress_button_class(order_to_show,'picked_up')"
+                                            ng-show="show_progress_buttons_driver(order_to_show)"
+                                            ng-disabled="disabled_progress_buttons(order_to_show,'picked_up')"
+                                            ng-click="change_order_status(order_to_show,'picked_up')">
+                                        Pickuped Up
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <button ng-class="progress_button_class(order_to_show,'delivered')"
+                                            ng-show="show_progress_buttons_customer(order_to_show)"
+                                            ng-disabled="disabled_progress_buttons(order_to_show,'delivered')"
+                                            ng-click="change_order_status(order_to_show,'delivered')">
+                                        Delivered
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-    </section>
+    </div>
     <div class="card over_map" ng-show="user.role">
         <div class="listview lv-bordered lv-lg">
             <div class="lv-header-alt clearfix">
@@ -229,7 +227,7 @@
                     <tr>
                         <th>
                             ID
-                            <input type="text" name="id"
+                            <input type="text" name="order number"
                                    class="input-filter"
                                    placeholder="SEARCH ID"
                                    ng-change="searchOrdersOnMap(orders)"
