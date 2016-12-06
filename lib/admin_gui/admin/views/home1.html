@@ -119,7 +119,7 @@
                 </div>
                 <div class="card-body card-padding">
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-6">
                             <form>
                                 <div class="form-group">
                                     <div class="fg-line">
@@ -143,26 +143,6 @@
                                 </div>
 
 
-                                <div class="form-group">
-                                    <div class="fg-line">
-                                        <label>Total Weight</label>
-                                        <input ng-model="order_to_show.weight"
-                                               class="form-control input-lg"
-                                               ng-disabled="true"
-                                               type="text">
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <div class="fg-line">
-                                        <label>Distance in KM</label>
-                                        <input class="form-control input-lg"
-                                               ng-model="order_to_show.distance"
-                                               ng-disabled="true"
-                                               type="text">
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <div class="fg-line">
                                         <label>Status</label>
@@ -194,30 +174,34 @@
                                         Follow Shipment
                                     </button>
                                 </div>
+
+
+                                
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <form>
+
+
                                 <div class="form-group">
-                                    <button ng-class="progress_button_class(order_to_show,'before_pickup')"
-                                            ng-show="show_progress_buttons_driver(order_to_show)"
-                                            ng-disabled="disabled_progress_buttons(order_to_show,'before_pickup')"
-                                            ng-click="change_order_status(order_to_show,'before_pickup')">
-                                        On My Way To Pickup
-                                    </button>
+                                    <div class="fg-line">
+                                        <label>Total Weight</label>
+                                        <input ng-model="order_to_show.weight"
+                                               class="form-control input-lg"
+                                               ng-disabled="true"
+                                               type="text">
+                                    </div>
                                 </div>
+
+
                                 <div class="form-group">
-                                    <button class="btn bgm-indigo waves-effect"
-                                            ng-class="progress_button_class(order_to_show,'picked_up')"
-                                            ng-show="show_progress_buttons_driver(order_to_show)"
-                                            ng-disabled="disabled_progress_buttons(order_to_show,'picked_up')"
-                                            ng-click="change_order_status(order_to_show,'picked_up')">
-                                        Pickuped Up
-                                    </button>
-                                </div>
-                                <div class="form-group">
-                                    <button ng-class="progress_button_class(order_to_show,'delivered')"
-                                            ng-show="show_progress_buttons_customer(order_to_show)"
-                                            ng-disabled="disabled_progress_buttons(order_to_show,'delivered')"
-                                            ng-click="change_order_status(order_to_show,'delivered')">
-                                        Delivered
-                                    </button>
+                                    <div class="fg-line">
+                                        <label>Distance in KM</label>
+                                        <input class="form-control input-lg"
+                                               ng-model="order_to_show.distance"
+                                               ng-disabled="true"
+                                               type="text">
+                                    </div>
                                 </div>
                             </form>
                         </div>
