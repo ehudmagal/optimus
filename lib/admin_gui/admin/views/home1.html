@@ -274,8 +274,8 @@
                         <th>
                             Status
                             <select ng-model="status_query"
-                                    ng-init="status_query='all'"
-                                    ng-options="value as name for (name,value) in get_status_array()"
+                                    ng-init="status_query=''"
+                                    ng-options="value as name for (name,value) in ORDER_STATUSES"
                                     ng-change="searchOrdersOnMap(orders)"
                                     required
                             ></select>
