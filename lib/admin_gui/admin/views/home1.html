@@ -172,6 +172,22 @@
                                                type="text">
                                     </div>
                                 </div>
+                                <div class="form-group"
+                                     ng-show="user.role=='supplier'">
+                                    <div class="fg-line">
+                                        <label>Bid</label>
+                                        <input class="form-control input-lg"
+                                               ng-model="order_to_show.current_bid_price"
+                                               ng-disabled="true"
+                                               type="text">
+                                    </div>
+                                    <button class="btn bgm-indigo waves-effect"
+                                            class="form-control input-lg"
+                                            ng-model="bid_price"
+                                            ng-click="place_bid(order_to_show)">
+                                        Place Bid
+                                    </button>
+                                </div>
                                 <div class="form-group">
                                     <button class="btn bgm-indigo waves-effect"
                                             class="form-control input-lg"
