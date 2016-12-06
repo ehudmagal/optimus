@@ -287,7 +287,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat-start="order in orders |orderBy:'id' |
+                    <tr ng-repeat-start="order in orders |orderBy:'-id' |
                         searchAnything:status_query:['status'] |
                         searchAnything:order_id:['id'] |
                         searchAnything:order_description:['description'] |
