@@ -42,16 +42,24 @@
             <a class="custom-link" href="" ng-click="signout()">
                 <img src="/admin/img/logout.png" class="custom-icon"> Logout</a>
         </li>
-        <li data-ui-sref-active="active" ng-show="user.role=='supplier'" >
+        <li data-ui-sref-active="active">
+            <a class="custom-link" href="" ng-click="changeLang('heb')">
+                Hebrew</a>
+        </li>
+        <li data-ui-sref-active="active">
+            <a class="custom-link" href="" ng-click="changeLang('en')">
+                English</a>
+        </li>
+        <li data-ui-sref-active="active" ng-show="false" >
             <a href="/mobile_navigator" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Driver Mobile Site</a>
         </li>
         <li data-ui-sref-active="active" ng-show="false" >
             <a data-ui-sref="private_zone" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i> Personal Zone</a>
         </li>
-        <li  data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
+        <li  data-ui-sref-active="active" ng-show="false" >
             <a data-ui-sref="new_order" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order</a>
         </li>
-        <li  data-ui-sref-active="active" ng-show="devise_user_name != 'Guest'" >
+        <li  data-ui-sref-active="active" ng-show="false" >
             <a data-ui-sref="new_order_dialog" ><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Order Wizard</a>
         </li>
     </ul>
