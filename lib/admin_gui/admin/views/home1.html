@@ -134,7 +134,7 @@
 
                                 <div class="form-group">
                                     <div class="fg-line">
-                                        <label>Drop Off Location</label>
+                                        <label>{{translate('Drop Off Location')}}</label>
                                         <input class="form-control input-lg"
                                                ng-model="order_to_show.destination.address"
                                                ng-disabled="true"
@@ -145,7 +145,7 @@
 
                                 <div class="form-group">
                                     <div class="fg-line">
-                                        <label>Status</label>
+                                        <label>{{translate('Status')}}</label>
                                         <input class="form-control input-lg"
                                                ng-model="order_to_show.status"
                                                ng-disabled="true"
@@ -320,7 +320,7 @@
                         <td>
                             <button class="btn bgm-indigo waves-effect"
                                     ng-click="show_order_dialog(order)">
-                                Show Order Details
+                                {{translate('Show Order Details')}}
                             </button>
                         </td>
                     </tr>
@@ -328,26 +328,26 @@
                         <td colspan="4">
                             <div class="card">
                                 <div class="card-header">
-                                    Bids
+                                    {{translate('Bids')}}
                                 </div>
                                 <div class="card-body">
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>User</th>
-                                            <th>Rating</th>
-                                            <th>Price</th>
+                                            <th>{{translate('User')}}</th>
+                                            <th>{{translate('Rating')}}</th>
+                                            <th>{{translate('Price')}}</th>
                                             <th>
-                                                Times Worked With Him
+                                                {{translate('Times Worked With Him')}}
                                             </th>
                                             <th>
-                                                Status
+                                                {{translate('Status')}}
                                             </th>
                                             <th>
-                                                Cancel
+                                                {{translate('Cancel')}}
                                             </th>
                                             <th>
-                                                Accept
+                                                {{translate('Accept')}}
                                             </th>
                                         </tr>
                                         </thead>
@@ -374,14 +374,14 @@
                                                 <button class="btn bgm-indigo waves-effect"
                                                         ng-click="cancel_bid(bid)"
                                                         ng-show="show_bid_cancel(bid)">
-                                                    Cancel Bid
+                                                    {{translate('Cancel Bid')}}
                                                 </button>
                                             </td>
                                             <td>
                                                 <button class="btn bgm-indigo waves-effect"
                                                         ng-click="accept_bid(bid,order)"
                                                         ng-show="show_bid_accept(bid)">
-                                                    Accept
+                                                    {{translate('Accept')}}
                                                 </button>
                                             </td>
                                         </tr>
@@ -402,7 +402,7 @@
                                 <button type="button"
                                         class="btn btn-primary"
                                         ng-disabled="curPage == 0"
-                                        ng-click="curPage=curPage-1"> PREV
+                                        ng-click="curPage=curPage-1"> {{translate('PREV')}}
                                 </button>
                             </td>
                             <td>
@@ -414,12 +414,12 @@
                                 <button type="button"
                                         class="btn btn-primary"
                                         ng-disabled="curPage >= orders.length/pageSize - 1"
-                                        ng-click="curPage = curPage+1">NEXT
+                                        ng-click="curPage = curPage+1">{{translate('NEXT')}}
                                 </button>
                             </td>
                             <td>
 
-                                Page Size:
+                                {{translate('Page Size')}}:
                                 <select ng-model="pageSize"
                                         ng-options="opt as opt for opt in page_sizes">
                                 </select>
