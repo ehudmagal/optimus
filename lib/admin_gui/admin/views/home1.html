@@ -225,7 +225,7 @@
                     <thead>
                     <tr>
                         <th>
-                            Order Number
+                            {{translate('Order Number')}}
                             <input type="text" name="order number"
                                    class="input-filter"
                                    placeholder="SEARCH ID"
@@ -233,7 +233,7 @@
                                    ng-model="order_id">
                         </th>
                         <th>
-                            Description
+                            {{translate('Description')}}
                             <input type="text" name="description"
                                    class="input-filter"
                                    placeholder="DESCRIPTION"
@@ -241,7 +241,7 @@
                                    ng-model="order_description">
                         </th>
                         <th>
-                            Pickup Location
+                            {{translate('Pickup Location')}}
                             <input type="text" name="source address"
                                    class="input-filter"
                                    placeholder="Source Address"
@@ -249,7 +249,7 @@
                                    ng-model="source_address">
                         </th>
                         <th>
-                            Pickup Time
+                            {{translate('Pickup Time')}}
                             <input class="input-filter"
                                    type="date"
                                    ng-model="pickup_time"
@@ -257,7 +257,7 @@
                                    placeholder="Pickup Day">
                         </th>
                         <th>
-                            Drop Off Location
+                            {{translate('Drop Off Location')}}
                             <input type="text" name="destination address"
                                    class="input-filter"
                                    placeholder="Destination Address"
@@ -265,13 +265,13 @@
                                    ng-model="destination_address">
                         </th>
                         <th>
-                            Drop Off Time
+                            {{translate('Drop Off Time')}}
                         </th>
                         <th>
-                            Lowest Price
+                            {{translate('Lowest Price')}}
                         </th>
                         <th>
-                            Status
+                            {{translate('Status')}}
                             <select ng-model="status_query"
                                     ng-init="status_query=''"
                                     ng-options="value as name for (name,value) in ORDER_STATUSES"
@@ -280,7 +280,7 @@
                             ></select>
                         </th>
                         <th>
-                            Details
+                            {{translate('Details')}}
                         </th>
 
                     </tr>
