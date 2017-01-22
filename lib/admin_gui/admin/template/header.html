@@ -21,10 +21,10 @@
                 <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i>
                     {{translate('Home')}}</a>
             </li>
-            <li ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
+            <li ng-show="false" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="shippers" data-ng-click="mactrl.sidebarStat($event)">For Shippers</a>
             </li>
-            <li ng-show="user.role == ''" class="waves-effect" data-ui-sref-active="active">
+            <li ng-show="false" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="carriers" data-ng-click="mactrl.sidebarStat($event)">For Carriers</a>
             </li>
             <li class="waves-effect" data-ui-sref-active="active" ng-show="user.role == 'supplier'">
@@ -32,11 +32,12 @@
                     {{translate('Find Shipments')}}</a>
             </li>
             <li class="waves-effect" data-ui-sref-active="active" ng-show="user.role == 'customer'">
-                <a data-ui-sref="new_order"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>New Shipment</a>
+                <a data-ui-sref="new_order"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>
+                    {{translate('New Shipment')}}</a>
             </li>
             <li ng-show="user.role == '' || !user.role" class="waves-effect" data-ui-sref-active="active">
-                <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> About
-                    Us</a>
+                <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i>
+                    {{translate('About Us')}}</a>
             </li>
             <li  class="waves-effect" data-ui-sref-active="active"
                 ng-show="false">
@@ -54,11 +55,13 @@
                 <ul class="top-menu">
                     <li style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect"
                         data-ui-sref-active="active">
-                        <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
+                        <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i>
+                            {{translate('Login')}}</a>
                     </li>
                     <li style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect"
                         data-ui-sref-active="active">
-                        <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
+                        <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>
+                            {{translate('SignUp')}}</a>
                     </li>
 
                     <li ng-show="user.role != ''  && user.role"  class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
@@ -66,7 +69,8 @@
                         <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i>  {{getUserName(user)}} </a>
                         <ul class="dropdown-menu dm-icon pull-right">
 
-                            <li  class="hidden-xs"><a data-ng-click="signout()" href=""> Sign Out</a></li>
+                            <li  class="hidden-xs"><a data-ng-click="signout()" href="">
+                                {{translate('Sign Out')}}</a></li>
                             <li class="divider hidden-xs"></li>
                         </ul>
                     </li>

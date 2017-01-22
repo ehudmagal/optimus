@@ -1,5 +1,5 @@
 <div class="sidebar-inner c-overflow">
-    <div class="profile-menu">
+    <div class="profile-menu" ng-show="false">
         <a href="" toggle-submenu>
             <div class="profile-pic">
 
@@ -30,17 +30,20 @@
     <ul class="main-menu" data-ng-controller="sidebrCtrl" >
 
         <li data-ui-sref-active="active">
-            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
+            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i>
+                {{translate('Home')}}</a>
         </li>
         <li data-ui-sref-active="active">
-            <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i> Login</a>
+            <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i>
+                {{translate('Login')}}</a>
         </li>
         <li data-ui-sref-active="active">
-            <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i> SignUp</a>
+            <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>
+                {{translate('SignUp')}}</a>
         </li>
         <li data-ui-sref-active="active">
             <a class="custom-link" href="" ng-click="signout()">
-                <img src="/admin/img/logout.png" class="custom-icon"> Logout</a>
+                <img src="/admin/img/logout.png" class="custom-icon">{{translate('Logout')}}</a>
         </li>
         <li data-ui-sref-active="active">
             <a class="custom-link" href="" ng-click="changeLang('heb')">
