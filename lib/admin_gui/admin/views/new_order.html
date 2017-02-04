@@ -1,6 +1,6 @@
-<header id="header" data-current-skin="blue" data-ng-include src="'template/header.html'"
+<header style="{{getDirection()}}" id="header" data-current-skin="blue" data-ng-include src="'template/header.html'"
         data-ng-controller="headerCtrl as hctrl"></header>
-<aside id="sidebar" data-ng-include="'template/sidebar-left.html'"
+<aside style="{{getDirection()}}" id="sidebar" data-ng-include="'template/sidebar-left.html'"
        data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
 
 <style>
@@ -31,7 +31,7 @@
     }
 </style>
 
-<div data-ng-controller="newOrderCtrl as octrl" style="width: 100%;height: 100%">
+<div style="{{getDirection()}}" data-ng-controller="newOrderCtrl as octrl" style="width: 100%;height: 100%">
     <section id="map1" ></section>
 
 
