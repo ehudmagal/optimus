@@ -123,7 +123,8 @@
                                 <div class="fg-line form-group">
                                     <label> {{translate('Weight in KG')}}</label>
                                     <input type="number" ng-init="order.weight=0"
-                                           ng-model="order.weight" class="form-control input-sm" placeholder="Wight">
+                                           ng-model="order.weight" class="form-control input-sm"
+                                           placeholder="{{translate('Weight')}}">
                                 </div>
                             </div>
                         </div>
@@ -133,7 +134,7 @@
                                     <label>{{translate('Pallets')}}</label>
                                     <input type="number" ng-init="order.pallets_count=0"
                                            ng-model="order.pallets_count" class="form-control input-sm"
-                                           placeholder="number of pallets">
+                                           placeholder="{{translate('number of pallets')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
@@ -141,21 +142,23 @@
                                     <label>{{translate('L cm')}}</label>
                                     <input type="number" ng-init="order.pallets_length=40"
                                            ng-model="order.pallets_length"
-                                           class="form-control input-sm" placeholder="Length">
+                                           class="form-control input-sm"
+                                           placeholder="{{translate('Length')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('W cm')}}</label>
                                     <input type="number" ng-model="order.pallets_width" ng-init="order.pallets_width=40"
-                                           class="form-control input-sm" placeholder="Width">
+                                           class="form-control input-sm"
+                                           placeholder="{{translate('Width')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('H cm')}}</label>
                                     <input type="number" ng-model="order.pallets_height" class="form-control input-sm"
-                                           ng-init="order.pallets_height=60" placeholder="Height">
+                                           ng-init="order.pallets_height=60" placeholder="{{translate('Height')}}">
                                 </div>
                             </div>
                         </div>
@@ -165,28 +168,28 @@
                                     <label>{{translate('Boxes')}}</label>
                                     <input type="number" ng-init="order.boxes_count=0"
                                            ng-model="order.boxes_count" class="form-control input-sm"
-                                           placeholder="number of Boxes">
+                                           placeholder="{{translate('number of Boxes')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('L cm')}}</label>
                                     <input type="number" ng-init="order.boxes_length=0" ng-model="order.boxes_length"
-                                           class="form-control input-sm" placeholder="Length">
+                                           class="form-control input-sm" placeholder="{{translate('Length')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('W cm')}}</label>
                                     <input type="number" ng-model="order.boxes_width" ng-init="order.boxes_width=0"
-                                           class="form-control input-sm" placeholder="Width">
+                                           class="form-control input-sm" placeholder="{{translate('Width')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('H cm')}}</label>
                                     <input type="number" ng-model="order.boxes_height" class="form-control input-sm"
-                                           ng-init="order.boxes_height=0" placeholder="Height">
+                                           ng-init="order.boxes_height=0" placeholder="{{translate('Height')}}">
                                 </div>
                             </div>
                         </div>
