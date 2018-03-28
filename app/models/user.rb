@@ -23,4 +23,6 @@ class User < ActiveRecord::Base
     role == ROLES[:admin]
   end
 
+  
+
 end

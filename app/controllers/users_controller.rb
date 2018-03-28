@@ -13,11 +13,11 @@ class UsersController < ApplicationController
   end
 
   def num_of_closed_bids_with_user
-    user = User.find(params[:user_id])
-    unless user.role == "driver"
+    driver = Driver.find(params[:user_id])
+    unless driver.is_a? Driver
       render_json_errors ['user closing bids must be driver']
     end
-    orders = current_user.orders_closed_with_user user.id
+    orders = current_user.orders_closed_with_driver driver.id
     render json: orders.count
   end
 
