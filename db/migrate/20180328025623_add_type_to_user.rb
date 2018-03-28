@@ -4,7 +4,7 @@ class AddTypeToUser < ActiveRecord::Migration
   end
 
   def down
-    remove_column :users
+    remove_column :users, :type
   end
 
 end
