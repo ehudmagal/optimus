@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
   has_many :orders
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   ROLES = {customer: 'customer',
            driver: 'driver',
+           drivers_company: 'drivers_company',
            dispatcher: 'dispatcher',
            admin: 'admin'}
 
