@@ -48,8 +48,8 @@
                                 <th>
                                     Bids
                                 </th>
-                                <th ng-show="user.role == 'supplier'">Place Bid</th>
-                                <th ng-show="user.role == 'supplier'">Bid Price</th>
+                                <th ng-show="user.role == 'driver'">Place Bid</th>
+                                <th ng-show="user.role == 'driver'">Bid Price</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -77,10 +77,10 @@
                                         </tbody>
                                     </table>
                                 </td>
-                                <td ng-show="user.role == 'supplier'">
+                                <td ng-show="user.role == 'driver'">
                                     <button ng-click="place_bid(order)" class="btn bgm-indigo waves-effect">Place Bid</button>
                                 </td>
-                                <td ng-show="user.role == 'supplier'">
+                                <td ng-show="user.role == 'driver'">
                                     <input type="number" step="10" ng-model="order.current_bid_price" placeholder="Bid Price">
                                 </td>
                             </tr>
