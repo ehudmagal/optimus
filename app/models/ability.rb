@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if user.active_adminable?
+    if user.is_a? Admin
       can :manage, :all
     else
       #orders
