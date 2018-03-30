@@ -7,11 +7,6 @@ module Users
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable,
            :recoverable, :rememberable, :trackable, :validatable
-    ROLES = {customer: 'customer',
-             driver: 'driver',
-             drivers_company: 'drivers_company',
-             dispatcher: 'dispatcher',
-             admin: 'admin'}
 
     def default_values
       if role.nil?
