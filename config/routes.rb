@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   mount AdminGui => '/admin'
   mount MobileNavigatorGui => '/mobile_navigator'
   root 'main#index'
-  devise_for Users::users
+  devise_for :users
   ActiveAdmin.routes(self)
   resources :users do
     collection do
