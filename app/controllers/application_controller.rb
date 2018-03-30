@@ -29,12 +29,12 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       cookies[:user_name] = current_user.name
       cookies[:user_email] = current_user.email
-      cookies[:user_role] = current_user.role
+      cookies[:user_type] = current_user.type
       cookies[:user_id] = current_user.id
     else
       cookies[:user_name] = nil
       cookies[:user_email] = nil
-      cookies[:user_role] = nil
+      cookies[:user_type] = nil
     end
 
   end
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   protected
   
   def configure_permitted_parameters
-    registration_params = [:email, :name, :password, :password_confirmation, :role]
+    registration_params = [:email, :name, :password, :password_confirmation, :type]
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(registration_params) }
   end
 
