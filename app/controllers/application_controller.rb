@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
 
   def authorize_activeadmin
     if request.original_url.include? 'activeadmin'
-      unless current_user.active_adminable?
+      unless current_user.is_a? Admin
         render :json => {:error => 'user unauthorized'}
       end
     end
