@@ -1,5 +1,6 @@
 module Users
   class Customer < User
+    has_many :orders
     def orders_closed_with_driver(driver_id)
       driver = Driver.find driver_id
       bids = Bid.where(user_id: driver.id);
