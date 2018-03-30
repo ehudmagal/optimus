@@ -27,15 +27,15 @@
             <li ng-show="false" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="carriers" data-ng-click="mactrl.sidebarStat($event)">For Carriers</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.role == 'driver'">
+            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.type == 'Driver'">
                 <a data-ui-sref="find_shipments" data-ng-click="mactrl.sidebarStat($event)">
                     {{translate('Find Shipments')}}</a>
             </li>
-            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.role == 'customer'">
+            <li class="waves-effect" data-ui-sref-active="active" ng-show="user.type == 'Customer'">
                 <a data-ui-sref="new_order"><i class="zmdi zmdi-account-box-o zmdi-hc-fw"></i>
                     {{translate('New Shipment')}}</a>
             </li>
-            <li ng-show="user.role == '' || !user.role" class="waves-effect" data-ui-sref-active="active">
+            <li ng-show="user.type == '' || !user.type" class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i>
                     {{translate('About Us')}}</a>
             </li>
@@ -53,18 +53,18 @@
             </li>
             <li class="pull-right">
                 <ul class="top-menu">
-                    <li style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect"
+                    <li style="margin: 0 5px" ng-show="user.type == ''  || !user.type" class="waves-effect"
                         data-ui-sref-active="active">
                         <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i>
                             {{translate('Login')}}</a>
                     </li>
-                    <li style="margin: 0 5px" ng-show="user.role == ''  || !user.role" class="waves-effect"
+                    <li style="margin: 0 5px" ng-show="user.type == ''  || !user.type" class="waves-effect"
                         data-ui-sref-active="active">
                         <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>
                             {{translate('SignUp')}}</a>
                     </li>
 
-                    <li ng-show="user.role != ''  && user.role"  class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
+                    <li ng-show="user.type != ''  && user.type"  class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
                                                             aria-haspopup="true" aria-expanded="false">
                         <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i>  {{getUserName(user)}} </a>
                         <ul class="dropdown-menu dm-icon pull-right">
