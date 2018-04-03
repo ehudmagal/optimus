@@ -64,6 +64,17 @@
                             {{translate('SignUp')}}</a>
                     </li>
 
+                    <li   class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
+                                                                                                     aria-haspopup="true" aria-expanded="false">
+                        <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i>  {{lang}} </a>
+                        <ul class="dropdown-menu dm-icon pull-right">
+
+                            <li  class="hidden-xs"><a data-ng-click="signout()" href="">
+                                {{translate('Sign Out')}}</a></li>
+                            <li class="divider hidden-xs"></li>
+                        </ul>
+                    </li>
+
                     <li ng-show="user.type != ''  && user.type"  class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
                                                             aria-haspopup="true" aria-expanded="false">
                         <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i>  {{getUserName(user)}} </a>
