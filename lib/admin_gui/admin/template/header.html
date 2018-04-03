@@ -39,6 +39,14 @@
                     </li>
                 </ul>
             </li>
+            <li  class="waves-effect" ng-show="user.type == ''  || !user.type"  data-ui-sref-active="active">
+                <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i>
+                    {{translate('Login')}}</a>
+            </li>
+            <li class="waves-effect" data-ui-sref-active="active"  ng-show="user.type == ''  || !user.type">
+                <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>
+                    {{translate('SignUp')}}</a>
+            </li>
             <li class="waves-effect" data-ui-sref-active="active">
                 <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i>
                     {{translate('Home')}}</a>
@@ -75,16 +83,8 @@
             </li>
             <li class="pull-right">
                 <ul class="top-menu">
-                    <li style="margin: 0 5px" ng-show="user.type == ''  || !user.type" class="waves-effect"
-                        data-ui-sref-active="active">
-                        <a data-ui-sref="form.login"><i class="zmdi zmdi-square-right zmdi-hc-fw"></i>
-                            {{translate('Login')}}</a>
-                    </li>
-                    <li style="margin: 0 5px" ng-show="user.type == ''  || !user.type" class="waves-effect"
-                        data-ui-sref-active="active">
-                        <a data-ui-sref="form.signup"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>
-                            {{translate('SignUp')}}</a>
-                    </li>
+
+
 
 
 
