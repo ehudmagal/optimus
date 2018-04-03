@@ -66,11 +66,11 @@
 
                     <li   class="dropdown" uib-dropdown=""><a uib-dropdown-toggle="" href="" class="dropdown-toggle"
                                                                                                      aria-haspopup="true" aria-expanded="false">
-                        <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i>  {{lang}} </a>
+                        <i class="tm-icon zmdi zmdi-account zmdi-hc-fw"></i>  {{getLang(lang)}} </a>
                         <ul class="dropdown-menu dm-icon pull-right">
                             <li  class="hidden-xs">
                                 <a class="custom-link" href="" ng-click="changeLang('heb')">
-                                    Hebrew</a>
+                                    עברית</a>
                             </li>
                             <li  class="hidden-xs">
                                 <a class="custom-link" href="" ng-click="changeLang('en')">
@@ -78,11 +78,8 @@
                             </li>
                             <li class="hidden-xs">
                                 <a class="custom-link" href="" ng-click="changeLang('arab')">
-                                    Arabic</a>
+                                    عربيه</a>
                             </li>
-                            <li  class="hidden-xs"><a data-ng-click="signout()" href="">
-                                {{translate('Sign Out')}}</a></li>
-                            <li class="divider hidden-xs"></li>
                         </ul>
                     </li>
 
