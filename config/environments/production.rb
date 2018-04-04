@@ -70,26 +70,13 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :sendmail
+  #smtp settings for localhost
   config.action_mailer.delivery_method = :smtp
-  #SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :user_name            => ENV['gmail_username'],
-      :password             => ENV['gmail_password'],
-      :authentication       => "plain",
-      :domain => ENV['domain'],
-      :enable_starttls_auto => true
+      address:                 "127.0.0.1",
+      port:                    25,
+      enable_starttls_auto:    false
   }
-
-  # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => Rails.application.secrets.domain_name }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
 
 
   # Use default logging formatter so that PID and timestamp are not suppressed.

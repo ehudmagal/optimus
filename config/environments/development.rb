@@ -36,7 +36,7 @@ Rails.application.configure do
       port:                    25,
       enable_starttls_auto:    false
   }
-  
+
   config.action_mailer.raise_delivery_errors = true
 
 
