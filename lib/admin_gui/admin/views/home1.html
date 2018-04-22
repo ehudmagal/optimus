@@ -224,7 +224,7 @@
                 <table class="table">
                     <thead>
                     <tr >
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Order Number')}}
                             <input type="text" name="order number"
                                    class="input-filter"
@@ -232,7 +232,7 @@
                                    ng-change="searchOrdersOnMap(orders)"
                                    ng-model="order_id">
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Description')}}
                             <input type="text" name="description"
                                    class="input-filter"
@@ -240,7 +240,7 @@
                                    ng-change="searchOrdersOnMap(orders)"
                                    ng-model="order_description">
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Pickup Location')}}
                             <input type="text" name="source address"
                                    class="input-filter"
@@ -248,7 +248,7 @@
                                    ng-change="searchOrdersOnMap(orders)"
                                    ng-model="source_address">
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Pickup Time')}}
                             <input class="input-filter"
                                    type="date"
@@ -256,7 +256,7 @@
                                    ng-change="searchOrdersOnMap(orders)"
                                    placeholder="Pickup Day">
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Drop Off Location')}}
                             <input type="text" name="destination address"
                                    class="input-filter"
@@ -264,13 +264,13 @@
                                    ng-change="searchOrdersOnMap(orders)"
                                    ng-model="destination_address">
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Drop Off Time')}}
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Lowest Price')}}
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Status')}}
                             <select ng-model="status_query"
                                     ng-init="status_query=''"
@@ -279,7 +279,7 @@
                                     required
                             ></select>
                         </th>
-                        <th>
+                        <th style="{{getTextDirection()}}">
                             {{translate('Details')}}
                         </th>
 
