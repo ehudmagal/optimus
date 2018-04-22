@@ -315,8 +315,7 @@
                             {{order_lowest_price(order)}}
                         </td>
                         <td>
-                            <button ng-class="{'order.approved': btn bgm-green waves-effect,
-                            '!order.approved': btn bgm-indigo waves-effect}"
+                            <button class="{{getOrderClass(order)}}"
                                     ng-click="show_order_dialog(order)">
                                 {{order.status}}
                             </button>
