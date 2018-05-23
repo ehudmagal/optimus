@@ -173,14 +173,15 @@
                                             ng-show="user.type=='Customer'">
                                         {{translate('Follow Shipment')}}
                                     </button>
-                                    <button class="btn bgm-indigo waves-effect"
+
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn bgm-red waves-effect"
                                             class="form-control input-lg"
                                             ng-show="user.type=='Customer'">
                                         {{translate('Cancel Order')}}
                                     </button>
                                 </div>
-
-
 
                             </form>
                         </div>
@@ -228,7 +229,7 @@
             <div class="card-body" style="{{getDirection()}}">
                 <table class="table">
                     <thead>
-                    <tr >
+                    <tr>
                         <th style="{{getTextDirection()}}">
                             {{translate('Order Number')}}
                             <input type="text" name="order number"
