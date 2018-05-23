@@ -6,7 +6,7 @@
 <body>
 <h1>Optimus Order Cancelled <%= @user.name %></h1>
 <p>
-  Your Order <%= @order.id %> Have been cancelled by Customer  <%=@order.customer.email%>
+  Your Order <%= @order.id %> Have been cancelled by Customer  <%=@order.user.email%>
 </p>
 <p>
   Pickup Time:  <%= @order.pickup_time %>
