@@ -4,9 +4,9 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Optimus Order Approved <%= @user.name %></h1>
+<h1>Optimus Order Cancelled <%= @user.name %></h1>
 <p>
-  Your Order <%= @order.id %> Have been approved by driver <%=@order.driver.email%>
+  Your Order <%= @order.id %> Have been cancelled by Customer  <%=@order.customer.email%>
 </p>
 <p>
   Pickup Time:  <%= @order.pickup_time %>

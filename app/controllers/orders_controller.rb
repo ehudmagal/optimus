@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show, :index]
+
   def index
     orders = Order.all
     if params.has_key?(:last_order_id)
-      orders = orders.where('id > ?',params[:last_order_id])
+      orders = orders.where('id > ?', params[:last_order_id])
     end
     render json: orders.map { |order| order.json_attributes }
   end
@@ -12,7 +13,7 @@ class OrdersController < ApplicationController
   def user_index
     orders = Order.where(user_id: current_user.id)
     if params.has_key?(:last_order_id)
-      orders = orders.where('id > ?',params[:last_order_id])
+      orders = orders.where('id > ?', params[:last_order_id])
     end
     render json: orders.map { |order| order.json_attributes }
   end
@@ -40,13 +41,16 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { super }
       format.json {
-        @order = Order.find params['id']
-        @order.update!(order_params)
-        if @order.status == Order::STATUSES[:approved]
-          begin
-            email_participents @order
-          rescue  => e
+        begin
+          @order = Order.find params['id']
+          if approved_order_cancelled?(@order)
+            email_cancel_participents(@order)
           end
+          @order.update!(order_params)
+          if @order.status == Order::STATUSES[:approved]
+            email_participents @order
+          end
+        rescue => e
         end
         render json: @order
       }
@@ -65,12 +69,26 @@ class OrdersController < ApplicationController
   end
 
 
-
   def email_participents order
     mailer = ExampleMailer.sample_email order.user, order
     mailer.deliver
     mailer = ExampleMailer.sample_email order.driver, order
     mailer.deliver
+  end
+
+  def email_cancel_participents order
+    mailer = ExampleMailer.cancel_email order.user, order
+    mailer.deliver
+    mailer = ExampleMailer.cancel_email order.driver, order
+    mailer.deliver
+  end
+
+  def approved_order_cancelled?(order)
+    res = false
+    if order.status == Order::STATUSES[:approved] && order_params[:status] == Order::STATUSES[:cancelled]
+      res = true
+    end
+    res
   end
 
 
