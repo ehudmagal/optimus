@@ -178,7 +178,8 @@
                                 <div class="form-group">
                                     <button class="btn bgm-red waves-effect"
                                             class="form-control input-lg"
-                                            ng-show="user.type=='Customer'">
+                                            ng-show="user.type=='Customer'"
+                                            ng-click="confirm_cancel(order_to_show)">
                                         {{translate('Cancel Order')}}
                                     </button>
                                 </div>
