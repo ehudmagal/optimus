@@ -3,8 +3,12 @@ class Order < ActiveRecord::Base
   has_many :bids
   after_save :set_bids_status
   after_create :set_default_status
-  STATUSES = {booked: 'booked', bidded: 'bidded', approved: 'approved',
-              before_pickup: 'before_pickup', picked_up: 'picked_up', delivered: 'delivered'}
+  STATUSES = {booked: 'booked',
+              bidded: 'bidded', approved: 'approved',
+              before_pickup: 'before_pickup',
+              picked_up: 'picked_up',
+              delivered: 'delivered',
+              cancelled: 'cancelled'}
 
   def json_attributes
     json = as_json
