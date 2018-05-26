@@ -27,7 +27,8 @@ class Order < ActiveRecord::Base
       selected_bid.update status: Bid::STATUSES[:selected]
     else
       bids.each do |bid|
-        bid.update status: Bid::STATUSES[:pending]
+        (status == STATUSES[:cancelled])? bid.status = Bid::STATUSES[:cancelled] : bid.status = Bid::STATUSES[:pending]
+        bid.save
       end
     end
   end
