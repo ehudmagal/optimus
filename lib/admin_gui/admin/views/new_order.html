@@ -86,7 +86,7 @@
                             <button class="btn bgm-lightblue waves-effect" ng-click="show_pallets=true">
                                 {{translate('Pallets')}}
                             </button>
-                            <button class="btn bgm-deeporange waves-effect" ng-click="show_boxes=true">
+                            <button class="btn bgm-deeporange waves-effect" ng-click="addBoxType(order)">
                                 {{translate('Boxes')}}</button>
                             <button class="btn bgm-indigo waves-effect" ng-click="clear_order_loads()">Truckload
                             </button>
@@ -135,34 +135,34 @@
                                 </div>
                             </div>
                         </div>
-                        <div ng-show="show_boxes" class="row">
+                        <div ng-repeat="box_type in order.box_types track by index" class="row">
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('Boxes')}}</label>
-                                    <input type="number" ng-init="order.boxes_count=0"
-                                           ng-model="order.boxes_count" class="form-control input-sm"
+                                    <input type="number" ng-init="box_type.boxes_count=0"
+                                           ng-model="box_type" class="form-control input-sm"
                                            placeholder="{{translate('number of Boxes')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('L cm')}}</label>
-                                    <input type="number" ng-init="order.boxes_length=0" ng-model="order.boxes_length"
+                                    <input type="number" ng-init="box_type.boxes_length=0" ng-model="box_type.boxes_length"
                                            class="form-control input-sm" placeholder="{{translate('Length')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('W cm')}}</label>
-                                    <input type="number" ng-model="order.boxes_width" ng-init="order.boxes_width=0"
+                                    <input type="number" ng-model="box_type.boxes_width" ng-init="box_type.boxes_width=0"
                                            class="form-control input-sm" placeholder="{{translate('Width')}}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('H cm')}}</label>
-                                    <input type="number" ng-model="order.boxes_height" class="form-control input-sm"
-                                           ng-init="order.boxes_height=0" placeholder="{{translate('Height')}}">
+                                    <input type="number" ng-model="box_type.boxes_height" class="form-control input-sm"
+                                           ng-init="box_type.boxes_height=0" placeholder="{{translate('Height')}}">
                                 </div>
                             </div>
                         </div>
