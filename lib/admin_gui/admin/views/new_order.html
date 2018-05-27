@@ -32,6 +32,14 @@
     .hebrew_form{
         float: right;
     }
+    .transparent_button {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        outline:none;
+    }
 </style>
 
 <div style="{{getDirection()}}" data-ng-controller="newOrderCtrl as octrl" style="width: 100%;height: 100%">
@@ -136,6 +144,11 @@
                             </div>
                         </div>
                         <div ng-repeat="box_type in order.box_types track by $index" class="row">
+                            <div class="col-xs-1">
+                                <button class="transparent_button" ng-click="remove_box_type(box_type)">
+                                    <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
+                                </button>
+                            </div>
                             <div class="col-xs-3">
                                 <div class="fg-line form-group">
                                     <label>{{translate('Boxes')}}</label>
