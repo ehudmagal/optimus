@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { super }
       format.json {
+        binding.pry
         order = Order.create(order_params)
         order.update(user_id: current_user.id,
                      source: params['order']['source'],
@@ -62,7 +63,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:source, :destination, :weight, :goods_type, :work_type, :transport_type,
                                   :start_date, :end_date, :tons_per_hour, :deal_type, :fixed_price, :description,
                                   :contact_info, :pallets_count, :pallets_height, :pallets_length, :pallets_width,
-                                  :boxes_count, :boxes_height, :boxes_length, :boxes_width,
                                   :pickup_cutoff_time, :pickup_time, :delivery_cutoff_time, :delivery_time,
                                   :distance, :selected_bid_id, :status
     )
