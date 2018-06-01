@@ -31,10 +31,15 @@ class OrdersController < ApplicationController
         order.update(user_id: current_user.id,
                      source: params['order']['source'],
                      destination: params['order']['destination'],
-                     work_type: params['order']['work_type'])
+                     work_type: params['order']['work_type'],
+                     options: prepare_options)
         render json: order
       }
     end
+  end
+
+  def prepare_options
+    {box_types:  params['order']['box_types']}
   end
 
   def update
