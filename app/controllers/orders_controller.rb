@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { super }
       format.json {
-        binding.pry
         order = Order.create(order_params)
         order.update(user_id: current_user.id,
                      source: params['order']['source'],
