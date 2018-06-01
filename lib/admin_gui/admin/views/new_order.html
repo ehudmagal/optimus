@@ -144,12 +144,12 @@
                             </div>
                         </div>
                         <div ng-repeat="box_type in order.box_types track by $index" class="row">
-                            <div class="col-xs-1">
+                            <div class="col-xs-2">
                                 <button class="transparent_button" ng-click="remove_box_type(box_type)">
                                     <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
                                 </button>
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-2">
                                 <div class="fg-line form-group">
                                     <label>{{translate('Boxes')}}</label>
                                     <input type="number" ng-init="box_type.boxes_count=0"
@@ -157,14 +157,14 @@
                                            placeholder="{{translate('number of Boxes')}}">
                                 </div>
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-2">
                                 <div class="fg-line form-group">
                                     <label>{{translate('L cm')}}</label>
                                     <input type="number" ng-init="box_type.boxes_length=0" ng-model="box_type.boxes_length"
                                            class="form-control input-sm" placeholder="{{translate('Length')}}">
                                 </div>
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-2">
                                 <div class="fg-line form-group">
                                     <label>{{translate('W cm')}}</label>
                                     <input type="number" ng-model="box_type.boxes_width" ng-init="box_type.boxes_width=0"
