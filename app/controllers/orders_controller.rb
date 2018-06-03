@@ -39,7 +39,8 @@ class OrdersController < ApplicationController
   end
 
   def prepare_options
-    {box_types:  params['order']['box_types']}
+    {box_types:  params['order']['box_types'],
+     pallete_types: params['order']['pallet_types']}
   end
 
   def update
