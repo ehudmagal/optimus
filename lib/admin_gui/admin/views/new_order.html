@@ -222,19 +222,20 @@
                         </div>
 
                         <div class="row">
+
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <label>{{translate('Pick Up Time')}} </label>
+                                    <input id="pickup_time" ng-model="order.pickup_hour"
+                                           type="text" class="time ui-timepicker-input" autocomplete="off">
+                                </div>
+                            </div>
                             <div class="col-xs-4">
                                 <div class="fg-line form-group">
                                     <label>{{translate('Pickup')}}</label>
                                     <input ng-model="order.pickup_time" type="date"
                                            class="form-control input-sm"
                                            placeholder="{{translate('Pickup Day')}}">
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="fg-line form-group">
-                                    <label>{{translate('Pick Up Time')}} </label>
-                                    <input id="pickup_time" ng-model="order.pickup_hour"
-                                           type="text" class="time ui-timepicker-input" autocomplete="off">
                                 </div>
                             </div>
 
@@ -247,20 +248,21 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-4">
-                                <div class="fg-line form-group">
-                                    <label>{{translate('Delivery')}}</label>
 
-                                    <input ng-model="order.delivery_time" type="date"
-                                           class="form-control input-sm">
-                                </div>
-                            </div>
                             <div class="col-xs-4">
                                 <div class="fg-line form-group">
                                                 <label>{{translate('Delivery Time')}} </label>
 
                                                 <input id="delivery_time" ng-model="order.delivery_hour"
                                                        type="text" class="time ui-timepicker-input" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <label>{{translate('Delivery')}}</label>
+
+                                    <input ng-model="order.delivery_time" type="date"
+                                           class="form-control input-sm">
                                 </div>
                             </div>
 
