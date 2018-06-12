@@ -100,7 +100,7 @@
                             <button class="btn bgm-deeporange waves-effect" ng-click="addItemToArr(order.box_types)">
                                 {{translate('Boxes')}}
                             </button>
-                            <button class="btn bgm-indigo waves-effect" ng-click="clear_order_loads()"> {{translate('Truckload')}}
+                            <button class="btn bgm-indigo waves-effect" ng-click="truck_load=!truck_load"> {{translate('Truckload')}}
                             </button>
                         </div>
                         <div class="row" ng-show="false">
@@ -195,7 +195,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <div class="fg-line fg-toggled">
+                                    <div class="{{getTruckLoadClass()}}">
                                         <!--label>{{translate('Destination Address')}}</label-->
                                         <input  class="form-control input-lg "
                                                placeholder="{{translate('Remarks')}}"
