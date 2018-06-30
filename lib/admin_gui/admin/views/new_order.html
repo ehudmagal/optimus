@@ -7,7 +7,6 @@
 
 
     #map1 {
-        height: 100% !important;
         position: absolute !important;
         width: 100% !important;
     }
@@ -46,10 +45,10 @@
 </style>
 
 <div style="{{getDirection()}}" data-ng-controller="newOrderCtrl as octrl" style="width: 100%;height: 100%">
-    <section id="map1"></section>
+    <section id="map1" style="{{mapStyle()}}" ></section>
 
 
-    <div class="container narrow_left narrow_top">
+    <div class="container narrow_left narrow_top" id="form_container">
         <div class="row">
 
             <div class="col-sm-6" style="{{formDirection()}}">
