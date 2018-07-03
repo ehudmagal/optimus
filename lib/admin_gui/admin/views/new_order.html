@@ -45,7 +45,7 @@
 </style>
 
 <div style="{{getDirection()}}" data-ng-controller="newOrderCtrl as octrl" style="width: 100%;height: 100%">
-    <section id="map1" ng-style="mapStyle" ></section>
+    <section id="map1" ng-style="mapStyle"></section>
 
 
     <div class="container narrow_left narrow_top" id="form_container">
@@ -99,7 +99,8 @@
                             <button class="btn bgm-deeporange waves-effect" ng-click="addItemToArr(order.box_types)">
                                 {{translate('Boxes')}}
                             </button>
-                            <button class="btn bgm-indigo waves-effect" ng-click="truck_load=!truck_load"> {{translate('Truckload')}}
+                            <button class="btn bgm-indigo waves-effect" ng-click="truck_load=!truck_load">
+                                {{translate('Truckload')}}
                             </button>
                         </div>
                         <div class="row" ng-show="false">
@@ -112,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div  class="row" ng-repeat="pallete_type in order.pallet_types track by $index">
+                        <div class="row" ng-repeat="pallete_type in order.pallet_types track by $index">
                             <div class="col-xs-2">
                                 <button class="transparent_button"
                                         ng-click="remove_obj_from_arr(pallete_type, order.pallet_types )">
@@ -196,7 +197,7 @@
                                 <div class="form-group">
                                     <div class="{{getTruckLoadClass()}}">
                                         <!--label>{{translate('Destination Address')}}</label-->
-                                        <input  class="form-control input-lg "
+                                        <input class="form-control input-lg "
                                                placeholder="{{truckLoadMessage()}}"
                                                ng-model="addressQuery1"
                                                type="text">
@@ -250,10 +251,10 @@
 
                             <div class="col-xs-4">
                                 <div class="fg-line form-group">
-                                                <label>{{translate('Delivery Time')}} </label>
+                                    <label>{{translate('Delivery Time')}} </label>
 
-                                                <input id="delivery_time" ng-model="order.delivery_hour"
-                                                       type="text" class="time ui-timepicker-input" autocomplete="off">
+                                    <input id="delivery_time" ng-model="order.delivery_hour"
+                                           type="text" class="time ui-timepicker-input" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-xs-4">
@@ -265,6 +266,28 @@
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+                <div class="card narrow_buttom">
+                    <div class="card-header ch-alt" style="background-color: #536268;">
+                        <h2 style="color: white;">{{translate('Payment Methods')}} </h2>
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="fg-line form-group">
+                                    <button class="btn bgm-deeporange waves-effect">
+                                        {{translate('Fix Price')}}
+                                    </button>
+                                </div>
+                                <div class="fg-line form-group">
+                                    <button class="btn bgm-deeporange waves-effect">
+                                        {{translate('Bid')}}
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
