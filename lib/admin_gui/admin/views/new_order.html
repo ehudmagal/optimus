@@ -276,16 +276,15 @@
 
                     <div class="card-body card-padding">
                         <div class="row">
-                            <div class="col-xs-4">
+                            <div class="col-xs-12">
                                 <div class="fg-line form-group">
-                                    <button class="btn bgm-deeporange waves-effect">
-                                        {{translate('Fix Price')}}
-                                    </button>
-                                </div>
-                                <div class="fg-line form-group">
-                                    <button class="btn bgm-deeporange waves-effect">
-                                        {{translate('Bid')}}
-                                    </button>
+                                    <div class="btn-group">
+                                        <label class="btn btn-primary" ng-model="order.payment_method.fixedPrice"
+                                               uib-btn-radio="'Left'">{{translate('Fixed Price')}}</label>
+                                        <label class="btn btn-primary"
+                                               ng-model="order.payment_method.bid"
+                                               uib-btn-radio="'Middle'">{{translate('bid')}}</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
