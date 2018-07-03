@@ -280,10 +280,10 @@
                                 <div class="fg-line form-group">
                                     <div class="btn-group">
                                         <label class="btn btn-primary" ng-model="order.payment_method.fixedPrice"
-                                               uib-btn-radio="'Left'">{{translate('Fixed Price')}}</label>
+                                               uib-btn-checkbox ng-click="paymentMethod('fixedPrice')">{{translate('Fixed Price')}}</label>
                                         <label class="btn btn-primary"
                                                ng-model="order.payment_method.bid"
-                                               uib-btn-radio="'Middle'">{{translate('bid')}}</label>
+                                               uib-btn-checkbox ng-click="paymentMethod('bid')>{{translate('bid')}}</label>
                                     </div>
                                 </div>
                             </div>
