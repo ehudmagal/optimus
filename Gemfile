@@ -15,7 +15,6 @@ gem 'pry'
 gem 'byebug'
 gem 'pry-byebug', platform: [:ruby_20]
 gem 'dotenv-rails'
-gem 'cancancan', '~> 1.10'
 
 group :development do
   gem 'web-console', '~> 2.0'
