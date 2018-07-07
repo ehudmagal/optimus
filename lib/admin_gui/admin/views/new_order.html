@@ -288,6 +288,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row" ng-show="order.payment_method.fixedPrice">
+                            <div class="col-xs-12">
+                                <div class="fg-line form-group">
+                                    <input
+                                            placeholder="{{translate('Please Enter Desired Price')}}"
+                                            class="form-control input-lg"
+                                            ng-model="order.fixed_price" type="number">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card narrow_buttom">
