@@ -279,10 +279,13 @@
                             <div class="col-xs-12">
                                 <div class="fg-line form-group">
                                     <div class="btn-group">
-                                        <label class="btn btn-primary" ng-model="order.payment_method.fixedPrice"
+                                        <label class="btn btn-primary"
+                                               ng-Style="paymaentMethodStyle('fixedPrice')"
+                                               ng-model="order.payment_method.fixedPrice"
                                                uib-btn-checkbox ng-click="paymentMethod('fixedPrice')">{{translate('Fixed Price')}}</label>
                                         <label class="btn btn-primary"
                                                ng-model="order.payment_method.bid"
+                                               ng-Style="paymaentMethodStyle('bid')"
                                                uib-btn-checkbox   ng-click="paymentMethod('bid')">{{translate('bid')}}</label>
                                     </div>
                                 </div>
