@@ -69,7 +69,7 @@ class OrdersController < ApplicationController
                                   :start_date, :end_date, :tons_per_hour, :deal_type, :fixed_price, :description,
                                   :contact_info, :pallets_count, :pallets_height, :pallets_length, :pallets_width,
                                   :pickup_cutoff_time, :pickup_time, :delivery_cutoff_time, :delivery_time,
-                                  :distance, :selected_bid_id, :status,:box_types
+                                  :distance, :selected_bid_id, :status
     )
   end
 
