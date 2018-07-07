@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
   before_action :authenticate_user!  ,only: [:show, :num_of_closed_bids_with_user, :index]
   def index
     @users = User.all
