@@ -282,11 +282,13 @@
                                         <label class="btn btn-primary"
                                                ng-Style="paymaentMethodStyle('fixedPrice')"
                                                ng-model="order.payment_method.fixedPrice"
-                                               uib-btn-checkbox ng-click="paymentMethod('fixedPrice')">{{translate('Fixed Price')}}</label>
+                                               uib-btn-checkbox ng-click="paymentMethod('fixedPrice')">{{translate('Fixed
+                                            Price')}}</label>
                                         <label class="btn btn-primary"
                                                ng-model="order.payment_method.bid"
                                                ng-Style="paymaentMethodStyle('bid')"
-                                               uib-btn-checkbox   ng-click="paymentMethod('bid')">{{translate('bid')}}</label>
+                                               uib-btn-checkbox
+                                               ng-click="paymentMethod('bid')">{{translate('bid')}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -298,6 +300,25 @@
                                             placeholder="{{translate('Please Enter Desired Price')}}"
                                             class="form-control input-lg"
                                             ng-model="order.fixed_price" type="number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="order.payment_method.fixedPrice">
+                            <div class="col-xs-12">
+                                <div class="radio m-b-15">
+                                    <label>
+                                        <input type="radio" name="sample" value="">
+                                        <i class="input-helper"></i>
+                                        Option one is this and that-be sure to include why it's great
+                                    </label>
+                                </div>
+
+                                <div class="radio m-b-15">
+                                    <label>
+                                        <input type="radio" name="sample" value="">
+                                        <i class="input-helper"></i>
+                                        Option two can be something else and selecting it will deselect option one
+                                    </label>
                                 </div>
                             </div>
                         </div>
