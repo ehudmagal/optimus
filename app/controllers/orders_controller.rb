@@ -40,7 +40,8 @@ class OrdersController < ApplicationController
   def prepare_options
     {box_types:  params['order']['box_types'],
      pallete_types: params['order']['pallet_types'],
-    payment_method: params['order']['payment_method']}
+    payment_method: params['order']['payment_method'],
+    credit: params['order']['credit']}
   end
 
   def update
