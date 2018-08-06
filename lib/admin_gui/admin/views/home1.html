@@ -105,6 +105,44 @@
 
     <section id="map">
     </section>
+    <div class="row" style="display:none" id="credit_dialog">
+        <div class="col-sm-12">
+            <div class="card">
+
+                <div class="card-header ch-alt"
+                     style="background-color: #2196F3;">
+                    <button class="invisible_button"
+                            ng-click="close_order_dialog()">
+                        <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
+                    </button>
+                    <h2 style="color: white;">{{translate('Order Details')}} {{order_to_show.id}}</h2>
+                </div>
+                <div class="card-body card-padding">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <form>
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>{{translate('credit number')}}</label>
+                                        <input class="form-control input-lg"
+                                               type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn bgm-indigo waves-effect"
+                                            class="form-control input-lg"
+                                            ng-show="user.type=='Customer'">
+                                        {{translate('Submit Payment')}}
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row" style="display:none" id="order_dialog">
         <div class="col-sm-12">
             <div class="card">
