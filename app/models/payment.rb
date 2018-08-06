@@ -1,4 +1,4 @@
 class Payment < ActiveRecord::Base
   belongs_to :customer
-  belong_to :drivers_company
+  belong_to :driver
 end
