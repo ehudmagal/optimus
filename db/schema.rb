@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328025623) do
+ActiveRecord::Schema.define(version: 20180806034340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,9 +86,20 @@ ActiveRecord::Schema.define(version: 20180328025623) do
     t.float    "distance"
     t.integer  "selected_bid_id"
     t.string   "status"
+    t.jsonb    "options"
   end
 
   add_index "orders", ["selected_bid_id"], name: "index_orders_on_selected_bid_id", using: :btree
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "driver_id"
+    t.float   "sum"
+    t.jsonb   "option"
+  end
+
+  add_index "payments", ["customer_id"], name: "index_payments_on_customer_id", using: :btree
+  add_index "payments", ["driver_id"], name: "index_payments_on_driver_id", using: :btree
 
   create_table "user_locations", force: :cascade do |t|
     t.integer  "user_id"
@@ -117,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180328025623) do
     t.string   "role"
     t.time     "last_asked"
     t.string   "type"
+    t.integer  "drivers_company_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
