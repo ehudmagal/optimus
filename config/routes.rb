@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
   end
   resources :bids
+  resources :payments
   resources :orders do
     collection do
       get "user_index", defaults: {format: :json}
