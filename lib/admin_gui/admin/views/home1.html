@@ -112,10 +112,10 @@
                 <div class="card-header ch-alt"
                      style="background-color: #2196F3;">
                     <button class="invisible_button"
-                            ng-click="close_order_dialog()">
+                            ng-click="close_credit_dialog()">
                         <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
                     </button>
-                    <h2 style="color: white;">{{translate('Order Details')}} {{order_to_show.id}}</h2>
+                    <h2 style="color: white;">{{translate('Credit Card')}} </h2>
                 </div>
                 <div class="card-body card-padding">
                     <div class="row">
@@ -361,13 +361,13 @@
                         </td>
                         <td>
                             <button class="{{getOrderClass(order)}}" style="min-width: 57px;"
-                                    ng-click="show_order_dialog(order)">
+                                    ng-click="show_dialog(order,'order_dialog')">
                                 {{translate(order.status)}}
                             </button>
                         </td>
                         <td>
                             <button class="btn bgm-indigo waves-effect"
-                                    ng-click="show_order_dialog(order)">
+                                    ng-click="show_dialog(order,'order_dialog')">
                                 {{translate('Show Order Details')}}
                             </button>
                         </td>
