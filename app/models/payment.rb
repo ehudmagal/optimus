@@ -1,4 +1,3 @@
 class Payment < ActiveRecord::Base
-  belongs_to :customer
-  belong_to :driver
+  belongs_to :order
 end

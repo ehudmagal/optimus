@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
 
   private
   def payment_params
-    params.require(:payment).permit(:driver_id, :customer_id, :sum,:options)
+    params.require(:payment).permit(:order_id, :sum,:options)
   end
 
   def load_payment
