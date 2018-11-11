@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module RailsDevise
   class Application < Rails::Application
-
+    config.autoload_paths += %W(#{Rails.root}/lib)
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -34,6 +34,5 @@ module RailsDevise
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.autoload_paths += %W(#{Rails.root}/lib)
   end
 end
