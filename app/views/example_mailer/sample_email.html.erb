@@ -9,10 +9,10 @@
   Your Order <%= @order.id %> Have been approved by driver <%=@order.driver.email%>
 </p>
 <p>
-  Pickup Time:  <%= @order.pickup_time %>
+  Pickup Time:  <%= Utils.convert_real_utc_to_local_utc(@order.pickup_time,@user.timezone) %>
 </p>
 <p>
-  Delivery Time:  <%= @order.delivery_time %>
+  Delivery Time:  <%=Utils.convert_real_utc_to_local_utc(@order.delivery_time,@user.timezone) %>
 </p>
 <p>
   Pickup Address:  <%= @order.source['address'] %>
