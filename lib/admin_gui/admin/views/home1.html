@@ -106,43 +106,22 @@
     <section id="map">
     </section>
     <div class="row" style="display:none" id="credit_dialog">
-        <div class="col-sm-12">
-            <div class="card">
+        <div id="dropin-container"></div>
+        <button id="submit-button">Request payment method</button>
+        <script>
+            var button = document.querySelector('#submit-button');
 
-                <div class="card-header ch-alt"
-                     style="background-color: #2196F3;">
-                    <button class="invisible_button"
-                            ng-click="close_order_dialog()">
-                        <i class="zmdi zmdi-close-circle-o zmdi-hc-fw"></i>
-                    </button>
-                    <h2 style="color: white;">{{translate('Credit Card')}} </h2>
-                </div>
-                <div class="card-body card-padding">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <form>
-                                <div class="form-group">
-                                    <div class="fg-line">
-                                        <label>{{translate('credit number')}}</label>
-                                        <input class="form-control input-lg"
-                                               ng-model="card_number"
-                                               type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn bgm-indigo waves-effect"
-                                            class="form-control input-lg"
-                                            ng-click="submitPayment()">
-                                        {{translate('Submit Payment')}}
-                                    </button>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            braintree.dropin.create({
+                authorization: 'CLIENT_TOKEN_FROM_SERVER',
+                container: '#dropin-container'
+            }, function (createErr, instance) {
+                button.addEventListener('click', function () {
+                    instance.requestPaymentMethod(function (err, payload) {
+                        // Submit payload.nonce to your server
+                    });
+                });
+            });
+        </script>
     </div>
     <div class="row" style="display:none" id="order_dialog">
         <div class="col-sm-12">
