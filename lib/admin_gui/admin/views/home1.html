@@ -100,6 +100,9 @@
     .pagination {
         margin: 5px 12px !important;
     }
+    #credit_dialog {
+        min-height: 300px;
+    }
 </style>
 <div style="{{getDirection()}}" data-ng-controller="tableCtrl as tctrl">
 
@@ -109,18 +112,7 @@
         <div id="dropin-container"></div>
         <button id="submit-button">Request payment method</button>
         <script>
-            var button = document.querySelector('#submit-button');
 
-            braintree.dropin.create({
-                authorization: 'CLIENT_TOKEN_FROM_SERVER',
-                container: '#dropin-container'
-            }, function (createErr, instance) {
-                button.addEventListener('click', function () {
-                    instance.requestPaymentMethod(function (err, payload) {
-                        // Submit payload.nonce to your server
-                    });
-                });
-            });
         </script>
     </div>
     <div class="row" style="display:none" id="order_dialog">

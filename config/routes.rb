@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     end
   end
   resources :bids
-  resources :payments
+  resources :payments do
+    collection do
+      get "braintree_client_token"
+    end
+  end
   resources :orders do
     collection do
       get "user_index", defaults: {format: :json}

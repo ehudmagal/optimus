@@ -8,6 +8,10 @@ class PaymentsController < ApplicationController
     render json: @payment.as_json
   end
 
+  def braintree_client_token
+    render json: {token: braintree_handler.gateway.client_token.generate}
+  end
+
   def create
     respond_to do |format|
       format.html {super}
@@ -35,6 +39,10 @@ class PaymentsController < ApplicationController
 
   def load_payment
     @payment = Payment.find(params[:id])
+  end
+
+  def braintree_handler
+    @braintree_handler ||= BrainTreeHandler.new
   end
 
 

@@ -16,6 +16,8 @@ gem 'byebug'
 gem 'pry-byebug', platform: [:ruby_20]
 gem 'dotenv-rails'
 gem 'stripe'
+gem "braintree", "~> 2.92.0"
+
 
 group :development do
   gem 'web-console', '~> 2.0'
