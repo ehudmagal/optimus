@@ -1,5 +1,5 @@
 class BrainTreeHandler
-  def gate_way
+  def gateway
     @gateway ||= Braintree::Gateway.new(
         :environment => :sandbox,
         :merchant_id => CONF.braintree_merchant_id,
