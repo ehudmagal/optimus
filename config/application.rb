@@ -34,9 +34,5 @@ module RailsDevise
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.x.braintree_merchant_id  = ENV['BRAINTREE_MERCHANT_ID']
-    config.x.braintree_public_key   = ENV['BRAINTREE_PUBLIC_KEY']
-    config.x.braintree_private_key   = ENV['BRAINTREE_PRIVATE_KEY']
-    config.x.brain_tree_env = (ENV["BRAINTREE_ENV"] || 'sandbox').to_sym
   end
 end
