@@ -71,12 +71,7 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
   #smtp settings for localhost
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address:                 "127.0.0.1",
-      port:                    25,
-      enable_starttls_auto:    false
-  }
+
 
 
   # Use default logging formatter so that PID and timestamp are not suppressed.

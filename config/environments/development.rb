@@ -29,16 +29,7 @@ Rails.application.configure do
 
   # Send email in development mode?
 
-  #SMTP settings for postfix localhost
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address:                 "127.0.0.1",
-      port:                    25,
-      enable_starttls_auto:    false
-  }
-
-  config.action_mailer.raise_delivery_errors = true
-
+  
 
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
