@@ -1,3 +1,4 @@
+
 class OrdersController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
 
@@ -55,7 +56,7 @@ class OrdersController < ApplicationController
           end
           @order.update!(order_params)
           if @order.status == Order::STATUSES[:approved]
-            email_participents @order
+            mail_helper.email_approve_participents @order
           end
         rescue => e
         end
@@ -64,7 +65,13 @@ class OrdersController < ApplicationController
     end
   end
 
+
   private
+
+  def mail_helper
+    @mail_helper ||= MailHelper.new
+  end
+
   def order_params
     params.require(:order).permit(:source, :destination, :weight, :goods_type, :work_type, :transport_type,
                                   :start_date, :end_date, :tons_per_hour, :deal_type, :fixed_price, :description,
