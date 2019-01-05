@@ -7,7 +7,7 @@ class MailHelper
     driver = order.driver
     mb_obj = Mailgun::MessageBuilder.new()
     mg_client = Mailgun::Client.new(ENV['MAILGUN_API_KEY'])
-    mb_obj.from("service@optimus.ninja", {});
+    mb_obj.from("service@optimus.website", {});
     mb_obj.add_recipient(:to, user.email, {"first" => user.name});
     mb_obj.add_recipient(:to, driver.email, {"first" => driver.name});
     mb_obj.subject("Optimus Order Approved #{user.name}");
