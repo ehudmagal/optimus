@@ -82,12 +82,7 @@ class OrdersController < ApplicationController
   end
 
 
-  def email_participents order
-    mailer = ExampleMailer.sample_email order.user, order
-    mailer.deliver
-    mailer = ExampleMailer.sample_email order.driver, order
-    mailer.deliver
-  end
+  
 
   def email_cancel_participents order
     mailer = ExampleMailer.cancel_email order.user, order
