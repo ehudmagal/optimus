@@ -17,6 +17,13 @@ GIT
       sass-rails
       sprockets (< 4)
 
+GIT
+  remote: git://github.com/flori/json.git
+  revision: 7f4cfd853f2c919d854fb95548a19980feff17e8
+  branch: v1.8
+  specs:
+    json (1.8.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -150,7 +157,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    json (1.8.3)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -321,6 +327,7 @@ DEPENDENCIES
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  json!
   launchy
   mailgun-ruby (~> 1.1.6)
   pg
