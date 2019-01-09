@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby  '>=2.2.3'
-gem 'rails', '4.2.5'
+ruby  '2.4.5'
+gem 'rails', '4.2.8'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -18,7 +18,7 @@ gem 'dotenv-rails'
 gem 'stripe'
 gem "braintree", "~> 2.92.0"
 gem 'mailgun-ruby', '~>1.1.6'
-
+gem 'json', github: 'flori/json', branch: 'v1.8'
 
 group :development do
   gem 'web-console', '~> 2.0'
