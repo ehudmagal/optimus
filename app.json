@@ -61,7 +61,7 @@
     "heroku-postgresql",
     "mailgun"
   ],
-  "stack": "cedar-14",
+  "stack": "heroku-18",
   "buildpacks": [
     {
       "url": "heroku/ruby"
