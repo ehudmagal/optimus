@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   after_filter :set_csrf_cookie
   after_filter :set_cookie_params_user
   respond_to :html, :json
+  before_filter :set_access
+
+  def set_access
+    @response.headers["Access-Control-Allow-Origin"] = "*"
+  end
 
 
   def set_csrf_cookie
@@ -37,7 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  
+
   def configure_permitted_parameters
     registration_params = [:email, :name, :password, :password_confirmation, :type]
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(registration_params) }
