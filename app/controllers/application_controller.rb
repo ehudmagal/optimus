@@ -3,16 +3,17 @@ require 'pry'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_filter :set_access
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :authorize_activeadmin
   protect_from_forgery with: :exception
   after_filter :set_csrf_cookie
   after_filter :set_cookie_params_user
   respond_to :html, :json
-  before_filter :set_access
+
 
   def set_access
-    @response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Origin"] = "*"
   end
 
 
