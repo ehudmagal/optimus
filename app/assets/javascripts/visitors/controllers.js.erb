@@ -9,7 +9,7 @@ app.controller('ordersCtrl', function ($scope, $rootScope, $filter, $http, bread
   $scope.location = $location;
 
   $scope.isViewLoading = false;
-  $scope.orders_url = server_string + '/orders.json?'
+  $scope.orders_url = SERVER_STRING + '/orders.json?'
   $scope.curPage = 0;
   $scope.pageSize = 5;
   $rootScope.orders = [];
@@ -109,6 +109,3 @@ app.controller('ordersCtrl', function ($scope, $rootScope, $filter, $http, bread
   $scope.initMap();
 
 });
-
-
-
