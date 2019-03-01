@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module RailsDevise
   class Application < Rails::Application
+    config.action_controller.allow_forgery_protection = false
     config.force_ssl = false
     config.autoload_paths += %W(#{Rails.root}/lib)
     config.generators do |g|
