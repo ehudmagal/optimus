@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module RailsDevise
   class Application < Rails::Application
+    config.force_ssl = false
     config.autoload_paths += %W(#{Rails.root}/lib)
     config.generators do |g|
       g.test_framework :rspec,
@@ -28,7 +29,7 @@ module RailsDevise
      :domain         => 'afternoon-eyrie-5851.heroku.com',
      :authentication => :plain,
     }
-ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.delivery_method = :smtp
 
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -18,6 +18,7 @@ gem 'dotenv-rails'
 gem 'stripe'
 gem "braintree", "~> 2.92.0"
 gem 'mailgun-ruby', '~>1.1.6'
+gem 'bcrypt-ruby'
 gem 'json', github: 'flori/json', branch: 'v1.8'
 
 group :development do
