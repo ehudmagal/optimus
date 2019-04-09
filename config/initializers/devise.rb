@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
+  #config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
   config.secret_key = 'b7ddfda55d1710242b6b117e3bac61dc0116c9677721d7b4e9f2341bf944f869904e5dff32296f27670ce0bd26edee9286e27251c6c746dfd2a65fc8879143c6'
 
   # Configure the class responsible to send e-mails.
