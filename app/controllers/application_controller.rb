@@ -3,7 +3,7 @@ require 'pry'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  acts_as_token_authentication_handler_for User
+  acts_as_token_authentication_handler_for User, except: [:login]
   before_filter :set_access
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :authorize_activeadmin

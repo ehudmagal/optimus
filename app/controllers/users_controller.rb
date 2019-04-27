@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!  ,only: [:show, :num_of_closed_bids_with_user, :index]
   def index
     @users = User.all
   end
@@ -20,6 +19,14 @@ class UsersController < ApplicationController
     render json: orders.count
   end
 
+  def login
+    if loggedin?
+      render json: {token: @user.authentication_token}
+    else
+      render json: {user: "#{params[:email]} not logged in"}
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -30,7 +37,14 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   protected
+
+  def loggedin?
+    @user = User.find_by_email(params[:email])
+    @user.valid_password?(params[:password]) unless @user.nil?
+  end
 
 
   def user_params

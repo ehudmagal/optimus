@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get "num_of_closed_bids_with_user", defaults: {format: :json}
+      post "login", defaults: {format: :json}
     end
   end
   resources :bids
