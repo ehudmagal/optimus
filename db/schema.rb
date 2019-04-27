@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180806034340) do
+ActiveRecord::Schema.define(version: 20190427191654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,15 +43,6 @@ ActiveRecord::Schema.define(version: 20180806034340) do
   add_index "bids", ["order_id"], name: "index_bids_on_order_id", using: :btree
   add_index "bids", ["user_id"], name: "index_bids_on_user_id", using: :btree
 
-  create_table "microposts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "message"
-  end
-
-  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id", using: :btree
-
   create_table "orders", force: :cascade do |t|
     t.json     "source"
     t.json     "destination"
@@ -75,7 +66,6 @@ ActiveRecord::Schema.define(version: 20180806034340) do
     t.datetime "delivery_deliver_after_time"
     t.datetime "delivery_cutoff_time"
     t.string   "contact_info"
-    t.integer  "pallets_count"
     t.float    "pallets_height"
     t.float    "pallets_length"
     t.float    "pallets_width"
@@ -92,14 +82,11 @@ ActiveRecord::Schema.define(version: 20180806034340) do
   add_index "orders", ["selected_bid_id"], name: "index_orders_on_selected_bid_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "driver_id"
-    t.float   "sum"
+    t.integer "order_id"
     t.jsonb   "option"
   end
 
-  add_index "payments", ["customer_id"], name: "index_payments_on_customer_id", using: :btree
-  add_index "payments", ["driver_id"], name: "index_payments_on_driver_id", using: :btree
+  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
 
   create_table "user_locations", force: :cascade do |t|
     t.integer  "user_id"
@@ -112,12 +99,12 @@ ActiveRecord::Schema.define(version: 20180806034340) do
   add_index "user_locations", ["user_id"], name: "index_user_locations_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                             default: "",               null: false
+    t.string   "encrypted_password",                default: "",               null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,                null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -126,17 +113,18 @@ ActiveRecord::Schema.define(version: 20180806034340) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "role"
-    t.time     "last_asked"
     t.string   "type"
     t.integer  "drivers_company_id"
+    t.string   "timezone",                          default: "Asia/Jerusalem"
+    t.string   "authentication_token",   limit: 30
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "bids", "orders"
   add_foreign_key "bids", "users"
-  add_foreign_key "microposts", "users"
   add_foreign_key "orders", "bids", column: "selected_bid_id"
   add_foreign_key "user_locations", "users"
 end

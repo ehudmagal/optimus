@@ -21,6 +21,7 @@ gem 'mailgun-ruby', '~>1.1.6'
 gem 'bcrypt-ruby'
 gem 'json', github: 'flori/json', branch: 'v1.8'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'simple_token_authentication', '~> 1.0'
 
 group :development do
   gem 'web-console', '~> 2.0'
