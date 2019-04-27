@@ -1,7 +1,6 @@
 
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, :except => [:show, :index]
-
+  
   def index
     orders = Order.all
     if params.has_key?(:last_order_id)
@@ -82,7 +81,7 @@ class OrdersController < ApplicationController
   end
 
 
-  
+
 
   def email_cancel_participents order
     mailer = ExampleMailer.cancel_email order.user, order
