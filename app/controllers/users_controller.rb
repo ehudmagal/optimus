@@ -43,8 +43,8 @@ class UsersController < ApplicationController
   protected
 
   def loggedin?
-    @user = User.find_by_email(params[:email])
-    @user.valid_password?(params[:password]) unless @user.nil?
+    @user = User.find_by_email(user_params[:email])
+    @user.valid_password?(user_params[:password]) unless @user.nil?
   end
 
 
