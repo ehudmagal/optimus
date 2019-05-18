@@ -2,7 +2,7 @@ class BidsController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
 
   def index
-    @bids = Bids.all
+    @bids = Bid.all
     render json: @bids.map{|bid| bid.json_attributes}
   end
 
