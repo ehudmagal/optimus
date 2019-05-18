@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def login
     if loggedin?
       @user.save
-      render json: {token: @user.authentication_token}
+      render json: @user.as_json
     else
       render json: {user: "#{params[:email]} not logged in"}
     end
